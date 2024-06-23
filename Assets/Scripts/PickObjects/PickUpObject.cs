@@ -26,6 +26,7 @@ public class PickUpObject : MonoBehaviour
                 PickedObject.transform.position = interactionZone.position;
                 PickedObject.GetComponent<Rigidbody>().useGravity = false;
                 PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+                
             }
         }
         else if (PickedObject != null)
