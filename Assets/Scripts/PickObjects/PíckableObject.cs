@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PíckableObject : MonoBehaviour
+public class PickableObject : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isPickeable = true;
@@ -36,6 +36,4 @@ public class PíckableObject : MonoBehaviour
             other.GetComponentInParent<PickUpObject>().ObjectToPickUp = null;
         }
     }
-
-  
 }
