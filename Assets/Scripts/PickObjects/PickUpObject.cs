@@ -66,7 +66,12 @@ public class PickUpObject : MonoBehaviour
         PickedObject = objectToPick;
         PickedObject.GetComponent<PickableObject>().isPickeable = false;
         PickedObject.transform.SetParent(interactionZone);
-        PickedObject.transform.position = interactionZone.position;
+
+        // Asegura que esté en el centro del interactionZone
+        PickedObject.transform.localPosition = Vector3.zero;
+        PickedObject.transform.localRotation = Quaternion.identity;
+        PickedObject.transform.localScale = Vector3.one;
+
         PickedObject.GetComponent<Rigidbody>().useGravity = false;
         PickedObject.GetComponent<Rigidbody>().isKinematic = true;
     }
