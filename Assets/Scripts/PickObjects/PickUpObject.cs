@@ -16,12 +16,12 @@ public class PickUpObject : MonoBehaviour
 
     void Update()
     {
-        if (ObjectToPickUp != null && ObjectToPickUp.GetComponent<PíckableObject>().isPickeable == true && PickedObject == null)
+        if (ObjectToPickUp != null && ObjectToPickUp.GetComponent<PickableObject>().isPickeable == true && PickedObject == null)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 PickedObject = ObjectToPickUp;
-                PickedObject.GetComponent<PíckableObject>().isPickeable = false;
+                PickedObject.GetComponent<PickableObject>().isPickeable = false;
                 PickedObject.transform.SetParent(interactionZone);
                 PickedObject.transform.position = interactionZone.position;
                 PickedObject.GetComponent<Rigidbody>().useGravity = false;
@@ -34,7 +34,7 @@ public class PickUpObject : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
       
-                PickedObject.GetComponent<PíckableObject>().isPickeable = true;
+                PickedObject.GetComponent<PickableObject>().isPickeable = true;
                 PickedObject.transform.SetParent(null);
                 PickedObject.GetComponent<Rigidbody>().useGravity = true;
                 PickedObject.GetComponent<Rigidbody>().isKinematic = false;
