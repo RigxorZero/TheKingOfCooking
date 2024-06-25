@@ -1533,6 +1533,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004028901}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1079447999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 890e1637adb3835478c4f4bd8b57f001, type: 3}
+  m_PrefabInstance: {fileID: 1837740595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1133621068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c29b1210579a0d9428817766b1fa69b4, type: 3}
+  m_PrefabInstance: {fileID: 1896206817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1133621072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133621068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8666371ad8b766d46bf64a5054ba5ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefabName: CarnePrefab
+  playerInRange: 0
+--- !u!65 &1133621073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133621068}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0000002, y: 0.8769127, z: 2.0000048}
+  m_Center: {x: 0.00000011920929, y: 0.4384544, z: -0.00000017881393}
 --- !u!1 &1214091913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,10 +3483,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c29b1210579a0d9428817766b1fa69b4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1083566506}
+      addedObject: {fileID: 1133621073}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c29b1210579a0d9428817766b1fa69b4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1083566514}
+      addedObject: {fileID: 1133621072}
   m_SourcePrefab: {fileID: 100100000, guid: c29b1210579a0d9428817766b1fa69b4, type: 3}
 --- !u!1 &1957313515
 GameObject:
@@ -3576,7 +3621,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff24bbc260163ff4db8b0a9b5543a7b9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1570142232}
+      addedObject: {fileID: 1079447999}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff24bbc260163ff4db8b0a9b5543a7b9, type: 3}
       insertIndex: -1
@@ -3678,7 +3723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 300
   isRunning: 0
-  timerText: {fileID: 1741181059}
+  timerText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3702,3 +3747,5 @@ SceneRoots:
   - {fileID: 1381130024}
   - {fileID: 1822112870}
   - {fileID: 660777872}
+  - {fileID: 1896206817}
+  - {fileID: 2009082842}
