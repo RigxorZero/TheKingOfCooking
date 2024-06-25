@@ -14,8 +14,6 @@ public class mesaInteractiva : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (type == 1) { 
-            
-        }
+     
     }
 }
