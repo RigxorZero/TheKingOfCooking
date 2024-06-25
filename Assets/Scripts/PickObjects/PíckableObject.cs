@@ -7,7 +7,7 @@ public class PíckableObject : MonoBehaviour
     // Start is called before the first frame update
     public bool isPickeable = true;
     public bool drop = false;
-    public int type; 
+    [SerializeField] public int type; 
 
     private void OnTriggerEnter(Collider other)
     {
