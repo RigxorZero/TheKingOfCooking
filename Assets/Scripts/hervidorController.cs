@@ -11,7 +11,8 @@ public class hervidorController : MonoBehaviour
     [SerializeField] private Image Circulo;
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject TazaHervida; 
-    private bool presiono = false;
+    public bool presiono = false;
+    public bool aguaLista = false;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class hervidorController : MonoBehaviour
     {
         if (other.tag == "PlayerInteractionZone")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (tiempoActual <= 0)
                 {
@@ -43,9 +44,7 @@ public class hervidorController : MonoBehaviour
         {
             if (presiono)
             {
-                Vector3 position = transform.position;
-                position += new Vector3(0, 0.3f, 0);
-                GameObject taza = Instantiate(TazaHervida,position, Quaternion.Euler(0, 0, 0));
+                aguaLista = true; 
                 presiono = false;
             }
         }
