@@ -6,8 +6,11 @@ public class tazaController : MonoBehaviour
 {
     public bool estaSostenido;
     public bool puedeLlenar = false;
-    public GameObject tazallenada;  
+    public bool estaLlena = false; 
+    public GameObject tazallenada;
     // Start is called before the first frame update
+
+    public bool chocaConOlla = false; 
 
     private void OnTriggerStay(Collider other)
     {
@@ -15,13 +18,27 @@ public class tazaController : MonoBehaviour
         {
             if (estaSostenido)
             {
-                if (other.GetComponent<hervidorController>().aguaLista)
+                if (other.GetComponentInChildren<hervidorController>().aguaLista)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         tazallenada.SetActive(true);
+                        estaLlena = true;
                     }
                     puedeLlenar = true;
+                }
+            }
+        }
+        if(other.tag == "olla")
+        {
+            chocaConOlla = true; 
+            if( estaSostenido && estaLlena)
+            {
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    tazallenada.SetActive(false);
+                    estaLlena = false;
+                    other.GetComponent<ollaController>().cantidadDeAgua++;
+                    other.GetComponent<ollaController>().cambioAnimationAgua();
                 }
             }
         }

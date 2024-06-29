@@ -9,6 +9,7 @@ TagManager:
   - ObjectInteractiveZone
   - taza
   - hervidor
+  - olla
   layers:
   - Default
   - TransparentFX

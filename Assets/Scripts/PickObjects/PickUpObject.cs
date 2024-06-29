@@ -8,10 +8,6 @@ public class PickUpObject : MonoBehaviour
     public GameObject PickedObject;
     public Transform interactionZone;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // No necesitas manejar nada aquí para este caso
-    }
 
     void Update()
     {
@@ -74,6 +70,9 @@ public class PickUpObject : MonoBehaviour
 
         PickedObject.GetComponent<Rigidbody>().useGravity = false;
         PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+        if (objectToPick.tag == "taza") { 
+            objectToPick.GetComponent<tazaController>().estaSostenido = true;
+        }
     }
 
     void Drop()
@@ -82,6 +81,10 @@ public class PickUpObject : MonoBehaviour
         PickedObject.transform.SetParent(null);
         PickedObject.GetComponent<Rigidbody>().useGravity = true;
         PickedObject.GetComponent<Rigidbody>().isKinematic = false;
+        if (PickedObject.tag == "taza")
+        {
+            PickedObject.GetComponent<tazaController>().estaSostenido = false;
+        }
         PickedObject = null;
     }
 }
