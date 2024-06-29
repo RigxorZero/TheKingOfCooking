@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1286754238194767502}
   - component: {fileID: 3835327787245059623}
   - component: {fileID: 1818643099908623436}
+  - component: {fileID: 3886679501859694656}
   m_Layer: 0
   m_Name: Taza
-  m_TagString: Untagged
+  m_TagString: taza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +92,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estaSostenido: 0
   puedeLlenar: 0
+  estaLlena: 0
   tazallenada: {fileID: 2244936534843884332}
+  queEstaLlenando: 0
+  aguaMaterial: {fileID: -6478536213147159724, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
+  arrozMaterial: {fileID: 6699446615349125189, guid: c5e3ae1670434594aacda64168463341, type: 3}
+  chocaConOlla: 0
+--- !u!65 &3886679501859694656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868271325661658537}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4547205, y: 0.5709717, z: 0.3909197}
+  m_Center: {x: -0.10752916, y: 0.011206269, z: -0.021319866}
 --- !u!1001 &757508912067589760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,40 +183,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: TazaLlena
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5489655558447962120}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
---- !u!1 &451027943799786449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
-  m_PrefabInstance: {fileID: 757508912067589760}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5489655558447962120
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451027943799786449}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3292029, y: 0.24429202, z: 0.21457335}
-  m_Center: {x: -0.046701234, y: 0.025473457, z: 0.006368538}
 --- !u!4 &939439411849220459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}

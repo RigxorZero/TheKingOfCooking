@@ -32,6 +32,7 @@ public class PickUpObject : MonoBehaviour
                     {
                         if (Input.GetKeyDown(KeyCode.F))
                         {
+
                             GameObject prefab = Resources.Load<GameObject>(drawer.objectPrefabName);
                             if (prefab != null)
                             {

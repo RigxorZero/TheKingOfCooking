@@ -7,6 +7,7 @@ public class ollaController : MonoBehaviour
     public GameObject[] aguaAnimation;
     public GameObject[] arrozAnimation;
     public int cantidadDeAgua; 
+    public int cantidadDeArroz; 
     void Start()
     {
         cantidadDeAgua = 0;
@@ -31,6 +32,13 @@ public class ollaController : MonoBehaviour
     {
         for (int i = 0; i < cantidadDeAgua; i++) { 
             aguaAnimation[i].SetActive(true);
+        }
+    }
+    public void cambioAnimationArroz()
+    {
+        for (int i = 0; i < cantidadDeArroz; i++)
+        {
+            arrozAnimation[i].SetActive(true);
         }
     }
 }
