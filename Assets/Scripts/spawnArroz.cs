@@ -15,20 +15,14 @@ public class spawnArroz : MonoBehaviour
             playerColision = true;
             if(other.GetComponent<tazaController>() != null)
             {
-                Debug.Log("no es nulo");
                 if (!other.GetComponent<tazaController>().estaLlena)
                 {
-                    Debug.Log("no esta llena");
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         other.GetComponent<tazaController>().llenarArroz();
                     }
                 }
-            }
-            else
-            {
-                Debug.Log("esta llena");
-            }
+            }   
         }
     }
     void Start()
