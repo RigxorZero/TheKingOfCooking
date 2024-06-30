@@ -17,7 +17,7 @@ public class cocinaController : MonoBehaviour
     {
         if( other.tag == "PlayerInteractionZone")
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.Q))
             {
                 other.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 player = other; 
@@ -41,7 +41,7 @@ public class cocinaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && canvasActivo)
+        if (Input.GetKeyDown(KeyCode.Q) && canvasActivo)
         {
             player.GetComponentInParent<PlayerController>().sePuedeMover = true;
             canvasActivo = false;
@@ -54,76 +54,79 @@ public class cocinaController : MonoBehaviour
             2 -> medio
             3 -> alto 
          */
-        int valor; 
-        if (Input.GetKeyDown(KeyCode.W))//Arriba
+        int valor;
+        if (canvasActivo)
         {
-            perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            valor = 0;
-
-            for(int i = 0; i <= nivelPerilla.Length; i++)
+            if (Input.GetKeyDown(KeyCode.W))//Arriba
             {
-                if(i == valor)
+                perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+
+                valor = 0;
+
+                for (int i = 0; i <= nivelPerilla.Length; i++)
                 {
-                    nivelPerilla[i] = true;
-                }
-                else
-                {
-                    nivelPerilla[i] = false;
+                    if (i == valor)
+                    {
+                        nivelPerilla[i] = true;
+                    }
+                    else
+                    {
+                        nivelPerilla[i] = false;
+                    }
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.S))//Abajo
-        {
-            perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 180);
-
-            valor = 1;
-
-            for (int i = 0; i <= nivelPerilla.Length; i++)
+            if (Input.GetKeyDown(KeyCode.S))//Abajo
             {
-                if (i == valor)
+                perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 180);
+
+                valor = 1;
+
+                for (int i = 0; i <= nivelPerilla.Length; i++)
                 {
-                    nivelPerilla[i] = true;
-                }
-                else
-                {
-                    nivelPerilla[i] = false;
+                    if (i == valor)
+                    {
+                        nivelPerilla[i] = true;
+                    }
+                    else
+                    {
+                        nivelPerilla[i] = false;
+                    }
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.D))//Derecha
-        {
-            perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 270);
-
-            valor = 2;
-
-            for (int i = 0; i <= nivelPerilla.Length; i++)
+            if (Input.GetKeyDown(KeyCode.D))//Derecha
             {
-                if (i == valor)
+                perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 270);
+
+                valor = 2;
+
+                for (int i = 0; i <= nivelPerilla.Length; i++)
                 {
-                    nivelPerilla[i] = true;
-                }
-                else
-                {
-                    nivelPerilla[i] = false;
+                    if (i == valor)
+                    {
+                        nivelPerilla[i] = true;
+                    }
+                    else
+                    {
+                        nivelPerilla[i] = false;
+                    }
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.A))//Izquierda
-        {
-            perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 90);
-
-            valor = 3;
-
-            for (int i = 0; i <= nivelPerilla.Length; i++)
+            if (Input.GetKeyDown(KeyCode.A))//Izquierda
             {
-                if (i == valor)
+                perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 90);
+
+                valor = 3;
+
+                for (int i = 0; i <= nivelPerilla.Length; i++)
                 {
-                    nivelPerilla[i] = true;
-                }
-                else
-                {
-                    nivelPerilla[i] = false;
+                    if (i == valor)
+                    {
+                        nivelPerilla[i] = true;
+                    }
+                    else
+                    {
+                        nivelPerilla[i] = false;
+                    }
                 }
             }
         }
