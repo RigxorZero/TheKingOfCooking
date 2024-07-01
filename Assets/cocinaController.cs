@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class cocinaController : MonoBehaviour
@@ -12,12 +13,18 @@ public class cocinaController : MonoBehaviour
     public bool[] nivelPerilla = new bool[4]; 
     public bool canvasActivo;
 
-    private Collider player; 
+    private Collider player;
+
+    public InputAction CanvasActiveButton;
+    public InputAction ArribaButtom;
+    public InputAction AbajoButtom;
+    public InputAction DerechaButtom;
+    public InputAction IzquierdaButtom;
     private void OnTriggerStay(Collider other)
     {
         if( other.tag == "PlayerInteractionZone")
         {
-            if(Input.GetKeyDown(KeyCode.Q))
+            if(CanvasActiveButton.WasPressedThisFrame())
             {
                 other.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 player = other; 
@@ -28,6 +35,7 @@ public class cocinaController : MonoBehaviour
     }
     void Start()
     {
+        CanvasActiveButton.Enable();
         canva.enabled = false;
         canvasActivo = false;
 
@@ -41,7 +49,7 @@ public class cocinaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && canvasActivo)
+        if (CanvasActiveButton.WasPressedThisFrame() && canvasActivo)
         {
             player.GetComponentInParent<PlayerController>().sePuedeMover = true;
             canvasActivo = false;
@@ -57,7 +65,7 @@ public class cocinaController : MonoBehaviour
         int valor;
         if (canvasActivo)
         {
-            if (Input.GetKeyDown(KeyCode.W))//Arriba
+            if (ArribaButtom.WasPressedThisFrame())//Arriba
             {
                 perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
 
@@ -75,7 +83,7 @@ public class cocinaController : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.S))//Abajo
+            if (AbajoButtom.WasPressedThisFrame())//Abajo
             {
                 perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 180);
 
@@ -93,7 +101,7 @@ public class cocinaController : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.D))//Derecha
+            if (DerechaButtom.WasPressedThisFrame())//Derecha
             {
                 perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 270);
 
@@ -111,7 +119,7 @@ public class cocinaController : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A))//Izquierda
+            if (IzquierdaButtom.WasPressedThisFrame())//Izquierda
             {
                 perilla.rectTransform.rotation = Quaternion.Euler(0, 0, 90);
 

@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     // Método llamado antes de la primera actualización del frame
     void Start()
     {
-        sePuedeMover = true;   
+        sePuedeMover = true;
+        CantidadDePlayer.cantidadDePlayer++;
     }
 
     // Método llamado una vez por frame
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
         if (sePuedeMover) {
             movePlayer();
         }
-        
+        sePuedeMover = CantidadDePlayer.sepuedemover;
     }
 
     // Método que maneja el movimiento del jugador

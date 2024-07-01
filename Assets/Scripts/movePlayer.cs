@@ -35,6 +35,42 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Recoger"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ee987d4-e34e-42dd-8cbb-0d4fc3688362"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interaccion"",
+                    ""type"": ""Button"",
+                    ""id"": ""098627a5-98d6-4678-b955-e4a4d4d98541"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CanvasActive"",
+                    ""type"": ""Button"",
+                    ""id"": ""38ba0f2c-d4c1-4ee7-a2ef-69a7046bad64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Golpe"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f8718c4-5f84-4314-b2bd-894fc4996234"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +183,94 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dfbd8e7-af9b-4fcf-a65f-26c89acc3a1a"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recoger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0404f366-ffca-47df-8dd8-797f59ac046a"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recoger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07dea48d-f351-44d8-97ab-c4000973032a"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaccion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c79a0329-a379-4faf-b8cd-dbff2890482e"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaccion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e6930b8-53d2-4257-bbbf-fb0f4d885d35"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CanvasActive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da7cacce-b415-45a4-82e8-7d0f34d6e73b"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CanvasActive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa4c019b-9b6f-4c40-880f-7a36eac060fb"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Golpe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecd9c07e-38d8-4404-86a4-fa7d034fb6eb"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Golpe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +280,10 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Recoger = m_Player.FindAction("Recoger", throwIfNotFound: true);
+        m_Player_Interaccion = m_Player.FindAction("Interaccion", throwIfNotFound: true);
+        m_Player_CanvasActive = m_Player.FindAction("CanvasActive", throwIfNotFound: true);
+        m_Player_Golpe = m_Player.FindAction("Golpe", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,11 +346,19 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Recoger;
+    private readonly InputAction m_Player_Interaccion;
+    private readonly InputAction m_Player_CanvasActive;
+    private readonly InputAction m_Player_Golpe;
     public struct PlayerActions
     {
         private @MovePlayer m_Wrapper;
         public PlayerActions(@MovePlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Recoger => m_Wrapper.m_Player_Recoger;
+        public InputAction @Interaccion => m_Wrapper.m_Player_Interaccion;
+        public InputAction @CanvasActive => m_Wrapper.m_Player_CanvasActive;
+        public InputAction @Golpe => m_Wrapper.m_Player_Golpe;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -235,6 +371,18 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Recoger.started += instance.OnRecoger;
+            @Recoger.performed += instance.OnRecoger;
+            @Recoger.canceled += instance.OnRecoger;
+            @Interaccion.started += instance.OnInteraccion;
+            @Interaccion.performed += instance.OnInteraccion;
+            @Interaccion.canceled += instance.OnInteraccion;
+            @CanvasActive.started += instance.OnCanvasActive;
+            @CanvasActive.performed += instance.OnCanvasActive;
+            @CanvasActive.canceled += instance.OnCanvasActive;
+            @Golpe.started += instance.OnGolpe;
+            @Golpe.performed += instance.OnGolpe;
+            @Golpe.canceled += instance.OnGolpe;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -242,6 +390,18 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Recoger.started -= instance.OnRecoger;
+            @Recoger.performed -= instance.OnRecoger;
+            @Recoger.canceled -= instance.OnRecoger;
+            @Interaccion.started -= instance.OnInteraccion;
+            @Interaccion.performed -= instance.OnInteraccion;
+            @Interaccion.canceled -= instance.OnInteraccion;
+            @CanvasActive.started -= instance.OnCanvasActive;
+            @CanvasActive.performed -= instance.OnCanvasActive;
+            @CanvasActive.canceled -= instance.OnCanvasActive;
+            @Golpe.started -= instance.OnGolpe;
+            @Golpe.performed -= instance.OnGolpe;
+            @Golpe.canceled -= instance.OnGolpe;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -262,5 +422,9 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnRecoger(InputAction.CallbackContext context);
+        void OnInteraccion(InputAction.CallbackContext context);
+        void OnCanvasActive(InputAction.CallbackContext context);
+        void OnGolpe(InputAction.CallbackContext context);
     }
 }

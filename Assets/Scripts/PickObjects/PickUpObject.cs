@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickUpObject : MonoBehaviour
 {
@@ -8,7 +10,11 @@ public class PickUpObject : MonoBehaviour
     public GameObject PickedObject;
     public Transform interactionZone;
 
-
+    public InputAction recoger;
+    private void Start()
+    {
+        recoger.Enable();
+    }
     void Update()
     {
         ObjectDrawer[] drawers = FindObjectsOfType<ObjectDrawer>();
@@ -18,7 +24,7 @@ public class PickUpObject : MonoBehaviour
             // Caso: Recoger un objeto existente
             if (ObjectToPickUp != null && ObjectToPickUp.GetComponent<PickableObject>().isPickeable)
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (recoger.WasPressedThisFrame())
                 {
                     PickUp(ObjectToPickUp);
                 }
@@ -30,7 +36,7 @@ public class PickUpObject : MonoBehaviour
                 {
                     if (drawer.IsPlayerInRange())
                     {
-                        if (Input.GetKeyDown(KeyCode.F))
+                        if (recoger.WasPressedThisFrame())
                         {
 
                             GameObject prefab = Resources.Load<GameObject>(drawer.objectPrefabName);
@@ -51,7 +57,7 @@ public class PickUpObject : MonoBehaviour
         else
         {
             // Caso: Soltar el objeto recogido
-            if (Input.GetKeyDown(KeyCode.F))
+            if (recoger.WasPressedThisFrame())
             {
                 Drop();
             }

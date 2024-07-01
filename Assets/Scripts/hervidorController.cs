@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class hervidorController : MonoBehaviour
@@ -13,16 +14,17 @@ public class hervidorController : MonoBehaviour
     [SerializeField] private GameObject TazaHervida; 
     public bool presiono = false;
     public bool aguaLista = false;
-
+    public InputAction interaccion;
     void Start()
     {
+        interaccion.Enable();
         canvas.enabled = false;
     }  
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "PlayerInteractionZone")
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (interaccion.WasPressedThisFrame())
             {
                 if (tiempoActual <= 0)
                 {

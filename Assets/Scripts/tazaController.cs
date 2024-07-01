@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class tazaController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class tazaController : MonoBehaviour
     [Header("Material")]
     [SerializeField] private Material aguaMaterial;
     [SerializeField] private Material arrozMaterial;
+
+    public InputAction interaccion;
     // Start is called before the first frame update
 
     public bool chocaConOlla = false; 
@@ -26,7 +29,7 @@ public class tazaController : MonoBehaviour
             {
                 if (other.GetComponentInChildren<hervidorController>().aguaLista)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (interaccion.WasPressedThisFrame())
                     {
                         llenarAgua();
                     }
@@ -39,7 +42,7 @@ public class tazaController : MonoBehaviour
             chocaConOlla = true; 
             if( estaSostenido && estaLlena)
             {
-                if (Input.GetKeyDown(KeyCode.E)) {
+                if (interaccion.WasPressedThisFrame()) {
                     tazallenada.SetActive(false);
                     estaLlena = false;
                     if (queEstaLlenando == 1)
@@ -73,6 +76,7 @@ public class tazaController : MonoBehaviour
     }
     void Start()
     {
+        interaccion.Enable();
         tazallenada.SetActive(false);
         estaLlena = false;
     }

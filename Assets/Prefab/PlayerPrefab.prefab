@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  sePuedeMover: 0
 --- !u!114 &4632945198827660929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cea5b311-2b97-481b-81bc-286e402b2e90
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1ee987d4-e34e-42dd-8cbb-0d4fc3688362
+    m_ActionName: Player/Recoger[/Keyboard/z,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 098627a5-98d6-4678-b955-e4a4d4d98541
+    m_ActionName: Player/Interaccion[/Keyboard/x,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38ba0f2c-d4c1-4ee7-a2ef-69a7046bad64
+    m_ActionName: Player/CanvasActive[/Keyboard/c,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f8718c4-5f84-4314-b2bd-894fc4996234
+    m_ActionName: Player/Golpe[/Keyboard/a,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -187,6 +204,31 @@ MonoBehaviour:
   ObjectToPickUp: {fileID: 0}
   PickedObject: {fileID: 0}
   interactionZone: {fileID: 3583351478910640547}
+  recoger:
+    m_Name: Recoger
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f8bb12ff-1f98-49fc-a1a7-4a916331c408
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: baa0da84-0d6e-471d-bd04-61f8b56df41d
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Recoger
+      m_Flags: 0
+    - m_Name: 
+      m_Id: c8d20db5-b294-4225-acd9-2073bd1f3819
+      m_Path: <XInputController>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Recoger
+      m_Flags: 0
+    m_Flags: 0
 --- !u!54 &1863355012684072790
 Rigidbody:
   m_ObjectHideFlags: 0

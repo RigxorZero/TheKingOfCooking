@@ -97,6 +97,31 @@ MonoBehaviour:
   queEstaLlenando: 0
   aguaMaterial: {fileID: -6478536213147159724, guid: 5f1c83a8302a5cd479848553ac4da609, type: 3}
   arrozMaterial: {fileID: 6699446615349125189, guid: c5e3ae1670434594aacda64168463341, type: 3}
+  interaccion:
+    m_Name: Interaccion
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9793addb-709b-4e31-a12d-bc431b080d9e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 61120f71-5a35-4844-b5a6-85dd50b01f18
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaccion
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 31c7f42e-74cf-4c6a-8161-02fa3b34275f
+      m_Path: <XInputController>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaccion
+      m_Flags: 0
+    m_Flags: 0
   chocaConOlla: 0
 --- !u!65 &3886679501859694656
 BoxCollider:
