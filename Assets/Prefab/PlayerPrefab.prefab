@@ -245,6 +245,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  sarten: 0
 --- !u!54 &1863355012684072790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -387,6 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3583351478910640547}
   - component: {fileID: 4689913607469804703}
+  - component: {fileID: 6843788363088060869}
   m_Layer: 0
   m_Name: PlayerInteraction
   m_TagString: PlayerInteractionZone
@@ -430,6 +432,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.3117929, z: 1}
   m_Center: {x: 0, y: -0.15589651, z: 0}
+--- !u!114 &6843788363088060869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596071973558163791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f9d25d50195564db7eb20b2f42c611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6893172124926643067
 GameObject:
   m_ObjectHideFlags: 0

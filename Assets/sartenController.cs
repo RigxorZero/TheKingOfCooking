@@ -30,7 +30,6 @@ public class sartenController : MonoBehaviour
             {
                 if (!estaLleno)
                 {
-                    Debug.Log("noo WSTA LLENO");
                     if (interaccion.WasPressedThisFrame())
                     {
                         llenarCarne();
@@ -43,10 +42,6 @@ public class sartenController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void llenarCarne()
     {
         carne3D.SetActive(true);

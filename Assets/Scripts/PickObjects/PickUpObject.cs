@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,8 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] private GameObject PickedObject;
     [SerializeField] private Transform interactionZone;
 
-    [SerializeField] private InputAction recoger;
+    public InputAction recoger;
+    public bool sarten; 
     private void Start()
     {
         // Obtener la referencia al InputAction desde el jugador (asignar en el Inspector)
@@ -86,6 +88,10 @@ public class PickUpObject : MonoBehaviour
 
         PickedObject.GetComponent<Rigidbody>().useGravity = false;
         PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+        if (objectToPick.tag == "sarten")
+        {
+            PickedObject.GetComponent<sartenController>().estaSostenido = true;
+        }
         if (objectToPick.tag == "taza") { 
             objectToPick.GetComponent<tazaController>().estaSostenido = true;
         }
@@ -93,6 +99,11 @@ public class PickUpObject : MonoBehaviour
 
     void Drop()
     {
+        if (PickedObject.tag == "sarten")
+        {
+            PickedObject.GetComponent<sartenController>().estaSostenido = false;
+        }
+        
         PickedObject.GetComponent<PickableObject>().isPickeable = true;
         PickedObject.transform.SetParent(null);
         PickedObject.GetComponent<Rigidbody>().useGravity = true;
@@ -102,6 +113,8 @@ public class PickUpObject : MonoBehaviour
             PickedObject.GetComponent<tazaController>().estaSostenido = false;
         }
         PickedObject = null;
+        
+        
     }
 }
 
