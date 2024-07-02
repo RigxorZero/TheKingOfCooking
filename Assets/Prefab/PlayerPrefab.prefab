@@ -184,6 +184,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2f8718c4-5f84-4314-b2bd-894fc4996234
     m_ActionName: Player/Golpe[/Keyboard/a,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8186820856357965656}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: acf7ff9f-a09a-4416-854c-0d60f09f6693
+    m_ActionName: Player2/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26e7752c-881e-4e0d-9d82-7b733ac5a3f8
+    m_ActionName: Player2/Recoger[/Keyboard/z,/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77c44835-f2e6-4de6-aae3-4bc8bb374e0c
+    m_ActionName: Player2/Interaccion[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59b5dac4-ab2c-466a-b5c9-d0a23d3a7784
+    m_ActionName: Player2/CanvasActive[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4aa87dc2-726b-485d-ba9a-aa4f73e0eb4a
+    m_ActionName: Player2/Golpe[/Keyboard/a]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -211,23 +243,7 @@ MonoBehaviour:
     m_Id: f8bb12ff-1f98-49fc-a1a7-4a916331c408
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: baa0da84-0d6e-471d-bd04-61f8b56df41d
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Recoger
-      m_Flags: 0
-    - m_Name: 
-      m_Id: c8d20db5-b294-4225-acd9-2073bd1f3819
-      m_Path: <XInputController>/buttonEast
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Recoger
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
 --- !u!54 &1863355012684072790
 Rigidbody:
@@ -424,10 +440,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6974763143742397800}
   - component: {fileID: 234694337581491457}
-  - component: {fileID: 1447657405573724298}
   - component: {fileID: 759286427432371590}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: CameraP1
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,14 +514,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1447657405573724298
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893172124926643067}
-  m_Enabled: 1
 --- !u!114 &759286427432371590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +539,7 @@ GameObject:
   - component: {fileID: 5471946447021108074}
   m_Layer: 0
   m_Name: PlayerPrefab
-  m_TagString: Untagged
+  m_TagString: JugadorDosPrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

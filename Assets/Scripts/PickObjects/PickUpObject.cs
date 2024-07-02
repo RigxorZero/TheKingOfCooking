@@ -7,12 +7,21 @@ using UnityEngine.InputSystem;
 public class PickUpObject : MonoBehaviour
 {
     public GameObject ObjectToPickUp;
-    public GameObject PickedObject;
-    public Transform interactionZone;
+    [SerializeField] private GameObject PickedObject;
+    [SerializeField] private Transform interactionZone;
 
-    public InputAction recoger;
+    [SerializeField] private InputAction recoger;
     private void Start()
     {
+        // Obtener la referencia al InputAction desde el jugador (asignar en el Inspector)
+        recoger = GetComponent<PlayerInput>().actions.FindAction("Recoger");
+
+        if (recoger == null)
+        {
+            Debug.LogError("No se encontró el InputAction 'Recoger'. Asegúrate de asignarlo en el Inspector.");
+        }
+
+        // Habilitar el InputAction para esta instancia
         recoger.Enable();
     }
     void Update()

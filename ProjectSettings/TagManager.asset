@@ -10,6 +10,10 @@ TagManager:
   - taza
   - hervidor
   - olla
+  - JugadorUno
+  - JugadorDos
+  - JugadorUnoPrefab
+  - JugadorDosPrefab
   layers:
   - Default
   - TransparentFX

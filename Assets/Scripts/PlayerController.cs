@@ -10,13 +10,21 @@ public class PlayerController : MonoBehaviour
     // Dirección del movimiento
     private Vector2 move;
 
-    public bool sePuedeMover; 
+    public bool sePuedeMover;
 
     // Método que se llama cuando se detecta un movimiento en el Input System
     public void OnMove(InputAction.CallbackContext context)
     {
         // Lee el valor del contexto de la acción y lo almacena en la variable move
-        move = context.ReadValue<Vector2>();
+        if (sePuedeMover)
+        {
+            move = context.ReadValue<Vector2>();
+        }
+        else
+        {
+            // Si no se puede mover, asegura que el movimiento sea cero
+            move = Vector2.zero;
+        }
     }
 
     // Método llamado antes de la primera actualización del frame
@@ -29,7 +37,8 @@ public class PlayerController : MonoBehaviour
     // Método llamado una vez por frame
     void Update()
     {
-        if (sePuedeMover) {
+        if (sePuedeMover)
+        {
             movePlayer();
         }
         sePuedeMover = CantidadDePlayer.sepuedemover;
@@ -51,4 +60,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-
