@@ -216,6 +216,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4aa87dc2-726b-485d-ba9a-aa4f73e0eb4a
     m_ActionName: Player2/Golpe[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1480f919-5821-43ba-bd5f-8a027398d4d8
+    m_ActionName: Player/Cocina[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c129d383-89f1-46ca-b596-9c67b691fbf6
+    m_ActionName: Player2/Cocina[/SwitchProControllerHID/rightStick/up,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/rightStick/down,/SwitchProControllerHID/rightStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -389,6 +397,7 @@ GameObject:
   - component: {fileID: 3583351478910640547}
   - component: {fileID: 4689913607469804703}
   - component: {fileID: 6843788363088060869}
+  - component: {fileID: 1372335128179469695}
   m_Layer: 0
   m_Name: PlayerInteraction
   m_TagString: PlayerInteractionZone
@@ -407,7 +416,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.162, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 851300065083278831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -442,6 +451,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f9d25d50195564db7eb20b2f42c611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1372335128179469695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596071973558163791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f68ee5ecde09b4f8c5d3af6e1949bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6893172124926643067

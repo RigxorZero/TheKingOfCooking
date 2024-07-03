@@ -95,6 +95,7 @@ public class PickUpObject : MonoBehaviour
         if (objectToPick.tag == "taza") { 
             objectToPick.GetComponent<tazaController>().estaSostenido = true;
         }
+
     }
 
     void Drop()
@@ -108,12 +109,14 @@ public class PickUpObject : MonoBehaviour
         PickedObject.transform.SetParent(null);
         PickedObject.GetComponent<Rigidbody>().useGravity = true;
         PickedObject.GetComponent<Rigidbody>().isKinematic = false;
+
+
         if (PickedObject.tag == "taza")
         {
             PickedObject.GetComponent<tazaController>().estaSostenido = false;
         }
-        PickedObject = null;
-        
+
+        PickedObject = null;    
         
     }
 }
