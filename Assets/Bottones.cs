@@ -23,17 +23,17 @@ public class Bottones : MonoBehaviour
 
     public void OnIniciar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void OnControles()
     {
-
+        SceneManager.LoadScene(3);
     }
 
     public void OnMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void OnCerrar()
