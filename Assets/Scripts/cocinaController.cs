@@ -11,7 +11,7 @@ public class cocinaController : MonoBehaviour
     [SerializeField] private Image[] perillas;
     private Camera playerCamera;
 
-    [SerializeField] private bool[,] nivelPerilla = new bool[2, 4]; // 2 jugadores, 4 niveles
+    [SerializeField] private static bool[,] nivelPerilla = new bool[2, 4]; // 2 jugadores, 4 niveles
 
     private bool[] canvasActivo = new bool[2];
 
@@ -36,15 +36,6 @@ public class cocinaController : MonoBehaviour
 
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
                 GameObject esJugadorDos = GameObject.FindGameObjectWithTag("JugadorDosPrefab");
-
-                if (gameObject.layer == 8)
-                {
-                    valor = 1;
-                }
-                else if (gameObject.layer == 7)
-                {
-                    valor = 0;
-                }
 
                 if (esJugadorUno != null && playerIndex == 0)
                 {
@@ -73,6 +64,18 @@ public class cocinaController : MonoBehaviour
             canvasActivo[i] = false;
         }
 
+        SetNivelPerilla(0, 0);
+        SetNivelPerilla(1, 0);
+
+        if (gameObject.layer == 8)
+        {
+            valor = 1;
+        }
+        else if (gameObject.layer == 7)
+        {
+            valor = 0;
+        }
+
         // Desactivar todos los canvases al inicio
         foreach (var canvas in canvases)
         {
@@ -84,6 +87,9 @@ public class cocinaController : MonoBehaviour
     {
         HandlePlayerInput(0); // Jugador 1
         HandlePlayerInput(1); // Jugador 2
+
+        GetNivelPerilla(0);
+        GetNivelPerilla(1);
     }
 
     void HandlePlayerInput(int playerIndex)
@@ -136,7 +142,6 @@ public class cocinaController : MonoBehaviour
                 canvasActivo[playerIndex] = false;
                 canvases[playerIndex].enabled = false;
                 canvases[playerIndex].worldCamera = null;
-                valor = 0;
             }
         }
 
@@ -149,14 +154,6 @@ public class cocinaController : MonoBehaviour
         {
             nivelPerilla[playerIndex, i] = i == valor;
         }
-    }
-
-    private void SetCanvasViewport(RectTransform canvasRect, Rect viewport)
-    {
-        canvasRect.anchorMin = new Vector2(viewport.x, viewport.y);
-        canvasRect.anchorMax = new Vector2(viewport.x + viewport.width, viewport.y + viewport.height);
-        canvasRect.offsetMin = Vector2.zero;
-        canvasRect.offsetMax = Vector2.zero;
     }
 
     private void ActivateCanvas(int index)

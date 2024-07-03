@@ -17,15 +17,28 @@ public class ollaController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtAgua;
     [SerializeField] private TextMeshProUGUI txtSal;
     [SerializeField] private TextMeshProUGUI txtEscencia;
-    [SerializeField] private float tiempoActual;
 
     [SerializeField] private cocinaController cocina;
     private bool cocinaEncontrada;
     private int intensidad;
+
+    [SerializeField] private float timerGeneral;
+    [SerializeField] private float timerLlamaBaja;
+    [SerializeField] private float timerLlamaMedia;
+    [SerializeField] private float timerLlamaAlta;
+    private const float TIEMPO_TOTAL = 60f;
+    private const float TIEMPO_CRITICO = 20f;
+
     void Start()
     {
         cantidadDeAgua = 0;
         cocinaEncontrada = false;
+
+        timerGeneral = 0f;
+        timerLlamaBaja = 0f;
+        timerLlamaMedia = 0f;
+        timerLlamaAlta = 0f;
+
         for (int i = 0; i < aguaAnimation.Length; i++)
         {
             aguaAnimation[i].SetActive(false);
@@ -61,19 +74,71 @@ public class ollaController : MonoBehaviour
                 }
             }
         }
-
-        if(cocina != null)
+        else if (!GetComponentInParent<PickableObject>().isPickeable)
         {
-            intensidad = cocina.GetIntensidadCocina();
-            Debug.Log("Tiempo actual: " + tiempoActual + "; Intensidad Actual: " + intensidad);
-            if (intensidad > 0)
-            {
-                tiempoActual += Time.deltaTime;
-            }
+            cocina = null;
+            cocinaEncontrada = false;
         }
 
-        
+        if (cantidadDeArroz > 0) // Solo si la cantidad de arroz es mayor que 0
+        {
+            if (cocina != null)
+            {
+                intensidad = cocina.GetIntensidadCocina();
+                if (timerGeneral < TIEMPO_TOTAL && intensidad != 0)
+                {
+                    timerGeneral += Time.deltaTime;
+                    if (intensidad == 2)
+                    {
+                        timerLlamaBaja += Time.deltaTime;
+                    }
+                    else if (intensidad == 1)
+                    {
+                        timerLlamaMedia += Time.deltaTime;
+                    }
+                    else if (intensidad == 3)
+                    {
+                        timerLlamaAlta += Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    CalcularPerfeccion();
+                }
+            }
+        }
+    }
 
+    private void CalcularPerfeccion()
+    {
+        float porcentajePerfecto = (timerLlamaMedia / TIEMPO_TOTAL) * 100f;
+        float porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / TIEMPO_TOTAL) * 100f : 0f;
+        float porcentajePocoCocido = (timerLlamaBaja > TIEMPO_CRITICO) ? (timerLlamaBaja / TIEMPO_TOTAL) * 100f : 0f;
+
+        // Ajustar porcentaje de perfección según cantidad de arroz
+        if(cantidadDeArroz > 1)
+        {
+            float descuentoPorCantidadArroz = 0f;
+            float D = 5f;
+            // Calcular el descuento por cada unidad adicional de arroz
+            for (int i = 2; i <= cantidadDeArroz; i++)
+            {
+                float descuentoUnitario = D * Mathf.Pow((1 - (D / 100f)), (i - 2));
+                descuentoPorCantidadArroz += descuentoUnitario;
+            }
+
+            // Aplicar el descuento por cantidad de arroz al porcentaje de perfección final
+            float factorCantidadArroz = 1f - (descuentoPorCantidadArroz / 100f); // Convertir descuento a factor multiplicativo
+
+            porcentajePerfecto *= factorCantidadArroz;
+            porcentajeQuemado *= factorCantidadArroz;
+            porcentajePocoCocido *= factorCantidadArroz;
+        }
+        
+        float perfeccionFinal = porcentajePerfecto - porcentajeQuemado - porcentajePocoCocido;
+        perfeccionFinal = Mathf.Clamp(perfeccionFinal, 0f, 100f);
+
+        Debug.Log($"Porcentaje de perfección: {perfeccionFinal}%");
     }
 
     public void cambioAnimationAgua()
