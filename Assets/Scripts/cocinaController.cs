@@ -156,6 +156,11 @@ public class cocinaController : MonoBehaviour
         }
     }
 
+    public void apagarCocina()
+    {
+        SetNivelPerilla(valor, 0);
+    }
+
     private void ActivateCanvas(int index)
     {
         // Activar el canvas específico por índice

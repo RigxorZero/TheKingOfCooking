@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ollaController : MonoBehaviour
 {
@@ -21,23 +22,40 @@ public class ollaController : MonoBehaviour
     [SerializeField] private cocinaController cocina;
     private bool cocinaEncontrada;
     private int intensidad;
+    private bool faseUnoCompleta;
+    private bool faseDosCompleta;
 
-    [SerializeField] private float timerGeneral;
+    [SerializeField] private Image Circulo;
+    [SerializeField] private Canvas canvas;
+
+    [SerializeField] private float timerFaseUno;
+    [SerializeField] private float timerFaseDos;
     [SerializeField] private float timerLlamaBaja;
     [SerializeField] private float timerLlamaMedia;
     [SerializeField] private float timerLlamaAlta;
-    private const float TIEMPO_TOTAL = 60f;
+    private const float TIEMPO_TOTAL_FASE1 = 60f;
+    private const float TIEMPO_TOTAL_FASE2 = 60f;
     private const float TIEMPO_CRITICO = 20f;
+
+    private float perfeccionFaseUno;
+    private float perfeccionFaseDos;
 
     void Start()
     {
         cantidadDeAgua = 0;
         cocinaEncontrada = false;
 
-        timerGeneral = 0f;
+        timerFaseUno = 0f;
+        timerFaseDos = 0f;
         timerLlamaBaja = 0f;
         timerLlamaMedia = 0f;
         timerLlamaAlta = 0f;
+
+        faseUnoCompleta = false;
+        faseDosCompleta = false;
+
+        perfeccionFaseUno = 0f;
+        perfeccionFaseDos = 0f;
 
         for (int i = 0; i < aguaAnimation.Length; i++)
         {
@@ -68,78 +86,186 @@ public class ollaController : MonoBehaviour
                 if (component.GetType().Name == "cocinaController")
                 {
                     cocina = (cocinaController)component;
-                    cocinaEncontrada = true;
-                    Debug.Log("Cocina controller encontrado");
-                    continue;
+                    cocinaEncontrada = true;   
                 }
+
+                if(component.name == "CocinaArroz")
+                {
+                    // Obtén todos los componentes del GameObject
+                    Component[] componentsCocina = component.GetComponents<Component>();
+
+                    // Itera sobre cada componente y muestra su nombre
+                    foreach (Component component2 in componentsCocina)
+                    {
+                        Debug.Log(component2.name);
+
+
+                    }
+                }
+
             }
         }
         else if (!GetComponentInParent<PickableObject>().isPickeable)
         {
             cocina = null;
             cocinaEncontrada = false;
+            canvas = null;
         }
 
         if (cantidadDeArroz > 0) // Solo si la cantidad de arroz es mayor que 0
         {
-            if (cocina != null)
+            if (!faseUnoCompleta)
             {
-                intensidad = cocina.GetIntensidadCocina();
-                if (timerGeneral < TIEMPO_TOTAL && intensidad != 0)
+                if (cocina != null)
                 {
-                    timerGeneral += Time.deltaTime;
-                    if (intensidad == 2)
+                    intensidad = cocina.GetIntensidadCocina();
+                    if (timerFaseUno < TIEMPO_TOTAL_FASE1 && intensidad != 0)
                     {
-                        timerLlamaBaja += Time.deltaTime;
+                        timerFaseUno += Time.deltaTime;
+                        if (intensidad == 2)
+                        {
+                            timerLlamaBaja += Time.deltaTime;
+                        }
+                        else if (intensidad == 1)
+                        {
+                            timerLlamaMedia += Time.deltaTime;
+                        }
+                        else if (intensidad == 3)
+                        {
+                            timerLlamaAlta += Time.deltaTime;
+                        }
                     }
-                    else if (intensidad == 1)
+                    else if(timerFaseUno >= TIEMPO_TOTAL_FASE1)
                     {
-                        timerLlamaMedia += Time.deltaTime;
-                    }
-                    else if (intensidad == 3)
-                    {
-                        timerLlamaAlta += Time.deltaTime;
+                        cocina.apagarCocina();
+                        perfeccionFaseUno = CalcularPerfeccion(1);
+                        faseUnoCompleta = true;
+                        timerLlamaAlta = 0;
+                        timerLlamaBaja = 0;
+                        timerLlamaMedia = 0;
                     }
                 }
-                else
+            }
+            else if (!faseDosCompleta)
+            {
+                if (cocina != null)
                 {
-                    CalcularPerfeccion();
+                    intensidad = cocina.GetIntensidadCocina();
+                    if (timerFaseDos < TIEMPO_TOTAL_FASE2 && intensidad != 0)
+                    {
+                        timerFaseDos += Time.deltaTime;
+                        if (intensidad == 2)
+                        {
+                            timerLlamaBaja += Time.deltaTime;
+                        }
+                        else if (intensidad == 1)
+                        {
+                            timerLlamaMedia += Time.deltaTime;
+                        }
+                        else if (intensidad == 3)
+                        {
+                            timerLlamaAlta += Time.deltaTime;
+                        }
+                    }
+                    else if (timerFaseDos >= TIEMPO_TOTAL_FASE2)
+                    {
+                        cocina.apagarCocina();
+                        perfeccionFaseDos = CalcularPerfeccion(2);
+                        faseDosCompleta = true;
+                        Debug.Log($"Perfección Fase 1: {perfeccionFaseUno}");
+                        Debug.Log($"Perfección Fase 2: {perfeccionFaseDos}");
+
+                        // Imprimir perfección total
+                        float perfeccionTotal = (perfeccionFaseUno + perfeccionFaseDos) / 2;
+                        Debug.Log($"Perfección Total: {perfeccionTotal}");
+                    }
                 }
             }
         }
     }
 
-    private void CalcularPerfeccion()
+    private float CalcularPerfeccion(int intensidadFuego)
     {
-        float porcentajePerfecto = (timerLlamaMedia / TIEMPO_TOTAL) * 100f;
-        float porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / TIEMPO_TOTAL) * 100f : 0f;
-        float porcentajePocoCocido = (timerLlamaBaja > TIEMPO_CRITICO) ? (timerLlamaBaja / TIEMPO_TOTAL) * 100f : 0f;
+        float porcentajePerfecto = 0f;
+        float porcentajeQuemado = 0f;
+        float porcentajePocoCocido = 0f;
+        float tiempoTotalFase = faseUnoCompleta ? TIEMPO_TOTAL_FASE2 : TIEMPO_TOTAL_FASE1;
 
-        // Ajustar porcentaje de perfección según cantidad de arroz
-        if(cantidadDeArroz > 1)
+        if (intensidadFuego == 1) // Fuego medio
         {
-            float descuentoPorCantidadArroz = 0f;
-            float D = 5f;
-            // Calcular el descuento por cada unidad adicional de arroz
-            for (int i = 2; i <= cantidadDeArroz; i++)
-            {
-                float descuentoUnitario = D * Mathf.Pow((1 - (D / 100f)), (i - 2));
-                descuentoPorCantidadArroz += descuentoUnitario;
-            }
-
-            // Aplicar el descuento por cantidad de arroz al porcentaje de perfección final
-            float factorCantidadArroz = 1f - (descuentoPorCantidadArroz / 100f); // Convertir descuento a factor multiplicativo
-
-            porcentajePerfecto *= factorCantidadArroz;
-            porcentajeQuemado *= factorCantidadArroz;
-            porcentajePocoCocido *= factorCantidadArroz;
+            porcentajePerfecto = (timerLlamaMedia / tiempoTotalFase) * 100f;
+            porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / tiempoTotalFase) * 100f : 0f;
+            porcentajePocoCocido = (timerLlamaBaja > TIEMPO_CRITICO) ? (timerLlamaBaja / tiempoTotalFase) * 100f : 0f;
         }
-        
+        else if (intensidadFuego == 2) // Fuego bajo
+        {
+            porcentajePerfecto = (timerLlamaBaja / tiempoTotalFase) * 100f;
+            porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / tiempoTotalFase) * 100f : 0f;
+            porcentajePocoCocido = (timerLlamaMedia > TIEMPO_CRITICO) ? (timerLlamaMedia / tiempoTotalFase) * 100f : 0f;
+        }
+
+        float descuentoArroz = calcularDescuento(cantidadDeArroz, 1);
+        porcentajePerfecto *= descuentoArroz;
+        porcentajeQuemado *= descuentoArroz;
+        porcentajePocoCocido *= descuentoArroz;
+
+        float descuentoAgua = calcularDescuento(cantidadDeAgua, faseUnoCompleta ? 2 : 0);
+        porcentajePerfecto *= descuentoAgua;
+        porcentajeQuemado *= descuentoAgua;
+        porcentajePocoCocido *= descuentoAgua;
+
+        float descuentoSal = calcularDescuento(cantidadDeSal, faseUnoCompleta ? 1 : 0);
+        porcentajePerfecto *= descuentoSal;
+        porcentajeQuemado *= descuentoSal;
+        porcentajePocoCocido *= descuentoSal;
+
+        float descuentoEscencias = calcularDescuento(cantidadDeEscencias, faseUnoCompleta ? 1 : 0);
+        porcentajePerfecto *= descuentoEscencias;
+        porcentajeQuemado *= descuentoEscencias;
+        porcentajePocoCocido *= descuentoEscencias;
+
         float perfeccionFinal = porcentajePerfecto - porcentajeQuemado - porcentajePocoCocido;
         perfeccionFinal = Mathf.Clamp(perfeccionFinal, 0f, 100f);
 
-        Debug.Log($"Porcentaje de perfección: {perfeccionFinal}%");
+        return perfeccionFinal;
     }
+
+
+    private float calcularDescuento(int ingrediente, int cantidadMinima)
+    {
+        float D = 5f; // Descuento base
+
+        if (ingrediente > cantidadMinima)
+        {
+            float descuentoPorCantidad = 0f;
+
+            // Calcular el descuento por cada unidad adicional de ingrediente
+            for (int i = cantidadMinima + 1; i <= ingrediente; i++)
+            {
+                float descuentoUnitario = D * Mathf.Pow((1 - (D / 100f)), (i - 2));
+                descuentoPorCantidad += descuentoUnitario;
+            }
+
+            // Convertir descuento a factor multiplicativo
+            float factorDescuento = 1f - (descuentoPorCantidad / 100f);
+            return factorDescuento;
+        }
+        else if (ingrediente < cantidadMinima)
+        {
+            float diferencia = cantidadMinima - ingrediente;
+            float penalizacionPorCantidad = D * diferencia;
+
+            // Convertir penalización a factor multiplicativo
+            float factorPenalizacion = 1f - (penalizacionPorCantidad / 100f);
+            return Mathf.Clamp(factorPenalizacion, 0f, 1f); // Asegurar que no sea menor que 0
+        }
+        else
+        {
+            return 1f; // Sin descuento ni penalización
+        }
+    }
+
+
 
     public void cambioAnimationAgua()
     {
