@@ -270,7 +270,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 400094508}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 933787429032672975, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_Size.x
@@ -278,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 933787429032672975, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_Size.y
-      value: 0.9999999
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 933787429032672975, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_Size.z
-      value: 1.5
+      value: 4.59
       objectReference: {fileID: 0}
     - target: {fileID: 933787429032672975, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_Center.x
@@ -298,31 +298,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.27
+      value: -4.8399982
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3873821
+      value: 0.8873826
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.94
+      value: 12.719997
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.50008726
+      value: -0.7072302
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4999127
+      value: 0.7069834
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.50008726
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4999127
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 208275365}
   - component: {fileID: 208275364}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: GreenZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1721,7 +1721,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1957424463}
   - {fileID: 313289171}
   - {fileID: 1155207131}
   - {fileID: 637014675}
@@ -1811,7 +1810,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 984c14c0-687b-453e-b774-c8e9ddfda5f1
-      m_Path: <Gamepad>/rightTrigger
+      m_Path: <Gamepad>/buttonNorth
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1950,6 +1949,7 @@ MonoBehaviour:
       m_Action: Element 1
       m_Flags: 0
     m_Flags: 0
+  canvasTimer: {fileID: 2128587571}
 --- !u!114 &408900776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,7 +3383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703091598}
   m_Layer: 0
-  m_Name: Cocina
+  m_Name: CocinaArroz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4903,7 +4903,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 984c14c0-687b-453e-b774-c8e9ddfda5f1
-      m_Path: <Gamepad>/rightTrigger
+      m_Path: <Gamepad>/buttonNorth
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -5042,6 +5042,7 @@ MonoBehaviour:
       m_Action: Element 1
       m_Flags: 0
     m_Flags: 0
+  canvasTimer: {fileID: 2033618806}
 --- !u!114 &1203789924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7376,11 +7377,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f96cde458635e2b40967adea2ccd9ea2, type: 3}
---- !u!4 &1957424463 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1653716107249133368, guid: ea9a81d1cc265104c85bc237f5b725a7, type: 3}
-  m_PrefabInstance: {fileID: 98250852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993698851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7652,7 +7648,7 @@ GameObject:
   - component: {fileID: 2033618805}
   - component: {fileID: 2033618804}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: canvasTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8014,7 +8010,7 @@ GameObject:
   - component: {fileID: 2115280352}
   - component: {fileID: 2115280351}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: GreenZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8255,7 +8251,7 @@ GameObject:
   - component: {fileID: 2128587570}
   - component: {fileID: 2128587569}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: canvasTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8359,6 +8355,7 @@ SceneRoots:
   - {fileID: 284101427}
   - {fileID: 1286759441}
   - {fileID: 538505609}
+  - {fileID: 98250852}
   - {fileID: 399404964}
   - {fileID: 400094508}
   - {fileID: 365669200}
