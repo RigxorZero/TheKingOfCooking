@@ -16,6 +16,8 @@ TagManager:
   - JugadorDosPrefab
   - carne
   - sarten
+  - escencia
+  - sal
   layers:
   - Default
   - TransparentFX

@@ -95,6 +95,14 @@ public class PickUpObject : MonoBehaviour
         if (objectToPick.tag == "taza") { 
             objectToPick.GetComponent<tazaController>().estaSostenido = true;
         }
+        if(objectToPick.tag == "escencia")
+        {
+            objectToPick.GetComponent<escenciaController>().estaSostenido = true;
+        }
+        if (objectToPick.tag == "sal")
+        {
+            objectToPick.GetComponent<salController>().estaSostenido = true;
+        }
 
     }
 

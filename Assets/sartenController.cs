@@ -16,6 +16,9 @@ public class sartenController : MonoBehaviour
     [SerializeField] private Material cocinado;
     [SerializeField] private Material quemado; 
     public InputAction interaccion;
+
+    public int cantidadDeEscencias;
+    public int cantidadDeSal;
     void Start()
     {
         interaccion.Enable();

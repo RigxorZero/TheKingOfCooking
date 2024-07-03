@@ -9,10 +9,14 @@ public class ollaController : MonoBehaviour
     public GameObject[] arrozAnimation;
     public int cantidadDeAgua; 
     public int cantidadDeArroz;
+    public int cantidadDeEscencias;
+    public int cantidadDeSal; 
 
     [SerializeField] private Canvas relleno;
     [SerializeField] private TextMeshProUGUI txtArroz;
     [SerializeField] private TextMeshProUGUI txtAgua;
+    [SerializeField] private TextMeshProUGUI txtSal;
+    [SerializeField] private TextMeshProUGUI txtEscencia;
     [SerializeField] private float tiempoActual;
 
     [SerializeField] private cocinaController cocina;
@@ -37,8 +41,10 @@ public class ollaController : MonoBehaviour
     {
         txtArroz.text = cantidadDeArroz.ToString();
         txtAgua.text = cantidadDeAgua.ToString();
+        txtEscencia.text = cantidadDeEscencias.ToString();
+        txtSal.text= cantidadDeSal.ToString();
 
-        if(!cocinaEncontrada)
+        if (!cocinaEncontrada)
         {
             // Obtén todos los componentes del GameObject
             Component[] components = GetComponentsInParent<Component>();
