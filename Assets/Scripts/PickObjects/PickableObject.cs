@@ -25,6 +25,7 @@ public class PickableObject : MonoBehaviour
                 position += new Vector3(0, -0.1f, 0);
                 this.transform.position = position;
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                this.transform.SetParent(other.transform);
                 this.GetComponent<Rigidbody>().isKinematic = true;
             }
         }

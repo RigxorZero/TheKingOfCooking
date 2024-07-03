@@ -71,6 +71,15 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cocina"",
+                    ""type"": ""Button"",
+                    ""id"": ""1480f919-5821-43ba-bd5f-8a027398d4d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -198,7 +207,7 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0404f366-ffca-47df-8dd8-797f59ac046a"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -220,7 +229,7 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c79a0329-a379-4faf-b8cd-dbff2890482e"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -264,18 +273,290 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ecd9c07e-38d8-4404-86a4-fa7d034fb6eb"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Golpe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49d549c9-8845-4100-96c2-30dd846d8e6a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0380946c-4ea9-4693-a870-a95fd0980ee3"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18636489-110f-42cb-be0a-02077ad21521"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7097cf9a-0357-4281-868b-e4e930f4d75e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player2"",
+            ""id"": ""4c171933-0393-467e-b066-887470d52925"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""acf7ff9f-a09a-4416-854c-0d60f09f6693"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Recoger"",
+                    ""type"": ""Button"",
+                    ""id"": ""26e7752c-881e-4e0d-9d82-7b733ac5a3f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interaccion"",
+                    ""type"": ""Button"",
+                    ""id"": ""77c44835-f2e6-4de6-aae3-4bc8bb374e0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CanvasActive"",
+                    ""type"": ""Button"",
+                    ""id"": ""59b5dac4-ab2c-466a-b5c9-d0a23d3a7784"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Golpe"",
+                    ""type"": ""Button"",
+                    ""id"": ""4aa87dc2-726b-485d-ba9a-aa4f73e0eb4a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cocina"",
+                    ""type"": ""Button"",
+                    ""id"": ""c129d383-89f1-46ca-b596-9c67b691fbf6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""f1818557-80b9-4aee-9888-df0855399888"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""eb06961f-3e7c-46d3-9dd5-ee43cfc33273"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b7e26752-01b8-4d25-ad05-0f754bf6b926"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bc2deec9-3cca-4bf5-b509-b0fd31c85b61"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""97996a7d-168b-4f2e-880b-0ab6656c7196"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0894e309-3920-4f34-8d57-9ea6d87caa31"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recoger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd960122-9645-4038-90f3-d4c4c30a8668"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaccion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff7b3f8e-5385-43b1-9734-cff66861f19b"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CanvasActive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37b64611-f21d-4b55-a85b-826fb47f0692"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Golpe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b186ef8e-ba75-46ab-b49f-4839db28a206"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""256b4c57-aaad-4acb-95c8-a34433f3c18d"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a80ad820-c299-426b-9db4-c06381fce433"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05b595cc-c6a2-468b-8adb-77cafe6cbe10"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Cocina"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Teclado"",
+            ""bindingGroup"": ""Teclado"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Mando"",
+            ""bindingGroup"": ""Mando"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
@@ -284,6 +565,15 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
         m_Player_Interaccion = m_Player.FindAction("Interaccion", throwIfNotFound: true);
         m_Player_CanvasActive = m_Player.FindAction("CanvasActive", throwIfNotFound: true);
         m_Player_Golpe = m_Player.FindAction("Golpe", throwIfNotFound: true);
+        m_Player_Cocina = m_Player.FindAction("Cocina", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
+        m_Player2_Recoger = m_Player2.FindAction("Recoger", throwIfNotFound: true);
+        m_Player2_Interaccion = m_Player2.FindAction("Interaccion", throwIfNotFound: true);
+        m_Player2_CanvasActive = m_Player2.FindAction("CanvasActive", throwIfNotFound: true);
+        m_Player2_Golpe = m_Player2.FindAction("Golpe", throwIfNotFound: true);
+        m_Player2_Cocina = m_Player2.FindAction("Cocina", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +640,7 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interaccion;
     private readonly InputAction m_Player_CanvasActive;
     private readonly InputAction m_Player_Golpe;
+    private readonly InputAction m_Player_Cocina;
     public struct PlayerActions
     {
         private @MovePlayer m_Wrapper;
@@ -359,6 +650,7 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
         public InputAction @Interaccion => m_Wrapper.m_Player_Interaccion;
         public InputAction @CanvasActive => m_Wrapper.m_Player_CanvasActive;
         public InputAction @Golpe => m_Wrapper.m_Player_Golpe;
+        public InputAction @Cocina => m_Wrapper.m_Player_Cocina;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +675,9 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
             @Golpe.started += instance.OnGolpe;
             @Golpe.performed += instance.OnGolpe;
             @Golpe.canceled += instance.OnGolpe;
+            @Cocina.started += instance.OnCocina;
+            @Cocina.performed += instance.OnCocina;
+            @Cocina.canceled += instance.OnCocina;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -402,6 +697,9 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
             @Golpe.started -= instance.OnGolpe;
             @Golpe.performed -= instance.OnGolpe;
             @Golpe.canceled -= instance.OnGolpe;
+            @Cocina.started -= instance.OnCocina;
+            @Cocina.performed -= instance.OnCocina;
+            @Cocina.canceled -= instance.OnCocina;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -419,6 +717,110 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_Move;
+    private readonly InputAction m_Player2_Recoger;
+    private readonly InputAction m_Player2_Interaccion;
+    private readonly InputAction m_Player2_CanvasActive;
+    private readonly InputAction m_Player2_Golpe;
+    private readonly InputAction m_Player2_Cocina;
+    public struct Player2Actions
+    {
+        private @MovePlayer m_Wrapper;
+        public Player2Actions(@MovePlayer wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player2_Move;
+        public InputAction @Recoger => m_Wrapper.m_Player2_Recoger;
+        public InputAction @Interaccion => m_Wrapper.m_Player2_Interaccion;
+        public InputAction @CanvasActive => m_Wrapper.m_Player2_CanvasActive;
+        public InputAction @Golpe => m_Wrapper.m_Player2_Golpe;
+        public InputAction @Cocina => m_Wrapper.m_Player2_Cocina;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Recoger.started += instance.OnRecoger;
+            @Recoger.performed += instance.OnRecoger;
+            @Recoger.canceled += instance.OnRecoger;
+            @Interaccion.started += instance.OnInteraccion;
+            @Interaccion.performed += instance.OnInteraccion;
+            @Interaccion.canceled += instance.OnInteraccion;
+            @CanvasActive.started += instance.OnCanvasActive;
+            @CanvasActive.performed += instance.OnCanvasActive;
+            @CanvasActive.canceled += instance.OnCanvasActive;
+            @Golpe.started += instance.OnGolpe;
+            @Golpe.performed += instance.OnGolpe;
+            @Golpe.canceled += instance.OnGolpe;
+            @Cocina.started += instance.OnCocina;
+            @Cocina.performed += instance.OnCocina;
+            @Cocina.canceled += instance.OnCocina;
+        }
+
+        private void UnregisterCallbacks(IPlayer2Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Recoger.started -= instance.OnRecoger;
+            @Recoger.performed -= instance.OnRecoger;
+            @Recoger.canceled -= instance.OnRecoger;
+            @Interaccion.started -= instance.OnInteraccion;
+            @Interaccion.performed -= instance.OnInteraccion;
+            @Interaccion.canceled -= instance.OnInteraccion;
+            @CanvasActive.started -= instance.OnCanvasActive;
+            @CanvasActive.performed -= instance.OnCanvasActive;
+            @CanvasActive.canceled -= instance.OnCanvasActive;
+            @Golpe.started -= instance.OnGolpe;
+            @Golpe.performed -= instance.OnGolpe;
+            @Golpe.canceled -= instance.OnGolpe;
+            @Cocina.started -= instance.OnCocina;
+            @Cocina.performed -= instance.OnCocina;
+            @Cocina.canceled -= instance.OnCocina;
+        }
+
+        public void RemoveCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player2Actions @Player2 => new Player2Actions(this);
+    private int m_TecladoSchemeIndex = -1;
+    public InputControlScheme TecladoScheme
+    {
+        get
+        {
+            if (m_TecladoSchemeIndex == -1) m_TecladoSchemeIndex = asset.FindControlSchemeIndex("Teclado");
+            return asset.controlSchemes[m_TecladoSchemeIndex];
+        }
+    }
+    private int m_MandoSchemeIndex = -1;
+    public InputControlScheme MandoScheme
+    {
+        get
+        {
+            if (m_MandoSchemeIndex == -1) m_MandoSchemeIndex = asset.FindControlSchemeIndex("Mando");
+            return asset.controlSchemes[m_MandoSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -426,5 +828,15 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
         void OnInteraccion(InputAction.CallbackContext context);
         void OnCanvasActive(InputAction.CallbackContext context);
         void OnGolpe(InputAction.CallbackContext context);
+        void OnCocina(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnRecoger(InputAction.CallbackContext context);
+        void OnInteraccion(InputAction.CallbackContext context);
+        void OnCanvasActive(InputAction.CallbackContext context);
+        void OnGolpe(InputAction.CallbackContext context);
+        void OnCocina(InputAction.CallbackContext context);
     }
 }
