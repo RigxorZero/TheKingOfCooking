@@ -26,7 +26,7 @@ public class sartenController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtSal;
     [SerializeField] private TextMeshProUGUI txtEscencia;
 
-    SerializeField] private cocinaController cocina;
+    [SerializeField] private cocinaController cocina;
     private bool cocinaEncontrada;
     private int intensidad;
 
