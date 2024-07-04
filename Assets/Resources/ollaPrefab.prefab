@@ -73,6 +73,8 @@ MonoBehaviour:
   txtSal: {fileID: 197154598668827353}
   txtEscencia: {fileID: 7359142862150712600}
   cocina: {fileID: 0}
+  faseUnoCompleta: 0
+  faseDosCompleta: 0
   Circulo: {fileID: 0}
   canvas: {fileID: 0}
   timerFaseUno: 0
@@ -80,6 +82,8 @@ MonoBehaviour:
   timerLlamaBaja: 0
   timerLlamaMedia: 0
   timerLlamaAlta: 0
+  perfeccionFaseUno: 0
+  perfeccionFaseDos: 0
 --- !u!65 &4828841469373798590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -909,7 +913,7 @@ MonoBehaviour:
   drop: 0
   sostenido: 0
   eliminado: 0
-  type: 0
+  type: 2
 --- !u!65 &7574187348128850316
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -182,7 +182,7 @@ MonoBehaviour:
   drop: 0
   sostenido: 0
   eliminado: 0
-  type: 0
+  type: 3
 --- !u!54 &5021877079463508634
 Rigidbody:
   m_ObjectHideFlags: 0
