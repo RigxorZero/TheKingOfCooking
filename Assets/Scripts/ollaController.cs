@@ -121,7 +121,7 @@ public class ollaController : MonoBehaviour
                     cocinaEncontrada = true;   
                 }
 
-                if(component.name == "CocinaArroz")
+                if(component.name == "CocinaArroz" || component.name == "CocinaCarne")
                 {
                     // Obtén todos los componentes del GameObject
                     Component[] componentsCocina = component.GetComponentsInChildren<Component>();

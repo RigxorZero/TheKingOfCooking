@@ -107,7 +107,7 @@ public class sartenController : MonoBehaviour
                     cocinaEncontrada = true;
                 }
 
-                if (component.name == "CocinaCarne")
+                if (component.name == "CocinaCarne" || component.name == "CocinaArroz")
                 {
                     // Obtén todos los componentes del GameObject
                     Component[] componentsCocina = component.GetComponentsInChildren<Component>();
