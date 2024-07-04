@@ -47,6 +47,7 @@ public class CameraDestroy : MonoBehaviour
         }
         else if (playerInputManager.playerCount >= 2 && playerInput.playerIndex == 1 && playerOneIsCreated)
         {
+            Timer.isRunning = true; 
             // Cambia el mapa de acciones del segundo jugador a "Player2"
             playerInput.SwitchCurrentActionMap("Player2");
             player = playerInput.gameObject;

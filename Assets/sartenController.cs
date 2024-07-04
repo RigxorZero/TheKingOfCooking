@@ -256,6 +256,7 @@ public class sartenController : MonoBehaviour
     // Update is called once per frame
     public void llenarCarne()
     {
+        tieneCarne = true;
         carne3D.SetActive(true);
         estaLleno = true;
     }
