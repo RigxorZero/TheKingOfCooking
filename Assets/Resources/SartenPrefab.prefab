@@ -104,7 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPickeable: 1
   drop: 0
-  type: 4
+  sostenido: 0
+  eliminado: 0
+  type: 0
 --- !u!54 &5021877079463508634
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,6 +198,8 @@ MonoBehaviour:
       m_Action: Interaccion
       m_Flags: 0
     m_Flags: 0
+  cantidadDeEscencias: 0
+  cantidadDeSal: 0
 --- !u!1001 &7784824525338255506
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ public class CameraDestroy : MonoBehaviour
     [SerializeField] private GameObject player;
     private bool playerOneIsCreated = false;
 
+    public GameObject spawnUno;
+    public GameObject spawnDos;
+
     void Start()
     {
         // Registra el evento de unión de jugadores
@@ -30,6 +33,9 @@ public class CameraDestroy : MonoBehaviour
             // Modifica el prefab instanciado para el primer jugador
             playerInputManager.playerPrefab.name = "JugadorUnoPrefab";
             playerInputManager.playerPrefab.tag = "JugadorUnoPrefab";
+            // Establece la posición y rotación del jugador en el punto de spawnUno
+            player.transform.position = spawnUno.transform.position;
+            player.transform.rotation = spawnUno.transform.rotation;
 
 
             // Modifica el jugador instanciado
@@ -44,6 +50,10 @@ public class CameraDestroy : MonoBehaviour
             // Cambia el mapa de acciones del segundo jugador a "Player2"
             playerInput.SwitchCurrentActionMap("Player2");
             player = playerInput.gameObject;
+
+            // Establece la posición y rotación del jugador en el punto de spawnDos
+            player.transform.position = spawnDos.transform.position;
+            player.transform.rotation = spawnDos.transform.rotation;
 
             // Modifica el jugador instanciado
             player.name = "JugadorDos";
