@@ -80,7 +80,7 @@ public class PickUpObject : MonoBehaviour
         PickedObject = objectToPick;
         PickedObject.GetComponent<PickableObject>().isPickeable = false;
         PickedObject.transform.SetParent(interactionZone);
-
+        PickedObject.GetComponent<PickableObject>().sostenido = false;
         // Asegura que esté en el centro del interactionZone
         PickedObject.transform.localPosition = Vector3.zero;
         PickedObject.transform.localRotation = Quaternion.identity;
@@ -108,6 +108,7 @@ public class PickUpObject : MonoBehaviour
 
     void Drop()
     {
+        PickedObject.GetComponent<PickableObject>().sostenido = true;
         if (PickedObject.tag == "sarten")
         {
             PickedObject.GetComponent<sartenController>().estaSostenido = false;

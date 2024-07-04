@@ -7,11 +7,22 @@ public class PickableObject : MonoBehaviour
     // Start is called before the first frame update
     public bool isPickeable = true;
     public bool drop = false;
+    public bool sostenido = false;
+    public bool eliminado = false;
     [SerializeField] public int type; 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "PlayerInteractionZone")
+        if (other.tag == "basurero")
+        {
+            eliminado = true;
+            if (sostenido)
+            {
+                Destroy(gameObject);
+
+            }
+        }
+        if (other.tag == "PlayerInteractionZone")
         {
             other.GetComponentInParent<PickUpObject>().ObjectToPickUp = this.gameObject;
             this.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -48,6 +59,7 @@ public class PickableObject : MonoBehaviour
                 this.GetComponent<Collider>().enabled = false;
             }
         }
+        
     }
     private void OnTriggerExit(Collider other)
     {
