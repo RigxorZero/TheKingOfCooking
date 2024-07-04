@@ -21,6 +21,7 @@ public class escenciaController : MonoBehaviour
             }
         }
     }
+    
     void Start()
     {
         interaccion.Enable();

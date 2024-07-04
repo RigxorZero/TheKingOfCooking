@@ -10,15 +10,14 @@ public class carneController : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        // Utiliza CompareTag en lugar de other.tag == "sarten"
-        if (other.CompareTag("sarten"))
+        if (collision.gameObject.tag == ("sarten"))
         {
             essarten = true;
 
             // Intenta obtener el componente sartenController
-            sartenController sartenCtrl = other.GetComponentInParent<sartenController>();
+            sartenController sartenCtrl = collision.gameObject.GetComponentInParent<sartenController>();
             if (sartenCtrl != null)
             {
                 // Llama al método llenarCarne del componente sartenController
@@ -32,6 +31,11 @@ public class carneController : MonoBehaviour
             // Destruye este gameObject
             Destroy(gameObject);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Utiliza CompareTag en lugar de other.tag == "sarten"
+       
     }
 
     // Update is called once per frame
