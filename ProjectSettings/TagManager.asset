@@ -19,6 +19,7 @@ TagManager:
   - escencia
   - sal
   - basurero
+  - plato
   layers:
   - Default
   - TransparentFX
