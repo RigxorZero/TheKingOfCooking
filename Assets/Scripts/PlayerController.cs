@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public bool sePuedeMover;
 
+    public static List<GameObject> instancias;
+
     private Animator animator;
 
     // Método que se llama cuando se detecta un movimiento en el Input System

@@ -15,6 +15,10 @@ public class CantidadDePlayer : MonoBehaviour
     public TextMeshProUGUI textPlayer1;
     public TextMeshProUGUI textPlayer2;
 
+    private void OnDisable()
+    {
+        cantidadDePlayer = 0;
+    }
 
     void Start()
     {
