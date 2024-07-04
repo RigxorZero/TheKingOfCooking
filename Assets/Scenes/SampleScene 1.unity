@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4ce787f0cb3a34fae3e58902ec4208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &133511983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7951,6 +7952,7 @@ GameObject:
   - component: {fileID: 2064725407}
   - component: {fileID: 2064725409}
   - component: {fileID: 2064725408}
+  - component: {fileID: 2064725410}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7986,6 +7988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 300
+  audioSource: {fileID: 0}
   isRunning: 0
   timerText: {fileID: 0}
 --- !u!114 &2064725408
@@ -8033,6 +8036,18 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &2064725410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064725402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4b3819e25cd4f42b017c59c3742014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066201652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3d325c7af1f5834ea963cee0aeaa66a, type: 3}

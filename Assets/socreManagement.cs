@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-public class audioManager : MonoBehaviour
+
+public class socreManagement : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public AudioSource audioSource;
-    //public 
+    static public float[] scores = new float[2] { 1, 2 };
     void Start()
     {
         

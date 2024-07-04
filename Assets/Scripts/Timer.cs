@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
     public float duration = 10f; // Duración del cronómetro en segundos
     private float timer;         // Variable para contar el tiempo
+    public AudioSource audioSource;
     [SerializeField] private bool isRunning = false; // Variable para saber si el cronómetro está en marcha
 
     public TextMeshProUGUI timerText; // Referencia al TextMeshPro
@@ -25,6 +27,10 @@ public class Timer : MonoBehaviour
 
             // Actualizar el texto del cronómetro
             UpdateTimerDisplay();
+            if (timer <= 50f){
+
+                audioSource.pitch = 1.3f;
+            }
 
             // Comprobar si el cronómetro ha llegado a cero
             if (timer <= 0f)
