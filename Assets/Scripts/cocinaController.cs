@@ -22,6 +22,9 @@ public class cocinaController : MonoBehaviour
     public InputAction[] AbajoButtom = new InputAction[2];
     public InputAction[] DerechaButtom = new InputAction[2];
     public InputAction[] IzquierdaButtom = new InputAction[2];
+
+    public Canvas canvasTimer;
+
     private int valor = 0;
 
     void OnTriggerStay(Collider other)
@@ -63,6 +66,8 @@ public class cocinaController : MonoBehaviour
             IzquierdaButtom[i].Enable();
             canvasActivo[i] = false;
         }
+
+        canvasTimer.enabled = false;
 
         SetNivelPerilla(0, 0);
         SetNivelPerilla(1, 0);

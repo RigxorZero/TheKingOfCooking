@@ -24,6 +24,7 @@ public class ollaController : MonoBehaviour
     private int intensidad;
     private bool faseUnoCompleta;
     private bool faseDosCompleta;
+    private float timerCanvas = 60f;
 
     [SerializeField] private Image Circulo;
     [SerializeField] private Canvas canvas;
@@ -50,12 +51,14 @@ public class ollaController : MonoBehaviour
         timerLlamaBaja = 0f;
         timerLlamaMedia = 0f;
         timerLlamaAlta = 0f;
+        timerCanvas = TIEMPO_TOTAL_FASE1;
 
         faseUnoCompleta = false;
         faseDosCompleta = false;
 
         perfeccionFaseUno = 0f;
         perfeccionFaseDos = 0f;
+
 
         for (int i = 0; i < aguaAnimation.Length; i++)
         {
@@ -92,17 +95,23 @@ public class ollaController : MonoBehaviour
                 if(component.name == "CocinaArroz")
                 {
                     // Obtén todos los componentes del GameObject
-                    Component[] componentsCocina = component.GetComponents<Component>();
+                    Component[] componentsCocina = component.GetComponentsInChildren<Component>();
 
                     // Itera sobre cada componente y muestra su nombre
                     foreach (Component component2 in componentsCocina)
                     {
-                        Debug.Log(component2.name);
+                        if(component2.name == "canvasTimer")
+                        {
+                            canvas = component2.GetComponent<Canvas>();
+                        }
+                        Debug.Log(component2.GetType().Name + " " + component2.name);
 
-
+                        if (component2.name == "GreenZone")
+                        {
+                            Circulo = component2.GetComponent<Image>();
+                        }
                     }
                 }
-
             }
         }
         else if (!GetComponentInParent<PickableObject>().isPickeable)
@@ -110,6 +119,7 @@ public class ollaController : MonoBehaviour
             cocina = null;
             cocinaEncontrada = false;
             canvas = null;
+            Circulo = null;
         }
 
         if (cantidadDeArroz > 0) // Solo si la cantidad de arroz es mayor que 0
@@ -121,6 +131,14 @@ public class ollaController : MonoBehaviour
                     intensidad = cocina.GetIntensidadCocina();
                     if (timerFaseUno < TIEMPO_TOTAL_FASE1 && intensidad != 0)
                     {
+                        canvas.enabled = true;
+
+                        if (timerCanvas >= 0)
+                        {
+                            timerCanvas -= Time.deltaTime;
+                            Circulo.fillAmount = (TIEMPO_TOTAL_FASE1 - timerCanvas) / TIEMPO_TOTAL_FASE1;
+                        }
+
                         timerFaseUno += Time.deltaTime;
                         if (intensidad == 2)
                         {
@@ -143,6 +161,8 @@ public class ollaController : MonoBehaviour
                         timerLlamaAlta = 0;
                         timerLlamaBaja = 0;
                         timerLlamaMedia = 0;
+                        canvas.enabled = false;
+                        timerCanvas = TIEMPO_TOTAL_FASE2;
                     }
                 }
             }
@@ -153,6 +173,15 @@ public class ollaController : MonoBehaviour
                     intensidad = cocina.GetIntensidadCocina();
                     if (timerFaseDos < TIEMPO_TOTAL_FASE2 && intensidad != 0)
                     {
+                        canvas.enabled = true;
+
+                        if (timerCanvas >= 0)
+                        {
+                            timerCanvas -= Time.deltaTime;
+                            Circulo.fillAmount = (TIEMPO_TOTAL_FASE2 - timerCanvas) / TIEMPO_TOTAL_FASE2;
+                        }
+
+
                         timerFaseDos += Time.deltaTime;
                         if (intensidad == 2)
                         {
@@ -172,6 +201,7 @@ public class ollaController : MonoBehaviour
                         cocina.apagarCocina();
                         perfeccionFaseDos = CalcularPerfeccion(2);
                         faseDosCompleta = true;
+                        canvas.enabled = false;
                         Debug.Log($"Perfección Fase 1: {perfeccionFaseUno}");
                         Debug.Log($"Perfección Fase 2: {perfeccionFaseDos}");
 
