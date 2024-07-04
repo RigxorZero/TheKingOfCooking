@@ -71,7 +71,7 @@ public class Bottones : MonoBehaviour
 
     public void OnCerrar()
     {
-
+        Application.Quit();
     }
 
 }
