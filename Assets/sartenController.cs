@@ -31,7 +31,7 @@ public class sartenController : MonoBehaviour
     private int intensidad;
 
     private float timerCanvas = 60f;
-    SerializeField] private float timerFase;
+    [SerializeField] private float timerFase;
     [SerializeField] private float timerLlamaBaja;
     [SerializeField] private float timerLlamaMedia;
     [SerializeField] private float timerLlamaAlta;
@@ -104,7 +104,7 @@ public class sartenController : MonoBehaviour
                     cocinaEncontrada = true;
                 }
 
-                if (component.name == "CocinaArroz")
+                if (component.name == "CocinaCarne")
                 {
                     // Obtén todos los componentes del GameObject
                     Component[] componentsCocina = component.GetComponentsInChildren<Component>();
