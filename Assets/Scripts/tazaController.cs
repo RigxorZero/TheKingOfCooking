@@ -39,25 +39,30 @@ public class tazaController : MonoBehaviour
         }
         if(other.tag == "olla")
         {
-            chocaConOlla = true; 
-            if( estaSostenido && estaLlena)
+            if(other.GetComponent<ollaController>() != null)
             {
-                if (interaccion.WasPressedThisFrame()) {
-                    tazallenada.SetActive(false);
-                    estaLlena = false;
-                    if (queEstaLlenando == 1)
+                chocaConOlla = true;
+                if (estaSostenido && estaLlena)
+                {
+                    if (interaccion.WasPressedThisFrame())
                     {
-                        other.GetComponent<ollaController>().cantidadDeAgua++;
-                        other.GetComponent<ollaController>().cambioAnimationAgua();
+                        tazallenada.SetActive(false);
+                        estaLlena = false;
+                        if (queEstaLlenando == 1)
+                        {
+                            other.GetComponent<ollaController>().cantidadDeAgua++;
+                            other.GetComponent<ollaController>().cambioAnimationAgua();
+                        }
+                        else if (queEstaLlenando == 2)
+                        {
+                            other.GetComponent<ollaController>().cantidadDeArroz++;
+                            other.GetComponent<ollaController>().cambioAnimationArroz();
+                        }
+
                     }
-                    else if (queEstaLlenando == 2)
-                    {
-                        other.GetComponent<ollaController>().cantidadDeArroz++;
-                        other.GetComponent<ollaController>().cambioAnimationArroz();
-                    }
-                    
                 }
             }
+            
         }
     }
     public void llenarAgua()

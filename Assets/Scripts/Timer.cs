@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
 {
     public float duration = 10f; // Duración del cronómetro en segundos
     private float timer;         // Variable para contar el tiempo
+
     public AudioSource audioSource;
     [SerializeField] public static bool isRunning = false; // Variable para saber si el cronómetro está en marcha
 
@@ -41,6 +42,7 @@ public class Timer : MonoBehaviour
                 timer = 0f;
                 isRunning = false;
                 Debug.Log("El cronómetro ha terminado para " + gameObject.name);
+                
                 SceneManager.LoadScene(2);
             }
         }
