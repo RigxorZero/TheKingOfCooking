@@ -42,6 +42,7 @@ public class PuntajeManager : MonoBehaviour
         }
     }
 
+
     // Función para reiniciar los puntajes
     public static void ReiniciarPuntajes()
     {

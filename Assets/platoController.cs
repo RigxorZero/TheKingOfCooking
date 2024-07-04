@@ -32,6 +32,9 @@ public class platoController : MonoBehaviour
         }
         if (other.tag == "sarten")
         {
+            Debug.Log(other.GetComponent<sartenController>());
+           
+
             if (other.GetComponent<sartenController>().faseCompleta)
             {
                 if (interaccion.WasPressedThisFrame())

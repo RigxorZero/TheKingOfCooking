@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Timer : MonoBehaviour
 {
     public float duration = 10f; // Duración del cronómetro en segundos
     private float timer;         // Variable para contar el tiempo
     public AudioSource audioSource;
-    [SerializeField] private bool isRunning = false; // Variable para saber si el cronómetro está en marcha
+    [SerializeField] public static bool isRunning = false; // Variable para saber si el cronómetro está en marcha
 
     public TextMeshProUGUI timerText; // Referencia al TextMeshPro
 
@@ -39,6 +41,7 @@ public class Timer : MonoBehaviour
                 timer = 0f;
                 isRunning = false;
                 Debug.Log("El cronómetro ha terminado para " + gameObject.name);
+                SceneManager.LoadScene(2);
             }
         }
     }
@@ -63,7 +66,7 @@ public class Timer : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(timer / 60);
             int seconds = Mathf.FloorToInt(timer % 60);
-            timerText.text = string.Format("Tiempo restante: {0:00}:{1:00}", minutes, seconds);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 }

@@ -20,10 +20,12 @@ public class platoFinalController : MonoBehaviour
             {   
                 perfeccionArrozP1 = other.GetComponentInParent<platoController>().perfeccionArroz;
                 perfeccionCarneP1 = other.GetComponentInParent<platoController>().perfeccionCarne;
+                socreManagement.scores[0] = (perfeccionArrozP1 + perfeccionArrozP1) / 2;
             }
             else if (type == 2) {
                 perfeccionArrozP2 = other.GetComponentInParent<platoController>().perfeccionArroz;
                 perfeccionCarneP2 = other.GetComponentInParent<platoController>().perfeccionCarne;
+                socreManagement.scores[1] = (perfeccionArrozP2 + perfeccionArrozP2) / 2;
             }
             toco = true;
         }
