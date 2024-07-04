@@ -1,6 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,10 +7,10 @@ using UnityEngine.UI;
 public class cocinaController : MonoBehaviour
 {
     [SerializeField] private List<Canvas> canvases = new List<Canvas>();
-    [SerializeField] private Image[] perillas;
+    [SerializeField] private List<Image> perillas = new List<Image>();
     private Camera playerCamera;
 
-    [SerializeField] private static bool[,] nivelPerilla = new bool[2, 4]; // 2 jugadores, 4 niveles
+    private static bool[,] nivelPerilla = new bool[4, 4]; // 4 cocinas, 4 niveles
 
     private bool[] canvasActivo = new bool[2];
 
@@ -25,7 +24,7 @@ public class cocinaController : MonoBehaviour
 
     public Canvas canvasTimer;
 
-    private int valor = 0;
+    private int cocinaIndex = 0;
 
     void OnTriggerStay(Collider other)
     {
@@ -40,15 +39,17 @@ public class cocinaController : MonoBehaviour
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
                 GameObject esJugadorDos = GameObject.FindGameObjectWithTag("JugadorDosPrefab");
 
+                Debug.Log(cocinaIndex);
+
                 if (esJugadorUno != null && playerIndex == 0)
                 {
                     playerCamera = esJugadorUno.GetComponentInChildren<Camera>();
-                    ActivateCanvas(0); // Activar primer canvas en la lista
+                    ActivateCanvas(playerIndex, cocinaIndex);
                 }
                 else if (esJugadorDos != null && playerIndex == 1)
                 {
                     playerCamera = esJugadorDos.GetComponentInChildren<Camera>();
-                    ActivateCanvas(1); // Activar segundo canvas en la lista
+                    ActivateCanvas(playerIndex, cocinaIndex);
                 }
             }
         }
@@ -69,23 +70,49 @@ public class cocinaController : MonoBehaviour
 
         canvasTimer.enabled = false;
 
-        SetNivelPerilla(0, 0);
-        SetNivelPerilla(1, 0);
-
         if (gameObject.layer == 8)
         {
-            valor = 1;
+            cocinaIndex = 1;
         }
         else if (gameObject.layer == 7)
         {
-            valor = 0;
+            cocinaIndex = 0;
         }
+        else if(gameObject.layer == 9)
+        {
+            cocinaIndex = 2;
+        }
+        else if (gameObject.layer == 10)
+        {
+            cocinaIndex = 3; 
+        }
+
+        SetNivelPerilla(0, 0);
+        SetNivelPerilla(1, 0);
+        SetNivelPerilla(2, 0);
+        SetNivelPerilla(3, 0);
 
         // Desactivar todos los canvases al inicio
         foreach (var canvas in canvases)
         {
             canvas.enabled = false;
         }
+
+        // Imprimir el contenido de nivelPerilla
+        ImprimirNivelPerilla();
+    }
+
+    private void ImprimirNivelPerilla()
+    {
+        string resultado = "NivelPerilla: \n";
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                resultado += $"Cocina {i} - Nivel {j}: {(nivelPerilla[i, j] ? "Activado" : "Desactivado")}\n";
+            }
+        }
+        Debug.Log(resultado);
     }
 
     void Update()
@@ -95,14 +122,15 @@ public class cocinaController : MonoBehaviour
 
         GetNivelPerilla(0);
         GetNivelPerilla(1);
+        GetNivelPerilla(2);
+        GetNivelPerilla(3);
     }
 
     void HandlePlayerInput(int playerIndex)
     {
         if (canvasActivo[playerIndex])
         {
-
-            switch (GetNivelPerilla(valor))
+            switch (GetNivelPerilla(cocinaIndex))
             {
                 case 0:
                     perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
@@ -123,22 +151,22 @@ public class cocinaController : MonoBehaviour
             if (ArribaButtom[playerIndex].WasReleasedThisFrame()) // Arriba
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
-                SetNivelPerilla(valor, 0);
+                SetNivelPerilla(cocinaIndex, 0);
             }
             else if (AbajoButtom[playerIndex].WasPressedThisFrame()) // Abajo
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
-                SetNivelPerilla(valor, 1);
+                SetNivelPerilla(cocinaIndex, 1);
             }
             else if (DerechaButtom[playerIndex].WasPressedThisFrame()) // Derecha
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
-                SetNivelPerilla(valor, 2);
+                SetNivelPerilla(cocinaIndex, 2);
             }
             else if (IzquierdaButtom[playerIndex].IsPressed()) // Izquierda
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 90);
-                SetNivelPerilla(valor, 3);
+                SetNivelPerilla(cocinaIndex, 3);
             }
 
             if (CanvasActiveButton[playerIndex].WasPressedThisFrame() && canvasActivo[playerIndex])
@@ -153,36 +181,36 @@ public class cocinaController : MonoBehaviour
         playerCamera = null;
     }
 
-    private void SetNivelPerilla(int playerIndex, int valor)
+    private void SetNivelPerilla(int cocinaIndex, int valor)
     {
         for (int i = 0; i < 4; i++)
         {
-            nivelPerilla[playerIndex, i] = i == valor;
+            nivelPerilla[cocinaIndex, i] = i == valor;
         }
     }
 
     public void apagarCocina()
     {
-        SetNivelPerilla(valor, 0);
+        SetNivelPerilla(cocinaIndex, 0);
     }
 
-    private void ActivateCanvas(int index)
+    private void ActivateCanvas(int playerIndex, int cocinaIndex)
     {
         // Activar el canvas específico por índice
-        canvases[index].enabled = true;
-        canvases[index].renderMode = RenderMode.ScreenSpaceCamera;
-        canvases[index].worldCamera = playerCamera;
-        canvases[index].planeDistance = 1;
+        canvases[playerIndex].enabled = true;
+        canvases[playerIndex].renderMode = RenderMode.ScreenSpaceCamera;
+        canvases[playerIndex].worldCamera = playerCamera;
+        canvases[playerIndex].planeDistance = 1;
 
-        canvasActivo[index] = true;
+        canvasActivo[playerIndex] = true;
     }
 
-    int GetNivelPerilla(int playerIndex)
+    int GetNivelPerilla(int cocinaIndex)
     {
-        // Encuentra el nivel de la perilla activado para el jugador especificado
+        // Encuentra el nivel de la perilla activado para la cocina especificada
         for (int i = 0; i < 4; i++)
         {
-            if (nivelPerilla[playerIndex, i])
+            if (nivelPerilla[cocinaIndex, i])
             {
                 return i; // Retorna el índice del nivel activado
             }
@@ -192,6 +220,6 @@ public class cocinaController : MonoBehaviour
 
     public int GetIntensidadCocina()
     {
-        return GetNivelPerilla(valor);
+        return GetNivelPerilla(cocinaIndex);
     }
 }

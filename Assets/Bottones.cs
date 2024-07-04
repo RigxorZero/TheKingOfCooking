@@ -49,12 +49,16 @@ public class Bottones : MonoBehaviour
             SceneManager.LoadScene(3);
 
         }
-        else
+        else if(socreManagement.scores[0] < socreManagement.scores[1])
         {
             SceneManager.LoadScene(4);
 
 
 
+        }
+        else{
+
+            SceneManager.LoadScene(7);
         }
 
 
