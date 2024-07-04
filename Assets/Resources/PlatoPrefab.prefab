@@ -76,7 +76,23 @@ MonoBehaviour:
     m_Id: 6fe4cc4e-1007-489a-aba2-691127561291
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0370da8c-ba83-480b-bfff-ee0401226106
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaccion
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0933736d-de36-4228-8041-bde2628b690b
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaccion
+      m_Flags: 0
     m_Flags: 0
   perfeccionArroz: 0
   perfeccionCarne: 0
