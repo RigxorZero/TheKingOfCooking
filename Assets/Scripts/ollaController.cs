@@ -8,6 +8,8 @@ public class ollaController : MonoBehaviour
 {
     public GameObject[] aguaAnimation;
     public GameObject[] arrozAnimation;
+    public Material arrozCocinado;
+
     public int cantidadDeAgua; 
     public int cantidadDeArroz;
     public int cantidadDeEscencias;
@@ -73,6 +75,23 @@ public class ollaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (faseUnoCompleta)
+        {
+            if (faseDosCompleta) {
+                for (int i = 0; i < cantidadDeArroz*2; i++)
+                {
+                    arrozAnimation[i].GetComponent<MeshRenderer>().material = arrozCocinado;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < cantidadDeArroz; i++)
+                {
+                    arrozAnimation[i].GetComponent<MeshRenderer>().material = arrozCocinado;
+                }
+            }
+            
+        }
         txtArroz.text = cantidadDeArroz.ToString();
         txtAgua.text = cantidadDeAgua.ToString();
         txtEscencia.text = cantidadDeEscencias.ToString();

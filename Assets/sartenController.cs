@@ -12,7 +12,8 @@ public class sartenController : MonoBehaviour
     public bool estaSostenido;
     public bool tocacarme;
     public bool estaLleno; 
-    public GameObject carne3D; 
+
+    public GameObject carne3D;
 
     [Header("Material")]
     [SerializeField] private Material cocinado;
@@ -73,8 +74,6 @@ public class sartenController : MonoBehaviour
                     }
                 }
             }
-           
-
         }
     }
     
@@ -87,6 +86,10 @@ public class sartenController : MonoBehaviour
     }
     private void Update()
     {
+        if (faseCompleta)
+        {
+            carne3D.GetComponent<MeshRenderer>().material = cocinado;
+        }
         txtEscencia.text = cantidadDeEscencias.ToString();
         txtSal.text = cantidadDeSal.ToString();
 
