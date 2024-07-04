@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public bool sePuedeMover;
 
+    private Animator animator;
+
     // Método que se llama cuando se detecta un movimiento en el Input System
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -27,11 +29,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Método que se llama cuando se detecta la acción de golpear en el Input System
+    public void OnHit(InputAction.CallbackContext context)
+    {
+        // Solo realizar acción si el contexto es de tipo Started
+        if (context.started)
+        {
+            // Cambia el valor del booleano hitting
+            animator.SetBool("hitting", !animator.GetBool("hitting"));
+        }
+    }
+
+    // Método llamado por el AnimationEvent al final de la animación
+    public void ResetHitting()
+    {
+        animator.SetBool("hitting", false);
+    }
+
     // Método llamado antes de la primera actualización del frame
     void Start()
     {
         sePuedeMover = true;
         CantidadDePlayer.cantidadDePlayer++;
+        animator = GetComponent<Animator>();
     }
 
     // Método llamado una vez por frame

@@ -262,7 +262,7 @@ public partial class @MovePlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fa4c019b-9b6f-4c40-880f-7a36eac060fb"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
