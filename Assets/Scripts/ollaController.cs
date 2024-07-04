@@ -24,8 +24,8 @@ public class ollaController : MonoBehaviour
     [SerializeField] private cocinaController cocina;
     private bool cocinaEncontrada;
     private int intensidad;
-    private bool faseUnoCompleta;
-    private bool faseDosCompleta;
+    public bool faseUnoCompleta;
+    public bool faseDosCompleta;
     private float timerCanvas = 60f;
 
     [SerializeField] private Image Circulo;
@@ -40,8 +40,8 @@ public class ollaController : MonoBehaviour
     private const float TIEMPO_TOTAL_FASE2 = 60f;
     private const float TIEMPO_CRITICO = 20f;
 
-    private float perfeccionFaseUno;
-    private float perfeccionFaseDos;
+    public float perfeccionFaseUno;
+    public float perfeccionFaseDos;
 
     void Start()
     {
