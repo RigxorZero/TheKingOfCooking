@@ -78,8 +78,18 @@ public class ollaController : MonoBehaviour
         if (faseUnoCompleta)
         {
             if (faseDosCompleta) {
-                for (int i = 0; i < cantidadDeArroz*2; i++)
+                int cantidad;
+                if(cantidadDeArroz * 2 > arrozAnimation.Length)
                 {
+                    cantidad = arrozAnimation.Length;
+                }
+                else
+                {
+                    cantidad = cantidadDeArroz * 2;
+                }
+                for (int i = 0; i < (cantidad); i++)
+                {
+                    arrozAnimation[i].SetActive(true);
                     arrozAnimation[i].GetComponent<MeshRenderer>().material = arrozCocinado;
                 }
             }

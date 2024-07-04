@@ -174,6 +174,7 @@ public class sartenController : MonoBehaviour
                     {
                         cocina.apagarCocina();
                         perfeccion = CalcularPerfeccion(1);
+                        faseCompleta = true;
 
                         canvas.enabled = false;
                     }
