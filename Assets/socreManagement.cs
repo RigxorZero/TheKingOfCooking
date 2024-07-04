@@ -5,7 +5,7 @@ using UnityEngine;
 public class socreManagement : MonoBehaviour
 {
     // Start is called before the first frame update
-    static public float[] scores = new float[2] { 1, 2 };
+    static public float[] scores = new float[2] { 0, 0 };
     void Start()
     {
         
