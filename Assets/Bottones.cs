@@ -8,7 +8,7 @@ public class Bottones : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
+    public AudioSource myMusic;
     void Start()
     {
         
@@ -23,7 +23,10 @@ public class Bottones : MonoBehaviour
 
     public void OnIniciar()
     {
+        Destroy(myMusic);
         SceneManager.LoadScene(1);
+       
+       
     }
 
     public void OnControles()
@@ -33,7 +36,9 @@ public class Bottones : MonoBehaviour
 
     public void OnMenu()
     {
+        Destroy(myMusic);
         SceneManager.LoadScene(0);
+       
     }
 
     public void onFinal()
@@ -49,11 +54,12 @@ public class Bottones : MonoBehaviour
             SceneManager.LoadScene(4);
 
 
-            socreManagement.scores[0] = 0;
-            socreManagement.scores[0] = 0;
-
 
         }
+
+
+        socreManagement.scores[0] = 0;
+        socreManagement.scores[0] = 0;
     }
 
 
