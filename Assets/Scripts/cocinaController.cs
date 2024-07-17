@@ -16,6 +16,8 @@ public class cocinaController : MonoBehaviour
 
     private Collider player;
 
+    private PlayerController playerController;
+
     public InputAction[] CanvasActiveButton = new InputAction[2]; // Botones de activación para dos jugadores
     public InputAction[] ArribaButtom = new InputAction[2]; // Botones para manipular la perilla
     public InputAction[] AbajoButtom = new InputAction[2];
@@ -44,11 +46,13 @@ public class cocinaController : MonoBehaviour
                 if (esJugadorUno != null && playerIndex == 0)
                 {
                     playerCamera = esJugadorUno.GetComponentInChildren<Camera>();
+                    playerController = esJugadorUno.GetComponent<PlayerController>();
                     ActivateCanvas(playerIndex, cocinaIndex);
                 }
                 else if (esJugadorDos != null && playerIndex == 1)
                 {
                     playerCamera = esJugadorDos.GetComponentInChildren<Camera>();
+                    playerController = esJugadorDos.GetComponent<PlayerController>();
                     ActivateCanvas(playerIndex, cocinaIndex);
                 }
             }
@@ -175,6 +179,7 @@ public class cocinaController : MonoBehaviour
                 canvasActivo[playerIndex] = false;
                 canvases[playerIndex].enabled = false;
                 canvases[playerIndex].worldCamera = null;
+                playerController.sePuedeMover = true;
             }
         }
 
@@ -201,7 +206,7 @@ public class cocinaController : MonoBehaviour
         canvases[playerIndex].renderMode = RenderMode.ScreenSpaceCamera;
         canvases[playerIndex].worldCamera = playerCamera;
         canvases[playerIndex].planeDistance = 1;
-
+        playerController.sePuedeMover = false;
         canvasActivo[playerIndex] = true;
     }
 
