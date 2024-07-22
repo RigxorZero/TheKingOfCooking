@@ -41,7 +41,7 @@ public class CameraDestroy : MonoBehaviour
             // Modifica el jugador instanciado
             player.name = "JugadorUno";
             player.tag = "JugadorUno";
-
+            ReferenciaPlayer.player1 = player;
             playerOneIsCreated = true;
 
         }
@@ -59,7 +59,7 @@ public class CameraDestroy : MonoBehaviour
             // Modifica el jugador instanciado
             player.name = "JugadorDos";
             player.tag = "JugadorDos";
-
+            ReferenciaPlayer.player2 = player;
 
             // Desactiva la cámara si está configurada
             if (cameraDefault != null)

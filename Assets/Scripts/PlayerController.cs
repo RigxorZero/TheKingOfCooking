@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             movePlayer();
         }
-        sePuedeMover = CantidadDePlayer.sepuedemover;
+        //sePuedeMover = CantidadDePlayer.sepuedemover;
     }
 
     // Método que maneja el movimiento del jugador

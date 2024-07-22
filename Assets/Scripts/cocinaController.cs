@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class cocinaController : MonoBehaviour
@@ -14,9 +15,9 @@ public class cocinaController : MonoBehaviour
 
     private bool[] canvasActivo = new bool[2];
 
-    private Collider player;
 
     private PlayerController playerController;
+    public GameObject player; 
 
     public InputAction[] CanvasActiveButton = new InputAction[2]; // Botones de activación para dos jugadores
     public InputAction[] ArribaButtom = new InputAction[2]; // Botones para manipular la perilla
@@ -32,12 +33,11 @@ public class cocinaController : MonoBehaviour
     {
         if (other.tag == "PlayerInteractionZone")
         {
+            player = other.gameObject;
             int playerIndex = other.GetComponentInParent<PlayerInput>().playerIndex;
             if (CanvasActiveButton[playerIndex].WasPressedThisFrame())
             {
-                other.GetComponentInParent<PlayerController>().sePuedeMover = false;
-                player = other;
-
+                player.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
                 GameObject esJugadorDos = GameObject.FindGameObjectWithTag("JugadorDosPrefab");
 
@@ -175,11 +175,10 @@ public class cocinaController : MonoBehaviour
 
             if (CanvasActiveButton[playerIndex].WasPressedThisFrame() && canvasActivo[playerIndex])
             {
-                player.GetComponentInParent<PlayerController>().sePuedeMover = true;
                 canvasActivo[playerIndex] = false;
                 canvases[playerIndex].enabled = false;
                 canvases[playerIndex].worldCamera = null;
-                playerController.sePuedeMover = true;
+                player.GetComponentInParent<PlayerController>().sePuedeMover = true;
             }
         }
 
@@ -206,7 +205,6 @@ public class cocinaController : MonoBehaviour
         canvases[playerIndex].renderMode = RenderMode.ScreenSpaceCamera;
         canvases[playerIndex].worldCamera = playerCamera;
         canvases[playerIndex].planeDistance = 1;
-        playerController.sePuedeMover = false;
         canvasActivo[playerIndex] = true;
     }
 
