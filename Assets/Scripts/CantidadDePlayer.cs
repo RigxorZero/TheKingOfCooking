@@ -14,6 +14,7 @@ public class CantidadDePlayer : MonoBehaviour
     public Image Receta;
     public TextMeshProUGUI textPlayer1;
     public TextMeshProUGUI textPlayer2;
+    public bool estutorial = false;
 
     private void OnDisable()
     {
@@ -28,16 +29,20 @@ public class CantidadDePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cantidadDePlayer == 1)
-        {
-            player1.enabled = false;
-            textPlayer1.enabled = false;
+        if (!estutorial) {
+            if (cantidadDePlayer == 1)
+            {
+                player1.enabled = false;
+                textPlayer1.enabled = false;
+            }
+            else if (cantidadDePlayer == 2)
+            {
+                player2.enabled = false;
+                textPlayer2.enabled = false;
+                Receta.enabled = false;
+                sepuedemover = true;
+            }
         }
-        else if (cantidadDePlayer == 2) { 
-            player2.enabled = false;
-            textPlayer2.enabled = false;
-            Receta.enabled = false;
-            sepuedemover = true;
-        }
+        
     }
 }
