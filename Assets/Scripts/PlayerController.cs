@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    public bool seMovio = false; 
+
     // Método que se llama cuando se detecta un movimiento en el Input System
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour
         // Si el vector de movimiento no es cero (es decir, hay entrada del usuario)
         if (movement != Vector3.zero)
         {
+            seMovio = true;
             // Rotar suavemente al jugador en la dirección del movimiento
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
             // Mueve al jugador en la dirección del movimiento multiplicado por la velocidad y el tiempo entre frames

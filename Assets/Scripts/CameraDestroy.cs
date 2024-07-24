@@ -10,6 +10,7 @@ public class CameraDestroy : MonoBehaviour
     [SerializeField] private Camera cameraDefault;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject player;
+    [SerializeField] private bool isTutorial = false; // Variable para determinar si es tutorial
     private bool playerOneIsCreated = false;
 
     public GameObject spawnUno;
@@ -20,7 +21,7 @@ public class CameraDestroy : MonoBehaviour
     void Start()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        // Registra el evento de unión de jugadores
+        // Registra el evento de uniï¿½n de jugadores
         playerInputManager.onPlayerJoined += OnPlayerJoined;
         // Modifica el prefab instanciado para el primer jugador
         playerInputManager.playerPrefab.name = "JugadorUnoPrefab";
@@ -38,22 +39,20 @@ public class CameraDestroy : MonoBehaviour
             // Modifica el prefab instanciado para el primer jugador
             playerInputManager.playerPrefab.name = "JugadorUnoPrefab";
             playerInputManager.playerPrefab.tag = "JugadorUnoPrefab";
-            // Establece la posición y rotación del jugador en el punto de spawnUno
+            // Establece la posiciï¿½n y rotaciï¿½n del jugador en el punto de spawnUno
             player.transform.position = spawnUno.transform.position;
             player.transform.rotation = spawnUno.transform.rotation;
-
 
             // Modifica el jugador instanciado
             player.name = "JugadorUno";
             player.tag = "JugadorUno";
             ReferenciaPlayer.player1 = player;
             playerOneIsCreated = true;
-
         }
         if (currentScene == "Tutorial 1 jugador")
         {
             Timer.isRunning = true;
-            // Desactiva la cámara si está configurada
+            // Desactiva la cï¿½mara si estï¿½ configurada
             if (cameraDefault != null)
             {
                 cameraDefault.enabled = false;
@@ -66,7 +65,7 @@ public class CameraDestroy : MonoBehaviour
             playerInput.SwitchCurrentActionMap("Player2");
             player = playerInput.gameObject;
 
-            // Establece la posición y rotación del jugador en el punto de spawnDos
+            // Establece la posiciï¿½n y rotaciï¿½n del jugador en el punto de spawnDos
             player.transform.position = spawnDos.transform.position;
             player.transform.rotation = spawnDos.transform.rotation;
 
@@ -75,7 +74,7 @@ public class CameraDestroy : MonoBehaviour
             player.tag = "JugadorDos";
             ReferenciaPlayer.player2 = player;
 
-            // Desactiva la cámara si está configurada
+            // Desactiva la cï¿½mara si estï¿½ configurada
             if (cameraDefault != null)
             {
                 cameraDefault.enabled = false;

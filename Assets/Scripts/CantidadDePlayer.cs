@@ -15,6 +15,7 @@ public class CantidadDePlayer : MonoBehaviour
     public Image Receta;
     public TextMeshProUGUI textPlayer1;
     public TextMeshProUGUI textPlayer2;
+    public bool estutorial = false;
 
     private void OnDisable()
     {
@@ -61,7 +62,6 @@ public class CantidadDePlayer : MonoBehaviour
                 sepuedemover = true;
             }
         }
-
         
     }
 }
