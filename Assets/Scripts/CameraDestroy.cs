@@ -10,7 +10,6 @@ public class CameraDestroy : MonoBehaviour
     [SerializeField] private Camera cameraDefault;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject player;
-    [SerializeField] private bool isTutorial = false; // Variable para determinar si es tutorial
     private bool playerOneIsCreated = false;
 
     public GameObject spawnUno;

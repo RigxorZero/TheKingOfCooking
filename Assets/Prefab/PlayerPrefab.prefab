@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   sePuedeMover: 0
+  seMovio: 0
 --- !u!114 &4632945198827660929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10b05be488090244bb577c9c90fe244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esTutorial: 0
 --- !u!1 &3708190240850743498
 GameObject:
   m_ObjectHideFlags: 0

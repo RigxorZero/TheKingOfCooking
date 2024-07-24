@@ -1584,7 +1584,6 @@ MonoBehaviour:
   cameraDefault: {fileID: 1798178927}
   playerCamera: {fileID: 0}
   player: {fileID: 0}
-  isTutorial: 1
   spawnUno: {fileID: 1906403705}
   spawnDos: {fileID: 133437552}
 --- !u!1 &371599282
@@ -1833,7 +1832,7 @@ Transform:
   m_GameObject: {fileID: 408900773}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015454305, y: -0.707107, z: 0.000000015454315, w: 0.7071066}
-  m_LocalPosition: {x: -0.44, y: 1.27, z: -0.04}
+  m_LocalPosition: {x: -0.44, y: 0.88, z: -0.04}
   m_LocalScale: {x: 2.3, y: 1.1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1901,7 +1900,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1934,7 +1933,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1967,7 +1966,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2000,7 +1999,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2056,8 +2055,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6770062, y: 1.5, z: 3.0832243}
-  m_Center: {x: 0.00000019860164, y: 1.3825128e-15, z: 0.09345612}
+  m_Size: {x: 0.69336164, y: 1.5, z: 3.0832243}
+  m_Center: {x: -0.030486869, y: 9.968214e-16, z: 0.09345608}
 --- !u!1 &431962586 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3d325c7af1f5834ea963cee0aeaa66a, type: 3}
@@ -6292,7 +6291,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6325,7 +6324,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6358,7 +6357,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6391,7 +6390,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 

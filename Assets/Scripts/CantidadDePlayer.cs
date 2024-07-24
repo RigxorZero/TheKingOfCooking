@@ -39,11 +39,6 @@ public class CantidadDePlayer : MonoBehaviour
         {
             if (cantidadDePlayer == 1)
             {
-                player1.enabled = false;
-                textPlayer1.enabled = false;
-                player2.enabled = false;
-                textPlayer2.enabled = false;
-                Receta.enabled = false;
                 sepuedemover = true;
             }
         }

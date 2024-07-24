@@ -35,13 +35,12 @@ public class cocinaController : MonoBehaviour
         {
             player = other.gameObject;
             int playerIndex = other.GetComponentInParent<PlayerInput>().playerIndex;
-            if (CanvasActiveButton[playerIndex].WasPressedThisFrame())
+            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame())
             {
+                Debug.Log("C button was released");
                 player.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
                 GameObject esJugadorDos = GameObject.FindGameObjectWithTag("JugadorDosPrefab");
-
-                Debug.Log(cocinaIndex);
 
                 if (esJugadorUno != null && playerIndex == 0)
                 {
@@ -56,6 +55,14 @@ public class cocinaController : MonoBehaviour
                     ActivateCanvas(playerIndex, cocinaIndex);
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other != null)
+        {
+            player = null;
         }
     }
 
@@ -116,7 +123,6 @@ public class cocinaController : MonoBehaviour
                 resultado += $"Cocina {i} - Nivel {j}: {(nivelPerilla[i, j] ? "Activado" : "Desactivado")}\n";
             }
         }
-        Debug.Log(resultado);
     }
 
     void Update()
@@ -157,23 +163,23 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
                 SetNivelPerilla(cocinaIndex, 0);
             }
-            else if (AbajoButtom[playerIndex].WasPressedThisFrame()) // Abajo
+            else if (AbajoButtom[playerIndex].WasReleasedThisFrame()) // Abajo
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
                 SetNivelPerilla(cocinaIndex, 1);
             }
-            else if (DerechaButtom[playerIndex].WasPressedThisFrame()) // Derecha
+            else if (DerechaButtom[playerIndex].WasReleasedThisFrame()) // Derecha
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
                 SetNivelPerilla(cocinaIndex, 2);
             }
-            else if (IzquierdaButtom[playerIndex].IsPressed()) // Izquierda
+            else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame()) // Izquierda
             {
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 90);
                 SetNivelPerilla(cocinaIndex, 3);
             }
 
-            if (CanvasActiveButton[playerIndex].WasPressedThisFrame() && canvasActivo[playerIndex])
+            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && canvasActivo[playerIndex])
             {
                 canvasActivo[playerIndex] = false;
                 canvases[playerIndex].enabled = false;
