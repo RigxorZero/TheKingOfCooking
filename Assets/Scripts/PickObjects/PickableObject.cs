@@ -31,6 +31,7 @@ public class PickableObject : MonoBehaviour
         if (other.tag == "MesaInteractiveZone" && isPickeable)
         {
             if (other.GetComponent<mesaInteractiva>().type == type) {
+                
                 drop = true;
                 Vector3 position = other.transform.position;
                 position += new Vector3(0, -0.1f, 0);
@@ -38,6 +39,10 @@ public class PickableObject : MonoBehaviour
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 this.transform.SetParent(other.transform);
                 this.GetComponent<Rigidbody>().isKinematic = true;
+                if (type == 2)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().dejoOlla = true;
+                }       
             }
         }
         if (other.tag == "ObjectInteractionZone" && isPickeable)
