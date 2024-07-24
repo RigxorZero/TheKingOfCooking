@@ -1,6 +1,8 @@
 using System;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CameraDestroy : MonoBehaviour
 {
@@ -13,8 +15,11 @@ public class CameraDestroy : MonoBehaviour
     public GameObject spawnUno;
     public GameObject spawnDos;
 
+    private string currentScene;
+
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene().name;
         // Registra el evento de unión de jugadores
         playerInputManager.onPlayerJoined += OnPlayerJoined;
         // Modifica el prefab instanciado para el primer jugador
@@ -45,9 +50,18 @@ public class CameraDestroy : MonoBehaviour
             playerOneIsCreated = true;
 
         }
+        if (currentScene == "Tutorial 1 jugador")
+        {
+            Timer.isRunning = true;
+            // Desactiva la cámara si está configurada
+            if (cameraDefault != null)
+            {
+                cameraDefault.enabled = false;
+            }
+        }
         else if (playerInputManager.playerCount >= 2 && playerInput.playerIndex == 1 && playerOneIsCreated)
         {
-            Timer.isRunning = true; 
+            Timer.isRunning = true;
             // Cambia el mapa de acciones del segundo jugador a "Player2"
             playerInput.SwitchCurrentActionMap("Player2");
             player = playerInput.gameObject;

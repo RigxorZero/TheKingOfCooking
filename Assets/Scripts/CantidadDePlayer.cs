@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CantidadDePlayer : MonoBehaviour
@@ -28,16 +29,39 @@ public class CantidadDePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cantidadDePlayer == 1)
+
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Compara el nombre de la escena actual
+        if (currentSceneName == "Tutorial 1 jugador")
         {
-            player1.enabled = false;
-            textPlayer1.enabled = false;
+            if (cantidadDePlayer == 1)
+            {
+                player1.enabled = false;
+                textPlayer1.enabled = false;
+                player2.enabled = false;
+                textPlayer2.enabled = false;
+                Receta.enabled = false;
+                sepuedemover = true;
+            }
         }
-        else if (cantidadDePlayer == 2) { 
-            player2.enabled = false;
-            textPlayer2.enabled = false;
-            Receta.enabled = false;
-            sepuedemover = true;
+        else
+        {
+            if (cantidadDePlayer == 1)
+            {
+                player1.enabled = false;
+                textPlayer1.enabled = false;
+            }
+            else if (cantidadDePlayer == 2)
+            {
+                player2.enabled = false;
+                textPlayer2.enabled = false;
+                Receta.enabled = false;
+                sepuedemover = true;
+            }
         }
+
+        
     }
 }

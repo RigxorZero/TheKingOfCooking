@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 2
+  m_MaxPlayerCount: 1
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
@@ -1852,10 +1852,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvases:
   - {fileID: 1302638806}
-  - {fileID: 0}
+  - {fileID: 1302638806}
   perillas:
   - {fileID: 1898044442}
   - {fileID: 0}
+  player: {fileID: 0}
   CanvasActiveButton:
   - m_Name: Element 0
     m_Type: 1
@@ -6664,10 +6665,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvases:
   - {fileID: 1302638806}
-  - {fileID: 0}
+  - {fileID: 1302638806}
   perillas:
   - {fileID: 1898044442}
   - {fileID: 0}
+  player: {fileID: 0}
   CanvasActiveButton:
   - m_Name: Element 0
     m_Type: 1
