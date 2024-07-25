@@ -26,12 +26,12 @@ public class playerTutorial : MonoBehaviour
     public bool tomarSal = false; //se comprueba en PickUpObject
     public bool echarSal = false; //se comprueba en salController
     public bool echarEscencia = false; //se comprueba en escenciaController
-    public bool arrozlisto2 = false;
-    public bool golpe = false; 
-    public bool tomarPlato = false;
-    public bool servirArroz = false;
-    public bool servirCarne = false;
-    public bool platoListo = false; 
+    public bool arrozlisto2 = false; // un timer que se comprueba aca
+    public bool golpe = false;  // se comprueba en hit colllider
+    public bool tomarPlato = false; //se comprueba en PickUpObject
+    public bool servirArroz = false; // se comprueba en platoController
+    public bool servirCarne = false; //se comprueba en platoController
+    public bool platoListo = false; //se comprueba en platoFinalController
 
     public bool timerActivo = false;
     public bool cambioTimer = false;
@@ -56,7 +56,17 @@ public class playerTutorial : MonoBehaviour
         {
             if (timerActivo)
             {
-                arrozListo = true;
+                if (arrozListo)
+                {
+                    arrozlisto2 = true;
+                }
+                else
+                {
+                    arrozListo = true;
+                    timerActivo = false;
+                    cambioTimer = false;
+
+                }
             }
         }
         
@@ -298,7 +308,7 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if(agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && aguaEnLaOlla == false && tomarSal == false && echarSal == false && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            if(agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && aguaEnLaOlla == false && tomarSal == false && echarSal == false && echarEscencia == false && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 13;
 
@@ -323,7 +333,7 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if (cambioTemperatura2 && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && aguaEnLaOlla == false && tomarSal == false && echarSal == false && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            if (cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarSal == false && echarSal == false && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 15;
 
@@ -334,7 +344,7 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if (tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarSal == false && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            if (tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarSal == false && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 16;
                 
@@ -345,7 +355,7 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if(echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            if(echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 17;
 
@@ -355,15 +365,53 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if(echarEscencia && echarSal && tomarSal && cambioTemperatura2  && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            if(echarEscencia && echarSal && tomarSal && cambioTemperatura2  && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1  && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 18;
+                timerActivo = true;
 
+                
                 tomarPlato = false;
                 servirArroz = false;
                 servirCarne = false;
                 platoListo = false;
             }
+            if(arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1  && servirArroz == false && servirCarne == false && platoListo == false)
+            {
+                canvasTutorial.index = 19;
+                tomarPlato = false;
+                servirArroz = false;
+                servirCarne = false;
+                platoListo = false;
+            }
+            if(golpe && arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && servirArroz == false && servirCarne == false && platoListo == false)
+            {
+                canvasTutorial.index = 20;
+                tomarPlato = false;
+                servirArroz = false;
+                servirCarne = false;
+                platoListo = false;
+            }
+            if(tomarPlato && golpe && arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && servirArroz == false && servirCarne == false && platoListo == false)
+            {
+                canvasTutorial.index = 21;
+
+                servirArroz = false;
+                servirCarne = false;
+                platoListo = false;
+            }
+            if(servirArroz && tomarPlato && golpe && arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && servirCarne == false && platoListo == false)
+            {
+                canvasTutorial.index = 22;
+
+                servirCarne = false;
+                platoListo = false;
+            }
+            if(servirCarne && servirArroz && tomarPlato && golpe && arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && platoListo == false)
+            {
+                canvasTutorial.index = 23;
+            }
+            
         }
     }
 }

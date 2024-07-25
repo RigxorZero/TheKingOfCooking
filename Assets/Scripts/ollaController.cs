@@ -234,6 +234,7 @@ public class ollaController : MonoBehaviour
                     }
                     else if (timerFaseDos >= TIEMPO_TOTAL_FASE2)
                     {
+                        
                         cocina.apagarCocina();
                         perfeccionFaseDos = CalcularPerfeccion(2);
                         faseDosCompleta = true;

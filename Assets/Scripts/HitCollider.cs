@@ -29,12 +29,27 @@ public class HitCollider : MonoBehaviour
             {
                 StartCoroutine(StunPlayer(otherPlayer));
             }
+        }else if (other.CompareTag("bot"))
+        {
+            botMove otherBot = other.GetComponent<botMove>();
+            if (otherBot != null)
+            {
+                StartCoroutine(StunBot(otherBot));
+            }
         }
     }
 
     private IEnumerator StunPlayer(PlayerController player)
     {
         player.sePuedeMover = false;
+        yield return new WaitForSeconds(1.0f);
+        player.sePuedeMover = true;
+    }
+
+    private IEnumerator StunBot(botMove player)
+    {
+        player.sePuedeMover = false;
+        ReferenciaPlayer.player1.GetComponent<playerTutorial>().golpe = true;
         yield return new WaitForSeconds(1.0f);
         player.sePuedeMover = true;
     }

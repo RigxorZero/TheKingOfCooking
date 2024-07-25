@@ -14,7 +14,19 @@ public class escenciaController : MonoBehaviour
             if (other.tag == "olla")
             {
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarEscencia = true;
-                other.GetComponent<ollaController>().cantidadDeEscencias++;
+
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().golpe = false;
+
+                if (!ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoActual = ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoEntreCambio;
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer = true;
+                }
+                if(other.GetComponent<ollaController>() != null)
+                {
+                    other.GetComponent<ollaController>().cantidadDeEscencias++;
+
+                }
             }
             if (other.tag == "sarten")
             {

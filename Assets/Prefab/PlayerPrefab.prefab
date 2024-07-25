@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4435896827471262543}
   - component: {fileID: 1863355012684072790}
   - component: {fileID: 5069906574208216572}
-  - component: {fileID: 5181890860339385291}
+  - component: {fileID: 6927379011107221215}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -331,7 +331,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5181890860339385291
+--- !u!114 &6927379011107221215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,9 +344,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   esTutorial: 0
-  mostroReceta: 0
-  dejoOlla: 0
   fase1: 0
+  mostroReceta: 0
+  tomoOlla: 0
+  botarBasura: 0
+  dejoOlla: 0
+  tomarTaza: 0
+  llenarTazaArroz: 0
+  dejarArrozEnOlla: 0
+  abrirCocina: 0
+  cambiarTemperatura: 0
+  cerrarCocina: 0
+  arrozListo: 0
+  agualista: 0
+  aguaEnLaOlla: 0
+  cambioTemperatura2: 0
+  tomarSal: 0
+  echarSal: 0
+  echarEscencia: 0
+  arrozlisto2: 0
+  golpe: 0
+  tomarPlato: 0
+  servirArroz: 0
+  servirCarne: 0
+  platoListo: 0
+  timerActivo: 0
+  cambioTimer: 0
+  tiempoActual: 0
+  tiempoEntreCambio: 0
 --- !u!1 &3708190240850743498
 GameObject:
   m_ObjectHideFlags: 0
