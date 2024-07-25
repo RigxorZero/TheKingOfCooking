@@ -40,7 +40,7 @@ public class CantidadDePlayer : MonoBehaviour
             if (cantidadDePlayer == 1)
             {
                 sepuedemover = true;
-                Receta.enabled = false;
+                //Receta.enabled = false;
             }
         }
         else
