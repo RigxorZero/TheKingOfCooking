@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,18 +53,31 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        sePuedeMover = true;
         CantidadDePlayer.cantidadDePlayer++;
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (currentSceneName == "SampleScene 1")
+        {
+            sePuedeMover = false;
+        }
+        else
+        {
+            sePuedeMover = true;
+        }
+
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (sePuedeMover)
+        if (sePuedeMover && CantidadDePlayer.sepuedemover)
         {
             movePlayer();
         }
     }
+
+
 
     public void movePlayer()
     {

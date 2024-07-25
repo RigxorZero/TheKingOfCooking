@@ -16,17 +16,29 @@ public class CantidadDePlayer : MonoBehaviour
     public TextMeshProUGUI textPlayer1;
     public TextMeshProUGUI textPlayer2;
     public bool estutorial = false;
-    public bool ready = false;
+    public static bool ready = false;
 
     private void OnDisable()
     {
         cantidadDePlayer = 0;
         ready = false;
+        sepuedemover = false;
     }
 
     void Start()
     {
-        
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Compara el nombre de la escena actual
+        if (currentSceneName == "Tutorial 1 jugador")
+        {
+            estutorial = true;
+        }
+
+        if(currentSceneName == "SampleScene 1")
+        {
+            sepuedemover = false;
+        }
     }
 
     // Update is called once per frame
@@ -37,7 +49,7 @@ public class CantidadDePlayer : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         // Compara el nombre de la escena actual
-        if (currentSceneName == "Tutorial 1 jugador")
+        if (currentSceneName == "Tutorial 1 jugador" && estutorial)
         {
             if (cantidadDePlayer == 1 && !ready)
             {
