@@ -52,9 +52,14 @@ public class tazaController : MonoBehaviour
                         {
                             other.GetComponent<ollaController>().cantidadDeAgua++;
                             other.GetComponent<ollaController>().cambioAnimationAgua();
+                            if(other.GetComponent<ollaController>().cantidadDeAgua == 2)
+                            {
+                                ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla = true;
+                            }
                         }
                         else if (queEstaLlenando == 2)
                         {
+                            ReferenciaPlayer.player1.GetComponent<playerTutorial>().dejarArrozEnOlla = true;
                             other.GetComponent<ollaController>().cantidadDeArroz++;
                             other.GetComponent<ollaController>().cambioAnimationArroz();
                         }
@@ -78,6 +83,7 @@ public class tazaController : MonoBehaviour
         queEstaLlenando = 2; 
         tazallenada.SetActive(true);
         estaLlena = true;
+        ReferenciaPlayer.player1.GetComponent<playerTutorial>().llenarTazaArroz = true;
     }
     void Start()
     {

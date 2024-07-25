@@ -13,6 +13,7 @@ public class escenciaController : MonoBehaviour
         {
             if (other.tag == "olla")
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarEscencia = true;
                 other.GetComponent<ollaController>().cantidadDeEscencias++;
             }
             if (other.tag == "sarten")

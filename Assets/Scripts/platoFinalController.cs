@@ -17,7 +17,8 @@ public class platoFinalController : MonoBehaviour
         if(other.tag == "plato")
         {
             if (type == 1)
-            {   
+            {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().platoListo = true;
                 perfeccionArrozP1 = other.GetComponentInParent<platoController>().perfeccionArroz;
                 perfeccionCarneP1 = other.GetComponentInParent<platoController>().perfeccionCarne;
                 socreManagement.scores[0] = (perfeccionArrozP1 + perfeccionCarneP1) / 2;

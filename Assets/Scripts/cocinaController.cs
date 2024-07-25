@@ -160,27 +160,55 @@ public class cocinaController : MonoBehaviour
 
             if (ArribaButtom[playerIndex].WasReleasedThisFrame()) // Arriba
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
+                if(ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
+                }
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
                 SetNivelPerilla(cocinaIndex, 0);
             }
             else if (AbajoButtom[playerIndex].WasReleasedThisFrame()) // Abajo
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
+                if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
+                }
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
                 SetNivelPerilla(cocinaIndex, 1);
             }
             else if (DerechaButtom[playerIndex].WasReleasedThisFrame()) // Derecha
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
+                if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
+                }
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
                 SetNivelPerilla(cocinaIndex, 2);
             }
             else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame()) // Izquierda
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
+                if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
+                }
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 90);
                 SetNivelPerilla(cocinaIndex, 3);
             }
 
             if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && canvasActivo[playerIndex])
             {
+                //tutorial
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().cerrarCocina = true;
+                if (!ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer)
+                {
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoActual = ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoEntreCambio;
+                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer = true;
+                }
+
                 canvasActivo[playerIndex] = false;
                 canvases[playerIndex].enabled = false;
                 canvases[playerIndex].worldCamera = null;
@@ -207,6 +235,7 @@ public class cocinaController : MonoBehaviour
     private void ActivateCanvas(int playerIndex, int cocinaIndex)
     {
         // Activar el canvas específico por índice
+        ReferenciaPlayer.player1.GetComponent<playerTutorial>().abrirCocina = true;
         canvases[playerIndex].enabled = true;
         canvases[playerIndex].renderMode = RenderMode.ScreenSpaceCamera;
         canvases[playerIndex].worldCamera = playerCamera;

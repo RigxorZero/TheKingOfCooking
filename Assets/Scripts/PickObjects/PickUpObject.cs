@@ -88,12 +88,17 @@ public class PickUpObject : MonoBehaviour
 
         PickedObject.GetComponent<Rigidbody>().useGravity = false;
         PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+        if(objectToPick.tag == "olla")
+        {
+            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomoOlla = true;
+        }
         if (objectToPick.tag == "sarten")
         {
             PickedObject.GetComponent<sartenController>().estaSostenido = true;
         }
         if (objectToPick.tag == "taza") { 
             objectToPick.GetComponent<tazaController>().estaSostenido = true;
+            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = true; 
         }
         if(objectToPick.tag == "escencia")
         {
@@ -101,7 +106,12 @@ public class PickUpObject : MonoBehaviour
         }
         if (objectToPick.tag == "sal")
         {
+            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarSal = true;
             objectToPick.GetComponent<salController>().estaSostenido = true;
+        }
+        if( objectToPick.tag == "plato")
+        {
+            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarPlato = true;
         }
 
     }

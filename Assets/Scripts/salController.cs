@@ -14,6 +14,7 @@ public class salController : MonoBehaviour
         {
             if (other.tag == "olla")
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarSal = true;
                 other.GetComponent<ollaController>().cantidadDeSal++;
             }
             if (other.tag == "sarten")

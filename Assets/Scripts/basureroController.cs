@@ -12,6 +12,7 @@ public class basureroController : MonoBehaviour
         {
             if (other.GetComponentInParent<PickableObject>().sostenido)
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().botarBasura = true; 
                 Destroy(other.gameObject);
             }
         }

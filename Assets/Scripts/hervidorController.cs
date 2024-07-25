@@ -46,6 +46,7 @@ public class hervidorController : MonoBehaviour
         {
             if (presiono)
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().agualista = true;
                 aguaLista = true; 
                 presiono = false;
             }

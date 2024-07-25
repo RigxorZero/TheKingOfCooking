@@ -18,6 +18,7 @@ public class PickableObject : MonoBehaviour
             eliminado = true;
             if (sostenido)
             {
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().botarBasura = true;
                 Destroy(gameObject);
 
             }
