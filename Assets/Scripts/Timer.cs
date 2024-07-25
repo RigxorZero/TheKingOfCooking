@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
 
     public TextMeshProUGUI timerText; // Referencia al TextMeshPro
 
+    public bool estutorial = false;
 
     void Start()
     {
@@ -25,6 +26,11 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (estutorial) {
+            timer = 0f;
+            isRunning = false;
+            timerText.text = "INFINITO";
+        }
         if (isRunning)
         {
             // Reducir el cronómetro con el tiempo transcurrido
