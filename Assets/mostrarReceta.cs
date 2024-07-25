@@ -8,7 +8,7 @@ public class mostrarReceta : MonoBehaviour
 {
     // Start is called before the first frame update}}
     public InputAction interaccion;
-    public Image receta;
+    public GameObject receta;
     public bool estaActiva = false;
     void Start()
     {
@@ -22,13 +22,14 @@ public class mostrarReceta : MonoBehaviour
             {
                 if (estaActiva)
                 {
-                    receta.enabled = false;
+                    GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
+                    receta.SetActive(false);
                     other.GetComponentInParent<PlayerController>().sePuedeMover = true;
                     estaActiva = false;
                 }
                 else
                 {
-                    receta.enabled = true;
+                    receta.SetActive(true);
                     other.GetComponentInParent<PlayerController>().sePuedeMover = false;
                     estaActiva = true;
                     other.GetComponentInParent<playerTutorial>().mostroReceta = true;

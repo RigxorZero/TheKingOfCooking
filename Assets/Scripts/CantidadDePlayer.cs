@@ -12,14 +12,16 @@ public class CantidadDePlayer : MonoBehaviour
     public static bool sepuedemover;
     public Image player1;
     public Image player2;
-    public Image Receta;
+    public GameObject Receta;
     public TextMeshProUGUI textPlayer1;
     public TextMeshProUGUI textPlayer2;
     public bool estutorial = false;
+    public bool ready = false;
 
     private void OnDisable()
     {
         cantidadDePlayer = 0;
+        ready = false;
     }
 
     void Start()
@@ -37,10 +39,11 @@ public class CantidadDePlayer : MonoBehaviour
         // Compara el nombre de la escena actual
         if (currentSceneName == "Tutorial 1 jugador")
         {
-            if (cantidadDePlayer == 1)
+            if (cantidadDePlayer == 1 && !ready)
             {
                 sepuedemover = true;
-                Receta.enabled = false;
+                Receta.SetActive(false);
+                ready = true;
             }
         }
         else
@@ -50,12 +53,13 @@ public class CantidadDePlayer : MonoBehaviour
                 player1.enabled = false;
                 textPlayer1.enabled = false;
             }
-            else if (cantidadDePlayer == 2)
+            else if (cantidadDePlayer == 2 && !ready)
             {
                 player2.enabled = false;
                 textPlayer2.enabled = false;
-                Receta.enabled = false;
+                Receta.SetActive(false);
                 sepuedemover = true;
+                ready = true;
             }
         }
         

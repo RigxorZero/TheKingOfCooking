@@ -2215,7 +2215,7 @@ MonoBehaviour:
       m_Action: Interaccion
       m_Flags: 0
     m_Flags: 0
-  receta: {fileID: 1703653353}
+  receta: {fileID: 1703653351}
   estaActiva: 0
 --- !u!65 &448610083
 BoxCollider:
@@ -6058,10 +6058,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
   player2: {fileID: 0}
-  Receta: {fileID: 1703653353}
+  Receta: {fileID: 1703653351}
   textPlayer1: {fileID: 0}
   textPlayer2: {fileID: 0}
   estutorial: 1
+  ready: 0
 --- !u!114 &1468419417
 MonoBehaviour:
   m_ObjectHideFlags: 0

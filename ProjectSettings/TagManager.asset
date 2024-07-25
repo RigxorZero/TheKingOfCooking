@@ -20,6 +20,7 @@ TagManager:
   - sal
   - basurero
   - plato
+  - bot
   layers:
   - Default
   - TransparentFX
