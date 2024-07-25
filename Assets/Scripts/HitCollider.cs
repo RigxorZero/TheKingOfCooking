@@ -49,7 +49,6 @@ public class HitCollider : MonoBehaviour
     private IEnumerator StunBot(botMove player)
     {
         player.sePuedeMover = false;
-        ReferenciaPlayer.player1.GetComponent<playerTutorial>().golpe = true;
         yield return new WaitForSeconds(1.0f);
         player.sePuedeMover = true;
     }

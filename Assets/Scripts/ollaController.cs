@@ -228,7 +228,7 @@ public class ollaController : MonoBehaviour
                     }
                     else if (timerFaseDos >= TIEMPO_TOTAL_FASE2)
                     {
-                        
+                        ReferenciaPlayer.player1.GetComponent<playerTutorial>().golpe = true;
                         cocina.apagarCocina();
                         perfeccionFaseDos = CalcularPerfeccion(2);
                         faseDosCompleta = true;
