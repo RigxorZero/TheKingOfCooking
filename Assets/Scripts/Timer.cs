@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText; // Referencia al TextMeshPro
 
     public bool estutorial = false;
+    public static bool platolisto = false; 
 
     void Start()
     {
@@ -27,9 +28,19 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (estutorial) {
-            timer = 0f;
-            isRunning = false;
-            timerText.text = "INFINITO";
+            if (platolisto)
+            {
+                timer = 10f;
+                isRunning = true;
+                estutorial = false; 
+            }
+            else
+            {
+                timer = 0f;
+                isRunning = false;
+                timerText.text = "INFINITO";
+            }
+            
         }
         if (isRunning)
         {
