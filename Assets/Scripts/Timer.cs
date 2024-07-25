@@ -21,12 +21,6 @@ public class Timer : MonoBehaviour
         timer = duration;
         UpdateTimerDisplay();
 
-        Component[] components = GetComponents<Component>();
-
-        foreach (Component component in components)
-        {
-            Debug.Log(component.name + ": " + component.GetType().Name);
-        }
     }
 
     void Update()
@@ -49,7 +43,6 @@ public class Timer : MonoBehaviour
                 // Acciones cuando el cronómetro llegue a cero
                 timer = 0f;
                 isRunning = false;
-                Debug.Log("El cronómetro ha terminado para " + gameObject.name);
 
                 SceneManager.LoadScene(2);
             }

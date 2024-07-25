@@ -22,13 +22,13 @@ public class platoFinalController : MonoBehaviour
                 perfeccionArrozP1 = other.GetComponentInParent<platoController>().perfeccionArroz;
                 perfeccionCarneP1 = other.GetComponentInParent<platoController>().perfeccionCarne;
                 socreManagement.scores[0] = (perfeccionArrozP1 + perfeccionCarneP1) / 2;
-                Debug.Log(socreManagement.scores[0]);
+                //Debug.Log(socreManagement.scores[0]);
             }
             else if (type == 2) {
                 perfeccionArrozP2 = other.GetComponentInParent<platoController>().perfeccionArroz;
                 perfeccionCarneP2 = other.GetComponentInParent<platoController>().perfeccionCarne;
                 socreManagement.scores[1] = (perfeccionArrozP2 + perfeccionCarneP2) / 2;
-                Debug.Log(socreManagement.scores[1]);
+                //Debug.Log(socreManagement.scores[1]);
             }
             toco = true;
         }

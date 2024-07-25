@@ -20,7 +20,7 @@ public class PuntajeManager : MonoBehaviour
         if (jugadorIndex >= 0 && jugadorIndex < puntajes.Count)
         {
             puntajes[jugadorIndex] += cantidad;
-            Debug.Log($"Puntaje del Jugador {jugadorIndex + 1}: {puntajes[jugadorIndex]}");
+            //Debug.Log($"Puntaje del Jugador {jugadorIndex + 1}: {puntajes[jugadorIndex]}");
         }
         else
         {
