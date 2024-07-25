@@ -320,10 +320,11 @@ public class playerTutorial : MonoBehaviour
                 servirArroz = false;
                 servirCarne = false;
                 platoListo = false;
-            }
-            if(aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarSal == false && echarSal == false && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
+            }         
+          
+            if (aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarSal == false && echarSal == false && echarEscencia == false && tomarPlato == false && servirArroz == false && servirCarne == false && platoListo == false)
             {
-                canvasTutorial.index = 14;
+                canvasTutorial.index = 15;
 
                 tomarSal = false;
                 echarSal = false;
@@ -333,9 +334,10 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if (cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarSal == false && echarSal == false && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
+
+            if (tomarSal && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarSal == false && echarEscencia == false && servirArroz == false && servirCarne == false && platoListo == false)
             {
-                canvasTutorial.index = 15;
+                canvasTutorial.index = 16;
 
                 echarSal = false;
                 echarEscencia = false;
@@ -344,18 +346,7 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if (tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarSal == false && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
-            {
-                canvasTutorial.index = 16;
-                
-                echarSal = false;
-                echarEscencia = false;
-                tomarPlato = false;
-                servirArroz = false;
-                servirCarne = false;
-                platoListo = false;
-            }
-            if(echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarEscencia == false  && servirArroz == false && servirCarne == false && platoListo == false)
+            if (echarSal && tomarSal && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && echarEscencia == false && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 17;
 
@@ -365,17 +356,31 @@ public class playerTutorial : MonoBehaviour
                 servirCarne = false;
                 platoListo = false;
             }
-            if(echarEscencia && echarSal && tomarSal && cambioTemperatura2  && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1  && servirArroz == false && servirCarne == false && platoListo == false)
+            if (echarEscencia && echarSal && tomarSal && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && servirArroz == false && servirCarne == false && platoListo == false)
             {
-                canvasTutorial.index = 18;
+                canvasTutorial.index = 14;
                 timerActivo = true;
 
-                
+
                 tomarPlato = false;
                 servirArroz = false;
                 servirCarne = false;
                 platoListo = false;
             }
+
+
+            if (cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1 && tomarSal && echarSal && echarEscencia  && servirArroz == false && servirCarne == false && platoListo == false)
+            {
+                canvasTutorial.index = 18;
+
+                echarSal = false;
+                echarEscencia = false;
+                tomarPlato = false;
+                servirArroz = false;
+                servirCarne = false;
+                platoListo = false;
+            }
+            
             if(arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1  && servirArroz == false && servirCarne == false && platoListo == false)
             {
                 canvasTutorial.index = 19;
