@@ -7,7 +7,8 @@ public class salController : MonoBehaviour
 {
     public bool estaSostenido;
     public InputAction interaccion;
-    private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
+    [SerializeField] private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
+    public bool seecho = false; 
 
     private void OnTriggerStay(Collider other)
     {
@@ -19,6 +20,7 @@ public class salController : MonoBehaviour
             {
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarSal = true;
                 other.GetComponent<ollaController>().cantidadDeSal++;
+                seecho = true;
             }
             else if (other.tag == "sarten")
             {
