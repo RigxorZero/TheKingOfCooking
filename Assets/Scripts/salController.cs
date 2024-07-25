@@ -9,12 +9,22 @@ public class salController : MonoBehaviour
     public InputAction interaccion;
     private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
     public bool seecho = false;
-    public LayerMask layerMaskToIgnore;
+    public List<LayerMask> layerMasksToIgnore;
 
     private void OnTriggerStay(Collider other)
     {
-        // Verificar si el objeto está en una capa que debe ser ignorada
-        if ((layerMaskToIgnore & (1 << other.gameObject.layer)) != 0)
+        // Verificar si el objeto está en alguna de las capas que deben ser ignoradas
+        bool ignore = false;
+        foreach (var layerMask in layerMasksToIgnore)
+        {
+            if ((layerMask & (1 << other.gameObject.layer)) != 0)
+            {
+                ignore = true;
+                break;
+            }
+        }
+
+        if (ignore)
         {
             return; // Ignorar el objeto
         }

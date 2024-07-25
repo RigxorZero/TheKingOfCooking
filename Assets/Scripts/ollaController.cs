@@ -40,8 +40,8 @@ public class ollaController : MonoBehaviour
     private static float TIEMPO_TOTAL_FASE2 = 60f;
     private static float TIEMPO_CRITICO = 20f;
 
-    private float perfeccionFaseUno;
-    private float perfeccionFaseDos;
+    public float perfeccionFaseUno;
+    public float perfeccionFaseDos;
 
 
     void Start()

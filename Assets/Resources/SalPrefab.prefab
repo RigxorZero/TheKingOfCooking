@@ -194,8 +194,16 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   seecho: 0
-  layerMaskToIgnore:
-    serializedVersion: 2
+  layerMasksToIgnore:
+  - serializedVersion: 2
+    m_Bits: 128
+  - serializedVersion: 2
+    m_Bits: 256
+  - serializedVersion: 2
+    m_Bits: 512
+  - serializedVersion: 2
+    m_Bits: 1024
+  - serializedVersion: 2
     m_Bits: 8
 --- !u!1001 &1977730866101263446
 PrefabInstance:
