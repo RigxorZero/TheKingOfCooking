@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2818917463656081814}
   - component: {fileID: 2050569052705002809}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TriggerColision
   m_TagString: sal
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 7403613473948907454}
   - component: {fileID: 8247430767220338531}
   - component: {fileID: 1494478036809883189}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SalPrefab
   m_TagString: sal
   m_Icon: {fileID: 0}
@@ -194,17 +194,9 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   seecho: 0
-  layerMasksToIgnore:
-  - serializedVersion: 2
-    m_Bits: 128
-  - serializedVersion: 2
-    m_Bits: 256
-  - serializedVersion: 2
-    m_Bits: 512
-  - serializedVersion: 2
-    m_Bits: 1024
-  - serializedVersion: 2
-    m_Bits: 8
+  layerToCheck:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &1977730866101263446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,6 +248,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93971fb4150bc3a46a3a91e99b35ac55, type: 3}
       propertyPath: m_Name
       value: sal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93971fb4150bc3a46a3a91e99b35ac55, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

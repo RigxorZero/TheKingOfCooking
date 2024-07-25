@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2074006881396449027}
   - component: {fileID: 4828841469373798590}
   - component: {fileID: 3371653647981910750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: interactiveZone
   m_TagString: olla
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3526415901638673859}
   - component: {fileID: 8175088353138091387}
   - component: {fileID: 197154598668827353}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Sal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2168223058737263556}
   - component: {fileID: 6637484796617738234}
   - component: {fileID: 1950731817219170394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 2154391015034786239}
   - component: {fileID: 500900703673619043}
   - component: {fileID: 7692515442823072613}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 7964240714247331252}
   - component: {fileID: 4646142723970959201}
   - component: {fileID: 3820947397029513088}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1457193194689920070}
   - component: {fileID: 8799118756697743785}
   - component: {fileID: 8273541249423400041}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 7735309727209052404}
   - component: {fileID: 3914240338325619604}
   - component: {fileID: 4548755535631741552}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 223108284309150871}
   - component: {fileID: 5463563380311478665}
   - component: {fileID: 4435082350197863908}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 8785577906826767838}
   - component: {fileID: 7516141948970904739}
   - component: {fileID: 3188258004056796085}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 6639616433758885888}
   - component: {fileID: 4754832192233488839}
   - component: {fileID: 7574187348128850316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ollaPrefab
   m_TagString: olla
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 3082646838365794249}
   - component: {fileID: 3941215750844343714}
   - component: {fileID: 5791500472314738691}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pot_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 6677460933571092101}
   - component: {fileID: 691593084000021368}
   - component: {fileID: 6919188268797109793}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: txtArroz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 6340883899087243295}
   - component: {fileID: 3253790261199241367}
   - component: {fileID: 8752754078109892213}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 9109069919835047866}
   - component: {fileID: 582382218743022106}
   - component: {fileID: 7359142862150712600}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Escencia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 3719850262509690544}
   - component: {fileID: 499892440728298399}
   - component: {fileID: 8418120186384635521}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 6667613926761178274}
   - component: {fileID: 6243519445688436831}
   - component: {fileID: 2343362552322012648}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 591061647701018610}
   - component: {fileID: 2508370316725315689}
   - component: {fileID: 5464427725516844687}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 9003552422454265760}
   - component: {fileID: 7866092020147687304}
   - component: {fileID: 7293581825678633820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1726,7 @@ GameObject:
   - component: {fileID: 8274824227712267600}
   - component: {fileID: 8111903625908552782}
   - component: {fileID: 1303460502189469735}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 3355055642321634399}
   - component: {fileID: 1773799987622076904}
   - component: {fileID: 9135189776121277870}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1892,7 +1892,7 @@ GameObject:
   - component: {fileID: 2370919347037065199}
   - component: {fileID: 6629389923317400851}
   - component: {fileID: 8141995749941074573}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 3782198080614219885}
   - component: {fileID: 1239608786795208893}
   - component: {fileID: 1234442311746436188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arroz7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2058,7 +2058,7 @@ GameObject:
   - component: {fileID: 4937800466990281539}
   - component: {fileID: 5530020738134044073}
   - component: {fileID: 1245731980417838947}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: txtAgua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 8121020535525213114}
   - component: {fileID: 172831949980407567}
   - component: {fileID: 7783474352603816618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2277,7 +2277,7 @@ GameObject:
   - component: {fileID: 6820833752522743485}
   - component: {fileID: 816768535353380383}
   - component: {fileID: 7818217686701976102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2360,7 +2360,7 @@ GameObject:
   - component: {fileID: 3849666511670945627}
   - component: {fileID: 7770106386428731503}
   - component: {fileID: 2387217149093167011}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
