@@ -8,9 +8,17 @@ public class escenciaController : MonoBehaviour
     public bool estaSostenido;
     public InputAction interaccion;
     private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
+    public LayerMask layerMaskToIgnore;
 
     private void OnTriggerStay(Collider other)
     {
+
+        // Verificar si el objeto está en una capa que debe ser ignorada
+        if ((layerMaskToIgnore & (1 << other.gameObject.layer)) != 0)
+        {
+            return; // Ignorar el objeto
+        }
+
         if (interaccion.WasReleasedThisFrame() && !actionPerformed)
         {
             actionPerformed = true; // Marcar la acción como realizada
