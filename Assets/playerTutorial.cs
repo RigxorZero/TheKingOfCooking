@@ -188,6 +188,11 @@ public class playerTutorial : MonoBehaviour
             {
                 canvasTutorial.index = 23;
             }
+            if(platoListo && servirCarne && servirArroz && tomarPlato && golpe && arrozlisto2 && echarEscencia && echarSal && tomarSal && cambioTemperatura2 && aguaEnLaOlla && agualista && arrozListo && cerrarCocina && cambiarTemperatura && abrirCocina && dejarArrozEnOlla && llenarTazaArroz && tomarTaza && dejoOlla && botarBasura && tomoOlla && mostroReceta && fase1)
+            {
+                Timer.platolisto = true;
+                canvasTutorial.index = 24;
+            }
             
         }
     }
