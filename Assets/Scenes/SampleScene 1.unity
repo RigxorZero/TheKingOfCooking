@@ -2570,7 +2570,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2586,7 +2586,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e5e54f23-25bd-4d85-b66a-3e64d9acb617
-      m_Path: <Gamepad>/rightStick/up
+      m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2603,7 +2603,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2619,7 +2619,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 4728c5ec-22eb-4479-8fa9-9b310ab30fb3
-      m_Path: <Gamepad>/rightStick/down
+      m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2636,7 +2636,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2652,7 +2652,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d2c2ba58-da9b-4869-aba8-e49857699eff
-      m_Path: <Gamepad>/rightStick/right
+      m_Path: <Gamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2669,7 +2669,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2685,7 +2685,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3df570bb-16c4-44b8-8b4f-50650915d6b1
-      m_Path: <Gamepad>/rightStick/left
+      m_Path: <Gamepad>/leftStick/left
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6742,7 +6742,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6758,7 +6758,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e5e54f23-25bd-4d85-b66a-3e64d9acb617
-      m_Path: <Gamepad>/rightStick/up
+      m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6775,7 +6775,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6791,7 +6791,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 4728c5ec-22eb-4479-8fa9-9b310ab30fb3
-      m_Path: <Gamepad>/rightStick/down
+      m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6808,7 +6808,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6824,7 +6824,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d2c2ba58-da9b-4869-aba8-e49857699eff
-      m_Path: <Gamepad>/rightStick/right
+      m_Path: <Gamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6841,7 +6841,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6857,7 +6857,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3df570bb-16c4-44b8-8b4f-50650915d6b1
-      m_Path: <Gamepad>/rightStick/left
+      m_Path: <Gamepad>/leftStick/left
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -8778,9 +8778,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 928848880}
   player2: {fileID: 978724784}
-  Receta: {fileID: 2115124640}
+  Receta: {fileID: 2115124638}
   textPlayer1: {fileID: 566802375}
   textPlayer2: {fileID: 449403305}
+  estutorial: 0
+  ready: 0
 --- !u!114 &1468419417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9196,7 +9198,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9212,7 +9214,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e5e54f23-25bd-4d85-b66a-3e64d9acb617
-      m_Path: <Gamepad>/rightStick/up
+      m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9229,7 +9231,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9245,7 +9247,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 4728c5ec-22eb-4479-8fa9-9b310ab30fb3
-      m_Path: <Gamepad>/rightStick/down
+      m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9262,7 +9264,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9278,7 +9280,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d2c2ba58-da9b-4869-aba8-e49857699eff
-      m_Path: <Gamepad>/rightStick/right
+      m_Path: <Gamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9295,7 +9297,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9311,7 +9313,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3df570bb-16c4-44b8-8b4f-50650915d6b1
-      m_Path: <Gamepad>/rightStick/left
+      m_Path: <Gamepad>/leftStick/left
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9514,7 +9516,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ee6b6e29-8455-46fc-b52d-d7099fb6582a
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9530,7 +9532,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e5e54f23-25bd-4d85-b66a-3e64d9acb617
-      m_Path: <Gamepad>/rightStick/up
+      m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9547,7 +9549,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 044b88a0-edf0-4186-aeff-f6d207b67db9
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9563,7 +9565,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 4728c5ec-22eb-4479-8fa9-9b310ab30fb3
-      m_Path: <Gamepad>/rightStick/down
+      m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9580,7 +9582,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d960d8a5-e870-48e5-b613-5f0c5c322df6
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9596,7 +9598,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d2c2ba58-da9b-4869-aba8-e49857699eff
-      m_Path: <Gamepad>/rightStick/right
+      m_Path: <Gamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9613,7 +9615,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: df55e22b-6509-446c-b239-1327341f1cb3
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -9629,7 +9631,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3df570bb-16c4-44b8-8b4f-50650915d6b1
-      m_Path: <Gamepad>/rightStick/left
+      m_Path: <Gamepad>/leftStick/left
       m_Interactions: 
       m_Processors: 
       m_Groups: 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final 2.unity
     guid: 551b4998dca61544a9e3c734d24931fd
+  - enabled: 1
+    path: Assets/Scenes/Tutorial 1 jugador.unity
+    guid: dfa32e63d75ce734fb6d34512084597b
   m_configObjects: {}

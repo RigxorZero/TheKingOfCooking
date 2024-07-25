@@ -14,6 +14,7 @@ public class escenciaController : MonoBehaviour
         if (interaccion.WasReleasedThisFrame() && !actionPerformed)
         {
             actionPerformed = true; // Marcar la acción como realizada
+            Debug.Log("Input action released and action performed");
 
             if (other.CompareTag("olla"))
             {
@@ -27,18 +28,28 @@ public class escenciaController : MonoBehaviour
                     playerTutorial.cambioTimer = true;
                 }
 
-                var olla = other.GetComponent<ollaController>();
+                var olla = other.GetComponentInChildren<ollaController>();
                 if (olla != null)
                 {
                     olla.cantidadDeEscencias++;
+                    Debug.Log("Escencia added to olla. Current amount: " + olla.cantidadDeEscencias);
+                }
+                else
+                {
+                    Debug.LogWarning("ollaController component not found on the collided object");
                 }
             }
             else if (other.CompareTag("sarten"))
             {
-                var sarten = other.GetComponent<sartenController>();
+                var sarten = other.GetComponentInChildren<sartenController>();
                 if (sarten != null)
                 {
                     sarten.cantidadDeEscencias++;
+                    Debug.Log("Escencia added to sarten. Current amount: " + sarten.cantidadDeEscencias);
+                }
+                else
+                {
+                    Debug.LogWarning("sartenController component not found on the collided object");
                 }
             }
         }
@@ -47,7 +58,7 @@ public class escenciaController : MonoBehaviour
     private void Update()
     {
         // Resetear la marca de acción realizada al final del frame
-        if (interaccion.WasReleasedThisFrame())
+        if (!interaccion.WasReleasedThisFrame())
         {
             actionPerformed = false;
         }

@@ -37,8 +37,12 @@ public class Bottones : MonoBehaviour
     public void OnMenu()
     {
         Destroy(myMusic);
-        SceneManager.LoadScene(0);
-       
+        SceneManager.LoadScene(0); 
+    }
+
+    public void onTutorial()
+    {
+        SceneManager.LoadScene(8);
     }
 
     public void onFinal()
