@@ -128,6 +128,9 @@ MonoBehaviour:
       m_Action: Interaccion
       m_Flags: 0
     m_Flags: 0
+  layerMaskToIgnore:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!65 &4465600284361399937
 BoxCollider:
   m_ObjectHideFlags: 0

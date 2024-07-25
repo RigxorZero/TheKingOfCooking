@@ -193,6 +193,10 @@ MonoBehaviour:
       m_Action: Interaccion
       m_Flags: 0
     m_Flags: 0
+  seecho: 0
+  layerMaskToIgnore:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &1977730866101263446
 PrefabInstance:
   m_ObjectHideFlags: 0
