@@ -7,30 +7,37 @@ public class salController : MonoBehaviour
 {
     public bool estaSostenido;
     public InputAction interaccion;
+    private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
 
     private void OnTriggerStay(Collider other)
     {
-        if (interaccion.WasPressedThisFrame())
+        if (interaccion.WasReleasedThisFrame() && !actionPerformed)
         {
+            actionPerformed = true; // Marcar la acción como realizada
+
             if (other.tag == "olla")
             {
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarSal = true;
                 other.GetComponent<ollaController>().cantidadDeSal++;
             }
-            if (other.tag == "sarten")
+            else if (other.tag == "sarten")
             {
                 other.GetComponent<sartenController>().cantidadDeSal++;
             }
         }
     }
+
+    private void Update()
+    {
+        // Resetear la marca de acción realizada al final del frame
+        if (interaccion.WasReleasedThisFrame())
+        {
+            actionPerformed = false;
+        }
+    }
+
     void Start()
     {
         interaccion.Enable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

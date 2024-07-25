@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class cocinaController : MonoBehaviour
@@ -14,10 +12,10 @@ public class cocinaController : MonoBehaviour
     private static bool[,] nivelPerilla = new bool[4, 4]; // 4 cocinas, 4 niveles
 
     private bool[] canvasActivo = new bool[2];
-
+    private bool[] actionPerformed = new bool[2]; // Para evitar múltiples ejecuciones por frame
 
     private PlayerController playerController;
-    public GameObject player; 
+    public GameObject player;
 
     public InputAction[] CanvasActiveButton = new InputAction[2]; // Botones de activación para dos jugadores
     public InputAction[] ArribaButtom = new InputAction[2]; // Botones para manipular la perilla
@@ -35,8 +33,9 @@ public class cocinaController : MonoBehaviour
         {
             player = other.gameObject;
             int playerIndex = other.GetComponentInParent<PlayerInput>().playerIndex;
-            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame())
+            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex])
             {
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 Debug.Log("C button was released");
                 player.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
@@ -77,6 +76,7 @@ public class cocinaController : MonoBehaviour
             DerechaButtom[i].Enable();
             IzquierdaButtom[i].Enable();
             canvasActivo[i] = false;
+            actionPerformed[i] = false; // Inicializar la bandera
         }
 
         canvasTimer.enabled = false;
@@ -89,13 +89,13 @@ public class cocinaController : MonoBehaviour
         {
             cocinaIndex = 0;
         }
-        else if(gameObject.layer == 9)
+        else if (gameObject.layer == 9)
         {
             cocinaIndex = 2;
         }
         else if (gameObject.layer == 10)
         {
-            cocinaIndex = 3; 
+            cocinaIndex = 3;
         }
 
         SetNivelPerilla(0, 0);
@@ -134,6 +134,15 @@ public class cocinaController : MonoBehaviour
         GetNivelPerilla(1);
         GetNivelPerilla(2);
         GetNivelPerilla(3);
+
+        // Resetear la marca de acción realizada al final del frame
+        for (int i = 0; i < 2; i++)
+        {
+            if (CanvasActiveButton[i].WasReleasedThisFrame())
+            {
+                actionPerformed[i] = false;
+            }
+        }
     }
 
     void HandlePlayerInput(int playerIndex)
@@ -161,7 +170,7 @@ public class cocinaController : MonoBehaviour
             if (ArribaButtom[playerIndex].WasReleasedThisFrame()) // Arriba
             {
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
-                if(ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
+                if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }

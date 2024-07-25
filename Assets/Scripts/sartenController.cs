@@ -119,7 +119,7 @@ public class sartenController : MonoBehaviour
                         {
                             canvas = component2.GetComponent<Canvas>();
                         }
-                        Debug.Log(component2.GetType().Name + " " + component2.name);
+                        //Debug.Log(component2.GetType().Name + " " + component2.name);
 
                         if (component2.name == "GreenZone")
                         {

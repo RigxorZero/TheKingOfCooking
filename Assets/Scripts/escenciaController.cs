@@ -7,42 +7,54 @@ public class escenciaController : MonoBehaviour
 {
     public bool estaSostenido;
     public InputAction interaccion;
+    private bool actionPerformed; // Para evitar múltiples ejecuciones por frame
+
     private void OnTriggerStay(Collider other)
     {
-        if (interaccion.WasPressedThisFrame())
+        if (interaccion.WasReleasedThisFrame() && !actionPerformed)
         {
-            if (other.tag == "olla")
+            actionPerformed = true; // Marcar la acción como realizada
+
+            if (other.CompareTag("olla"))
             {
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarEscencia = true;
+                var playerTutorial = ReferenciaPlayer.player1.GetComponent<playerTutorial>();
+                playerTutorial.echarEscencia = true;
+                playerTutorial.golpe = false;
 
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().golpe = false;
-
-                if (!ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer)
+                if (!playerTutorial.cambioTimer)
                 {
-                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoActual = ReferenciaPlayer.player1.GetComponent<playerTutorial>().tiempoEntreCambio;
-                    ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTimer = true;
+                    playerTutorial.tiempoActual = playerTutorial.tiempoEntreCambio;
+                    playerTutorial.cambioTimer = true;
                 }
-                if(other.GetComponent<ollaController>() != null)
-                {
-                    other.GetComponent<ollaController>().cantidadDeEscencias++;
 
+                var olla = other.GetComponent<ollaController>();
+                if (olla != null)
+                {
+                    olla.cantidadDeEscencias++;
                 }
             }
-            if (other.tag == "sarten")
+            else if (other.CompareTag("sarten"))
             {
-                other.GetComponent<sartenController>().cantidadDeEscencias++;
+                var sarten = other.GetComponent<sartenController>();
+                if (sarten != null)
+                {
+                    sarten.cantidadDeEscencias++;
+                }
             }
         }
     }
-    
+
+    private void Update()
+    {
+        // Resetear la marca de acción realizada al final del frame
+        if (interaccion.WasReleasedThisFrame())
+        {
+            actionPerformed = false;
+        }
+    }
+
     void Start()
     {
         interaccion.Enable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
