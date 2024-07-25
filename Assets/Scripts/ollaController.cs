@@ -36,9 +36,9 @@ public class ollaController : MonoBehaviour
     [SerializeField] private float timerLlamaBaja;
     [SerializeField] private float timerLlamaMedia;
     [SerializeField] private float timerLlamaAlta;
-    private const float TIEMPO_TOTAL_FASE1 = 60f;
-    private const float TIEMPO_TOTAL_FASE2 = 60f;
-    private const float TIEMPO_CRITICO = 20f;
+    private float TIEMPO_TOTAL_FASE1 = 60f;
+    private float TIEMPO_TOTAL_FASE2 = 60f;
+    private float TIEMPO_CRITICO = 20f;
 
     public float perfeccionFaseUno;
     public float perfeccionFaseDos;
