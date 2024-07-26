@@ -9,10 +9,11 @@ public class cocinaController : MonoBehaviour
     [SerializeField] private List<Image> perillas = new List<Image>();
     private Camera playerCamera;
 
-    private static bool[,] nivelPerilla = new bool[4, 4]; // 4 cocinas, 4 niveles
+    private bool[,] nivelPerilla = new bool[4, 4]; // 4 cocinas, 4 niveles
 
     private bool[] canvasActivo = new bool[2];
     private bool[] actionPerformed = new bool[2]; // Para evitar múltiples ejecuciones por frame
+    private float[] cooldownTimers = new float[2]; // Timers para el cooldown
 
     private PlayerController playerController;
     public GameObject player;
@@ -33,10 +34,11 @@ public class cocinaController : MonoBehaviour
         {
             player = other.gameObject;
             int playerIndex = other.GetComponentInParent<PlayerInput>().playerIndex;
-            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex])
+            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex] && cooldownTimers[playerIndex] <= 0)
             {
-                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 Debug.Log("C button was released");
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
+                cooldownTimers[playerIndex] = 0.5f; // Establecer cooldown de 0.5 segundos
                 player.GetComponentInParent<PlayerController>().sePuedeMover = false;
                 GameObject esJugadorUno = GameObject.FindGameObjectWithTag("JugadorUnoPrefab");
                 GameObject esJugadorDos = GameObject.FindGameObjectWithTag("JugadorDosPrefab");
@@ -77,6 +79,7 @@ public class cocinaController : MonoBehaviour
             IzquierdaButtom[i].Enable();
             canvasActivo[i] = false;
             actionPerformed[i] = false; // Inicializar la bandera
+            cooldownTimers[i] = 0; // Inicializar el cooldown
         }
 
         canvasTimer.enabled = false;
@@ -123,10 +126,19 @@ public class cocinaController : MonoBehaviour
                 resultado += $"Cocina {i} - Nivel {j}: {(nivelPerilla[i, j] ? "Activado" : "Desactivado")}\n";
             }
         }
+        Debug.Log(resultado);
     }
 
     void Update()
     {
+        for (int i = 0; i < 2; i++)
+        {
+            if (cooldownTimers[i] > 0)
+            {
+                cooldownTimers[i] -= Time.deltaTime;
+            }
+        }
+
         HandlePlayerInput(0); // Jugador 1
         HandlePlayerInput(1); // Jugador 2
 
@@ -138,7 +150,7 @@ public class cocinaController : MonoBehaviour
         // Resetear la marca de acción realizada al final del frame
         for (int i = 0; i < 2; i++)
         {
-            if (CanvasActiveButton[i].WasReleasedThisFrame())
+            if (!CanvasActiveButton[i].WasReleasedThisFrame())
             {
                 actionPerformed[i] = false;
             }
@@ -167,8 +179,9 @@ public class cocinaController : MonoBehaviour
                     break;
             }
 
-            if (ArribaButtom[playerIndex].WasReleasedThisFrame()) // Arriba
+            if (ArribaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Arriba
             {
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
                 if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
                 {
@@ -177,8 +190,9 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
                 SetNivelPerilla(cocinaIndex, 0);
             }
-            else if (AbajoButtom[playerIndex].WasReleasedThisFrame()) // Abajo
+            else if (AbajoButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Abajo
             {
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
                 if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
                 {
@@ -187,8 +201,9 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
                 SetNivelPerilla(cocinaIndex, 1);
             }
-            else if (DerechaButtom[playerIndex].WasReleasedThisFrame()) // Derecha
+            else if (DerechaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Derecha
             {
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
                 if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
                 {
@@ -197,8 +212,9 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
                 SetNivelPerilla(cocinaIndex, 2);
             }
-            else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame()) // Izquierda
+            else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Izquierda
             {
+                actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
                 if (ReferenciaPlayer.player1.GetComponent<playerTutorial>().aguaEnLaOlla == true)
                 {
@@ -208,7 +224,7 @@ public class cocinaController : MonoBehaviour
                 SetNivelPerilla(cocinaIndex, 3);
             }
 
-            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && canvasActivo[playerIndex])
+            if (CanvasActiveButton[playerIndex].WasReleasedThisFrame() && canvasActivo[playerIndex] && cooldownTimers[playerIndex] <= 0)
             {
                 //tutorial
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cerrarCocina = true;
@@ -222,6 +238,8 @@ public class cocinaController : MonoBehaviour
                 canvases[playerIndex].enabled = false;
                 canvases[playerIndex].worldCamera = null;
                 player.GetComponentInParent<PlayerController>().sePuedeMover = true;
+
+                cooldownTimers[playerIndex] = 0.5f; // Establecer cooldown de 0.5 segundos
             }
         }
 
@@ -244,6 +262,7 @@ public class cocinaController : MonoBehaviour
     private void ActivateCanvas(int playerIndex, int cocinaIndex)
     {
         // Activar el canvas específico por índice
+        actionPerformed[playerIndex] = true; // Marcar la acción como realizada
         ReferenciaPlayer.player1.GetComponent<playerTutorial>().abrirCocina = true;
         canvases[playerIndex].enabled = true;
         canvases[playerIndex].renderMode = RenderMode.ScreenSpaceCamera;
