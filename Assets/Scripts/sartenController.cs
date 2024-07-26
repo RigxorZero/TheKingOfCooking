@@ -43,7 +43,14 @@ public class sartenController : MonoBehaviour
 
     private const float TIEMPO_TOTAL_FASE = 60f;
     private const float TIEMPO_CRITICO = 20f;
-    public float perfeccion;
+    private float perfeccion;
+
+    public float Perfeccion
+    {
+        get { return perfeccion; }
+        set { perfeccion = value; }
+    }
+
     void Start()
     {
         interaccion.Enable();

@@ -25,7 +25,7 @@ public class platoController : MonoBehaviour
                 if (interaccion.WasPressedThisFrame())
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().servirArroz = true;
-                    perfeccionArroz = (other.GetComponent<ollaController>().perfeccionFaseUno + other.GetComponent<ollaController>().perfeccionFaseDos) / 2; 
+                    perfeccionArroz = (other.GetComponent<ollaController>().PerfeccionFaseUno + other.GetComponent<ollaController>().PerfeccionFaseDos) / 2; 
                     arroz.SetActive(true);
                     tieneArroz = true;
                 }
@@ -41,7 +41,7 @@ public class platoController : MonoBehaviour
                 if (interaccion.WasPressedThisFrame())
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().servirCarne = true;
-                    perfeccionCarne = other.gameObject.GetComponent<sartenController>().perfeccion;
+                    perfeccionCarne = other.gameObject.GetComponent<sartenController>().Perfeccion;
                     carne.SetActive(true);
                     tieneCarne = true;
                 }
