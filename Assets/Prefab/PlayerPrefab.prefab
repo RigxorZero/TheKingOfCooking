@@ -787,6 +787,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867a6bd2b615e5a438e5d2c3fb055bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempoactual: 0
+  tiempoentrecambio: 2
+  seactivoPlayer: 0
+  seactivoBot: 0
 --- !u!4 &2907735158521244394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 890e1637adb3835478c4f4bd8b57f001, type: 3}

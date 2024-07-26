@@ -55,7 +55,7 @@ public class CantidadDePlayer : MonoBehaviour
             {
                 sepuedemover = true;
                 Receta.SetActive(false);
-                player1.enabled = false;
+                player1.enabled = false;    
                 textPlayer1.enabled = false;
                 ready = true;
             }

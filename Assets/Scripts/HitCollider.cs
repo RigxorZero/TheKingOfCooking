@@ -6,11 +6,44 @@ public class HitCollider : MonoBehaviour
 {
     // Variable para almacenar la referencia del jugador que ejecuta el golpe
     private GameObject hittingPlayer;
+    public float tiempoactual; 
+    public float tiempoentrecambio;
+
+    public bool seactivoPlayer;
+    public bool seactivoBot;
+
+    PlayerController playerstun;
+    botMove botstun; 
 
     // Método para asignar la referencia del jugador que ejecuta el golpe
     public void SetHittingPlayer(GameObject player)
     {
         hittingPlayer = player;
+    }
+    private void Update()
+    {
+        if (tiempoactual >= 0) { 
+            tiempoactual -= Time.deltaTime;
+        }
+        else
+        {
+            if (seactivoPlayer)
+            {
+                if (playerstun != null) { 
+                    playerstun.sePuedeMover = true;
+                    seactivoPlayer = false;
+
+                }
+            }
+            else if (seactivoBot)
+            {
+                if (botstun != null)
+                {
+                    botstun.sePuedeMover = true;
+                    seactivoBot = false;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,31 +58,34 @@ public class HitCollider : MonoBehaviour
         if (other.CompareTag("JugadorUno") || other.CompareTag("JugadorDos"))
         {
             PlayerController otherPlayer = other.GetComponent<PlayerController>();
-            if (otherPlayer != null)
+            if (otherPlayer != null && seactivoPlayer == false)
             {
-                StartCoroutine(StunPlayer(otherPlayer));
+                playerstun = otherPlayer;
+                golpeJugador();
             }
         }else if (other.CompareTag("bot"))
         {
             botMove otherBot = other.GetComponent<botMove>();
-            if (otherBot != null)
+            if (otherBot != null && seactivoPlayer == true)
             {
-                StartCoroutine(StunBot(otherBot));
+                botstun = otherBot;
+                golpeBot();
             }
         }
     }
-
-    private IEnumerator StunPlayer(PlayerController player)
+    private void golpeJugador()
     {
-        player.sePuedeMover = false;
-        yield return new WaitForSeconds(1.0f);
-        player.sePuedeMover = true;
+        seactivoPlayer = true;
+        //playerstun.sePuedeMover = false;
+        tiempoactual = tiempoentrecambio;
+        
+
     }
-
-    private IEnumerator StunBot(botMove player)
+    private void golpeBot()
     {
-        player.sePuedeMover = false;
-        yield return new WaitForSeconds(1.0f);
-        player.sePuedeMover = true;
+        seactivoBot = true;
+        //botstun.sePuedeMover = false;
+        tiempoactual = tiempoentrecambio;
+
     }
 }

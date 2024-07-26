@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentSceneName == "SampleScene 1")
         {
-            sePuedeMover = false;
+            sePuedeMover = true;
         }
         else
         {
