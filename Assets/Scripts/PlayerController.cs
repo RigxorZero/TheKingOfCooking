@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public float tiempoActual;
     public float tiempoEntrecambio;
 
+    private PickUpObject myPickedObject;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (sePuedeMover)
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         CantidadDePlayer.cantidadDePlayer++;
-
+        myPickedObject = GetComponent<PickUpObject>();
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         if (currentSceneName == "SampleScene 1")
@@ -112,5 +114,6 @@ public class PlayerController : MonoBehaviour
         stuneactivo = true; 
         sePuedeMover = false;
         tiempoActual = tiempoEntrecambio;
+        myPickedObject.Stunned();
     }
 }

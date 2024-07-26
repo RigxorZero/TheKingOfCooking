@@ -138,5 +138,10 @@ public class PickUpObject : MonoBehaviour
         PickedObject = null;    
         
     }
+
+    public void Stunned()
+    {
+        Drop();
+    }
 }
 
