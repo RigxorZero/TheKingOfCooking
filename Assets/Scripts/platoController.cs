@@ -16,9 +16,18 @@ public class platoController : MonoBehaviour
     public GameObject arroz;
     public GameObject carne;
 
+    public LayerMask layerToCheck; // Capa específica para verificar
+
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "olla")
+
+        // Verificar si el objeto está en la capa específica
+        if ((layerToCheck & (1 << other.gameObject.layer)) == 0)
+        {
+            return; // Ignorar el objeto si no está en la capa específica
+        }
+
+        if (other.tag == "olla")
         {
             if (other.GetComponent<ollaController>().faseDosCompleta)
             {

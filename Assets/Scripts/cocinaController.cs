@@ -147,6 +147,8 @@ public class cocinaController : MonoBehaviour
         GetNivelPerilla(2);
         GetNivelPerilla(3);
 
+        ImprimirNivelPerilla();
+
         // Resetear la marca de acción realizada al final del frame
         for (int i = 0; i < 2; i++)
         {
@@ -179,7 +181,7 @@ public class cocinaController : MonoBehaviour
                     break;
             }
 
-            if (ArribaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Arriba
+            if (ArribaButtom[playerIndex].WasReleasedThisFrame()) // Arriba
             {
                 actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
@@ -190,7 +192,7 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
                 SetNivelPerilla(cocinaIndex, 0);
             }
-            else if (AbajoButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Abajo
+            else if (AbajoButtom[playerIndex].WasReleasedThisFrame()) // Abajo
             {
                 actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
@@ -201,7 +203,7 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
                 SetNivelPerilla(cocinaIndex, 1);
             }
-            else if (DerechaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Derecha
+            else if (DerechaButtom[playerIndex].WasReleasedThisFrame()) // Derecha
             {
                 actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;
@@ -212,7 +214,7 @@ public class cocinaController : MonoBehaviour
                 perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
                 SetNivelPerilla(cocinaIndex, 2);
             }
-            else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame() && !actionPerformed[playerIndex]) // Izquierda
+            else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame()) // Izquierda
             {
                 actionPerformed[playerIndex] = true; // Marcar la acción como realizada
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambiarTemperatura = true;

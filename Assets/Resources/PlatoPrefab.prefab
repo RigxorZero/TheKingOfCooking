@@ -98,6 +98,9 @@ MonoBehaviour:
   perfeccionCarne: 0
   arroz: {fileID: 4154275286800938897}
   carne: {fileID: 832531870624621715}
+  layerToCheck:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!65 &6965627182613687577
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6833,7 +6833,7 @@ GameObject:
   - component: {fileID: 1611764087}
   - component: {fileID: 1611764086}
   - component: {fileID: 1611764085}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: InteractionZone
   m_TagString: MesaInteractiveZone
   m_Icon: {fileID: 0}
@@ -6872,7 +6872,7 @@ MonoBehaviour:
   - {fileID: 1302638806}
   perillas:
   - {fileID: 1898044442}
-  - {fileID: 0}
+  - {fileID: 1898044442}
   player: {fileID: 0}
   CanvasActiveButton:
   - m_Name: Element 0

@@ -89,7 +89,8 @@ public class ollaController : MonoBehaviour
     {
         if (faseUnoCompleta)
         {
-            if (faseDosCompleta) {
+            if (faseDosCompleta) 
+            {
                 int cantidad;
                 if(cantidadDeArroz * 2 > arrozAnimation.Length)
                 {
