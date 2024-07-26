@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject hitObject; // El objeto que representa el golpe
 
+    public bool stuneactivo;
+    public float tiempoActual;
+    public float tiempoEntrecambio;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (sePuedeMover)
@@ -75,6 +79,19 @@ public class PlayerController : MonoBehaviour
         {
             movePlayer();
         }
+
+        if(tiempoActual >= 0)
+        {
+            tiempoActual -= Time.deltaTime;
+        }
+        else
+        {
+            if (stuneactivo)
+            {
+                stuneactivo = false;
+                sePuedeMover = true; 
+            }
+        }
     }
 
 
@@ -89,5 +106,11 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
         }
+    }
+    public void stune()
+    {
+        stuneactivo = true; 
+        sePuedeMover = false;
+        tiempoActual = tiempoEntrecambio;
     }
 }

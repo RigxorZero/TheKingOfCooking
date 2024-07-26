@@ -11,6 +11,9 @@ public class botMove : MonoBehaviour
     private Vector3 randomDirection; // Dirección aleatoria del bot
     private float timer; // Temporizador para cambiar de dirección
 
+    public bool stuneactivo;
+    public float tiempoActual;
+    public float tiempoEntrecambio;
     void Start()
     {
         // Inicializa el temporizador y la dirección aleatoria
@@ -20,6 +23,19 @@ public class botMove : MonoBehaviour
 
     void Update()
     {
+        if (tiempoActual >= 0)
+        {
+            tiempoActual -= Time.deltaTime;
+        }
+        else
+        {
+            if (stuneactivo)
+            {
+                stuneactivo = false;
+                sePuedeMover = true;
+            }
+        }
+
         if (!sePuedeMover) return; // Si no se puede mover, no hace nada
 
         // Decrementa el temporizador
@@ -32,6 +48,7 @@ public class botMove : MonoBehaviour
             timer = changeDirectionTime; // Reinicia el temporizador
         }
 
+        
         // Mueve el bot en la dirección aleatoria
         MoveBot();
     }
@@ -56,5 +73,11 @@ public class botMove : MonoBehaviour
         {
             randomDirection = GetRandomDirection();
         }
+    }
+    public void stune()
+    {
+        stuneactivo = true;
+        sePuedeMover = false;
+        tiempoActual = tiempoEntrecambio;
     }
 }

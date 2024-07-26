@@ -60,16 +60,14 @@ public class HitCollider : MonoBehaviour
             PlayerController otherPlayer = other.GetComponent<PlayerController>();
             if (otherPlayer != null && seactivoPlayer == false)
             {
-                playerstun = otherPlayer;
-                golpeJugador();
+                otherPlayer.stune();    
             }
         }else if (other.CompareTag("bot"))
         {
             botMove otherBot = other.GetComponent<botMove>();
-            if (otherBot != null && seactivoPlayer == true)
+            if (otherBot != null)
             {
-                botstun = otherBot;
-                golpeBot();
+                otherBot.stune();
             }
         }
     }

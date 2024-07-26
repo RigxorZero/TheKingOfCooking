@@ -132,6 +132,9 @@ MonoBehaviour:
   sePuedeMover: 0
   seMovio: 0
   hitObject: {fileID: 3548784225033946614}
+  stuneactivo: 0
+  tiempoActual: 0
+  tiempoEntrecambio: 2
 --- !u!114 &4632945198827660929
 MonoBehaviour:
   m_ObjectHideFlags: 0
