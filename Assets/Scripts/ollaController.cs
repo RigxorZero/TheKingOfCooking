@@ -40,9 +40,20 @@ public class ollaController : MonoBehaviour
     private static float TIEMPO_TOTAL_FASE2 = 60f;
     private static float TIEMPO_CRITICO = 20f;
 
-    public float perfeccionFaseUno;
-    public float perfeccionFaseDos;
+    private float perfeccionFaseUno;
+    private float perfeccionFaseDos;
 
+    public float PerfeccionFaseUno
+    {
+        get { return perfeccionFaseUno; }
+        set { perfeccionFaseUno = value; }
+    }
+
+    public float PerfeccionFaseDos
+    {
+        get { return perfeccionFaseDos; }
+        set { perfeccionFaseDos = value; }
+    }
 
     void Start()
     {
