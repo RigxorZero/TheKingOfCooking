@@ -12,11 +12,19 @@ public class scoreFinal : MonoBehaviour
     public TextMeshProUGUI score1;
 
     public TextMeshProUGUI score2;
+    public bool esturorial;
 
     void Start()
     {
-        score1.text = socreManagement.scores[0].ToString();
-        score2.text = socreManagement.scores[1].ToString();
+        if (esturorial)
+        {
+            score1.text = socreManagement.scores[0].ToString();
+        }
+        else
+        {
+            score1.text = socreManagement.scores[0].ToString();
+            score2.text = socreManagement.scores[1].ToString();
+        }
     }
 
     // Update is called once per frame

@@ -60,8 +60,15 @@ public class Timer : MonoBehaviour
                 // Acciones cuando el cronómetro llegue a cero
                 timer = 0f;
                 isRunning = false;
+                if (estutorial)
+                {
+                    SceneManager.LoadScene(9);
+                }
+                else
+                {
+                    SceneManager.LoadScene(2);
 
-                SceneManager.LoadScene(2);
+                }
             }
         }
     }

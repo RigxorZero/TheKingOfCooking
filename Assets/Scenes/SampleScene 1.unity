@@ -8782,7 +8782,6 @@ MonoBehaviour:
   textPlayer1: {fileID: 566802375}
   textPlayer2: {fileID: 449403305}
   estutorial: 0
-  ready: 0
 --- !u!114 &1468419417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11864,6 +11863,7 @@ MonoBehaviour:
   duration: 300
   audioSource: {fileID: 132384679}
   timerText: {fileID: 2126818274}
+  estutorial: 0
 --- !u!114 &2064725408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12058,7 +12058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0932afcb3c13c6044845f587dec73884, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ab7eddb5a14af143828a7705e11c8a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
