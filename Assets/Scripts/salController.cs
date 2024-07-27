@@ -29,7 +29,7 @@ public class salController : MonoBehaviour
             if (other.CompareTag("olla"))
             {
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().echarSal = true;
-                other.GetComponent<ollaController>().cantidadDeSal++;
+                other.GetComponentInChildren<ollaController>().cantidadDeSal++;
                 seecho = true;
                 Debug.Log("Salt added to olla. Current amount: " + other.GetComponentInChildren<ollaController>().cantidadDeSal);
             }

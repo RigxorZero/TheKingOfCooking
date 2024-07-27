@@ -9431,7 +9431,7 @@ GameObject:
   - component: {fileID: 1611764087}
   - component: {fileID: 1611764086}
   - component: {fileID: 1611764085}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: InteractionZone
   m_TagString: MesaInteractiveZone
   m_Icon: {fileID: 0}

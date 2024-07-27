@@ -43,7 +43,7 @@ public class sartenController : MonoBehaviour
 
     private const float TIEMPO_TOTAL_FASE = 60f;
     private const float TIEMPO_CRITICO = 20f;
-    private float perfeccion;
+    [SerializeField] private float perfeccion;
 
     public float Perfeccion
     {
@@ -204,29 +204,31 @@ public class sartenController : MonoBehaviour
             porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / tiempoTotalFase) * 100f : 0f;
             porcentajePocoCocido = (timerLlamaBaja > TIEMPO_CRITICO) ? (timerLlamaBaja / tiempoTotalFase) * 100f : 0f;
         }
-        else if (intensidadFuego == 2) // Fuego bajo
-        {
-            porcentajePerfecto = (timerLlamaBaja / tiempoTotalFase) * 100f;
-            porcentajeQuemado = (timerLlamaAlta > TIEMPO_CRITICO) ? (timerLlamaAlta / tiempoTotalFase) * 100f : 0f;
-            porcentajePocoCocido = (timerLlamaMedia > TIEMPO_CRITICO) ? (timerLlamaMedia / tiempoTotalFase) * 100f : 0f;
-        }
 
-        float descuentoEscencia = calcularDescuento(cantidadDeEscencias, faseCompleta ? 1 : 0);
+        float descuentoEscencia = calcularDescuento(cantidadDeEscencias, 1);
         porcentajePerfecto *= descuentoEscencia;
         porcentajeQuemado *= descuentoEscencia;
         porcentajePocoCocido *= descuentoEscencia;
 
-        float descuentoSal = calcularDescuento(cantidadDeSal, faseCompleta ? 1 : 0);
+        float descuentoSal = calcularDescuento(cantidadDeSal, 1);
         porcentajePerfecto *= descuentoSal;
         porcentajeQuemado *= descuentoSal;
         porcentajePocoCocido *= descuentoSal;
 
+        Debug.Log("Porcentaje Perfecto: " + porcentajePerfecto);
+        Debug.Log("Porcentaje Quemado: " + porcentajeQuemado);
+        Debug.Log("Porcentaje Poco Cocido: " + porcentajePocoCocido);
+        Debug.Log("Descuento Escencia: " + descuentoEscencia);
+        Debug.Log("Descuento Sal: " + descuentoSal);
 
         float perfeccionFinal = porcentajePerfecto - porcentajeQuemado - porcentajePocoCocido;
         perfeccionFinal = Mathf.Clamp(perfeccionFinal, 0f, 100f);
 
+        Debug.Log("Perfección Final: " + perfeccionFinal);
+
         return perfeccionFinal;
     }
+
     private float calcularDescuento(int ingrediente, int cantidadMinima)
     {
         float D = 5f; // Descuento base
