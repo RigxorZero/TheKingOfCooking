@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText; // Referencia al TextMeshPro
 
     public bool estutorial = false;
+    private bool cambioPantalla = false;
     public static bool platolisto = false; 
 
     void Start()
@@ -22,6 +23,10 @@ public class Timer : MonoBehaviour
         // Inicializar el cronómetro
         timer = duration;
         UpdateTimerDisplay();
+        if (estutorial)
+        {
+            cambioPantalla = true;
+        }
 
     }
 
@@ -60,7 +65,7 @@ public class Timer : MonoBehaviour
                 // Acciones cuando el cronómetro llegue a cero
                 timer = 0f;
                 isRunning = false;
-                if (estutorial)
+                if (cambioPantalla)
                 {
                     SceneManager.LoadScene(9);
                 }
