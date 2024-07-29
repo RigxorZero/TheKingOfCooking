@@ -1358,7 +1358,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1398213336}
         m_TargetAssemblyTypeName: Bottones, Assembly-CSharp
-        m_MethodName: onFinal
+        m_MethodName: OnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
