@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PersistentAudio : MonoBehaviour
 {
     // Start is called before the first frame update
+    static float volumen;
 
 
     public AudioSource myMusic;
@@ -22,6 +23,6 @@ public class PersistentAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.GetComponent<AudioSource>().volume = volumen; 
     }
 }

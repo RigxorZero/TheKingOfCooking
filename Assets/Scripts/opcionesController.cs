@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class opcionesController : MonoBehaviour
 {
+    public GameObject esteCanvas; 
+
     public GameObject bottonPantalla;
     public GameObject bottonControles;
     public GameObject bottonMusica;
@@ -54,5 +56,10 @@ public class opcionesController : MonoBehaviour
             controlesOpciones.SetActive(false);
             musicaOpciones.SetActive(true);
         }
+    }
+    public void volver()
+    {
+        esteCanvas.SetActive(false);
+        Timer.pause = false;
     }
 }

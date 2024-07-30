@@ -16,8 +16,11 @@ public class Timer : MonoBehaviour
 
     public bool estutorial = false;
     private bool cambioPantalla = false;
-    public static bool platolisto = false; 
+    public static bool platolisto = false;
 
+    public static bool pause;
+    public float timeReserva; 
+    public bool estuvoActiva;
     void Start()
     {
         // Inicializar el cronómetro
@@ -32,6 +35,20 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (pause)
+        {
+            timeReserva = timer;
+            timer = 10f;
+            estuvoActiva = true; 
+        }
+        else
+        {
+            if (estuvoActiva)
+            {
+                timeReserva = timer;
+                estuvoActiva = false; 
+            }
+        }
         if (estutorial) {
             if (platolisto)
             {
