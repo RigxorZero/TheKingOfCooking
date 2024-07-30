@@ -15486,7 +15486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 450399658}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &2064725410
@@ -15537,6 +15537,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: b9dbe52d-6c2e-4cad-a469-1676e137155c
       m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaccion
+      m_Flags: 0
+    - m_Name: 
+      m_Id: fb5e8600-905e-46ba-97e3-7692c9c79745
+      m_Path: <Gamepad>/start
       m_Interactions: 
       m_Processors: 
       m_Groups: 
