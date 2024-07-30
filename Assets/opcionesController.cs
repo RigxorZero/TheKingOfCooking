@@ -14,7 +14,11 @@ public class opcionesController : MonoBehaviour
     public Image titulo;
 
     public GameObject[] puntosPosicion;
-    public Sprite[] imagenes; 
+    public Sprite[] imagenes;
+
+    public GameObject pantallaOpciones;
+    public GameObject controlesOpciones;
+    public GameObject musicaOpciones;
     void Start()
     {
         
@@ -27,16 +31,28 @@ public class opcionesController : MonoBehaviour
         {
             titulo.sprite = imagenes[0]; 
             puntoImagen.transform.position = puntosPosicion[0].transform.position;
+            
+            pantallaOpciones.SetActive(true);
+            controlesOpciones.SetActive(false);
+            musicaOpciones.SetActive(false);
         }
         if(EventSystem.current.currentSelectedGameObject == bottonControles)
         {
             titulo.sprite = imagenes[1];
             puntoImagen.transform.position = puntosPosicion[1].transform.position;
+
+            pantallaOpciones.SetActive(false);
+            controlesOpciones.SetActive(true);
+            musicaOpciones.SetActive(false);
         }
         if(EventSystem.current.currentSelectedGameObject == bottonMusica)
         {
             titulo.sprite = imagenes[2];
             puntoImagen.transform.position = puntosPosicion[2].transform.position;
+
+            pantallaOpciones.SetActive(false);
+            controlesOpciones.SetActive(false);
+            musicaOpciones.SetActive(true);
         }
     }
 }
