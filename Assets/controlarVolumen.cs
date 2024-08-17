@@ -9,7 +9,7 @@ public class controlarVolumen : MonoBehaviour
     
     void Start()
     {
-        
+        cantidadVolumen = 0.6f;   
     }
     private void Awake()
     {
@@ -22,13 +22,17 @@ public class controlarVolumen : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void sumarVolumen()
-    {
-        cantidadVolumen += 2;
+    public void cambiarVolumen(float volumen){
+        cantidadVolumen = volumen;   
     }
-    public void quitarVolumen()
+    public void inicializarVolumen()
     {
-        cantidadVolumen -= 2;
+        cantidadVolumen = 0.6f;
+    }
+
+    public float obtenerVolumen()
+    {
+        return cantidadVolumen;
     }
     // Update is called once per frame
     void Update()

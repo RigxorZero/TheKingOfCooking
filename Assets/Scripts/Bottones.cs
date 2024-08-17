@@ -81,5 +81,9 @@ public class Bottones : MonoBehaviour
     {
         Application.Quit();
     }
+    public void onOpciones()
+    {
+        SceneManager.LoadScene(10);
+    }
 
 }

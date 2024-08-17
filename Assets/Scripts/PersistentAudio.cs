@@ -23,6 +23,6 @@ public class PersistentAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<AudioSource>().volume = volumen; 
+        myMusic.volume = controlarVolumen.Instance.obtenerVolumen(); 
     }
 }

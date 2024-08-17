@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class opcionesController : MonoBehaviour
 {
@@ -61,5 +62,13 @@ public class opcionesController : MonoBehaviour
     {
         esteCanvas.SetActive(false);
         Timer.pause = false;
+    }
+    public void volverMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void OnCerrar()
+    {
+        Application.Quit();
     }
 }

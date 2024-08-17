@@ -7,7 +7,7 @@ public class audioManager : MonoBehaviour
     // Start is called before the first frame update
 
     public AudioSource audioSource;
-    static float volumen;
+    
     //public 
     void Start()
     {
@@ -17,6 +17,6 @@ public class audioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<AudioSource>().volume = volumen;
+        audioSource.volume = controlarVolumen.Instance.obtenerVolumen();
     }
 }

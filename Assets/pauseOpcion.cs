@@ -12,6 +12,7 @@ public class pauseOpcion : MonoBehaviour
     {
         canvasOpciones.SetActive(false);
         interaccion.Enable();
+        canvasOpciones.GetComponentInChildren<musicaOpcionesController>().volumen.value = controlarVolumen.Instance.obtenerVolumen();
     }
 
     // Update is called once per frame

@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
         if (pause)
         {
             timeReserva = timer;
-            timer = 10f;
+            timer = 300f;
             estuvoActiva = true; 
         }
         else
