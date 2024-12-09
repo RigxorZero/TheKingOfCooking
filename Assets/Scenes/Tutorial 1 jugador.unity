@@ -2735,6 +2735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: SartenPrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!1 &400094507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,6 +3348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: Taza
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!65 &533734229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6041,6 +6045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: escenciaPrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!65 &1021925476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6833,6 +6839,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: CarnePrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!65 &1133621073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7537,6 +7545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: ollaPrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!65 &1273479848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9557,6 +9567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: PlatoPrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!1 &1577774841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df5290ddd9b6cee4da5e160c603360bc, type: 3}
@@ -10424,6 +10436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabName: SalPrefab
   playerInRange: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!65 &1723206932
 BoxCollider:
   m_ObjectHideFlags: 0

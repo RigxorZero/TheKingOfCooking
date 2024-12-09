@@ -50,7 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPickeable: 1
   drop: 0
+  sostenido: 0
+  eliminado: 0
   type: 0
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!54 &9163596055251338763
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -111,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302aa1848f5eec94cbc46615108cce99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  essarten: 0
 --- !u!1 &4312890069625549508
 GameObject:
   m_ObjectHideFlags: 0

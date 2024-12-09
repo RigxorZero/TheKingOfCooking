@@ -183,6 +183,8 @@ MonoBehaviour:
   sostenido: 0
   eliminado: 0
   type: 3
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!54 &5021877079463508634
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,6 +289,7 @@ MonoBehaviour:
   faseCompleta: 0
   Circulo: {fileID: 0}
   canvas: {fileID: 0}
+  perfeccion: 0
 --- !u!1 &3619596161956427561
 GameObject:
   m_ObjectHideFlags: 0

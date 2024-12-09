@@ -1,21 +1,21 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PickUpObject : MonoBehaviour
 {
-    public GameObject ObjectToPickUp;
-    [SerializeField] private GameObject PickedObject;
-    [SerializeField] private Transform interactionZone;
+    public GameObject ObjectToPickUp; // Objeto actual que puede ser recogido
+    [SerializeField] private GameObject PickedObject; // Objeto actualmente recogido
+    [SerializeField] private Transform interactionZone; // Zona de interacción para sostener objetos
 
-    public InputAction recoger;
-    public bool sarten; 
+    public InputAction recoger; // Acción de entrada para recoger/soltar
+    public bool sarten; // Bandera específica para sartenes
+
     private void Start()
     {
-        // Obtener la referencia al InputAction desde el jugador (asignar en el Inspector)
+        // Inicializar el InputAction "Recoger"
         recoger = GetComponent<PlayerInput>().actions.FindAction("Recoger");
 
         if (recoger == null)
@@ -23,11 +23,12 @@ public class PickUpObject : MonoBehaviour
             Debug.LogError("No se encontró el InputAction 'Recoger'. Asegúrate de asignarlo en el Inspector.");
         }
 
-        // Habilitar el InputAction para esta instancia
-        recoger.Enable();
+        recoger.Enable(); // Activar la acción de entrada
     }
+
     void Update()
     {
+        // Buscar todos los cajones en la escena
         ObjectDrawer[] drawers = FindObjectsOfType<ObjectDrawer>();
 
         if (PickedObject == null)
@@ -40,26 +41,25 @@ public class PickUpObject : MonoBehaviour
                     PickUp(ObjectToPickUp);
                 }
             }
-            // Caso: Instanciar y recoger un objeto desde cualquier cajón
             else
             {
+                // Caso: Instanciar y recoger un objeto desde un cajón
                 foreach (ObjectDrawer drawer in drawers)
                 {
-                    if (drawer.IsPlayerInRange())
+                    if (drawer.IsPlayerInRange() && recoger.WasPressedThisFrame())
                     {
-                        if (recoger.WasPressedThisFrame())
-                        {
+                        // Cargar el prefab desde Resources
+                        GameObject prefab = Resources.Load<GameObject>(drawer.objectPrefabName);
 
-                            GameObject prefab = Resources.Load<GameObject>(drawer.objectPrefabName);
-                            if (prefab != null)
-                            {
-                                GameObject instance = Instantiate(prefab, interactionZone.position, interactionZone.rotation);
-                                PickUp(instance);
-                            }
-                            else
-                            {
-                                Debug.LogError("Prefab no encontrado en Resources: " + drawer.objectPrefabName);
-                            }
+                        if (prefab != null)
+                        {
+                            // Instanciar el prefab y recogerlo
+                            GameObject instance = Instantiate(prefab, interactionZone.position, interactionZone.rotation);
+                            PickUp(instance);
+                        }
+                        else
+                        {
+                            Debug.LogError("Prefab no encontrado en Resources: " + drawer.objectPrefabName);
                         }
                     }
                 }
@@ -77,71 +77,85 @@ public class PickUpObject : MonoBehaviour
 
     void PickUp(GameObject objectToPick)
     {
+        // Configuración inicial del objeto recogido
         PickedObject = objectToPick;
         PickedObject.GetComponent<PickableObject>().isPickeable = false;
         PickedObject.transform.SetParent(interactionZone);
         PickedObject.GetComponent<PickableObject>().sostenido = false;
-        // Asegura que esté en el centro del interactionZone
+
+        // Asegurar la posición, rotación y escala
         PickedObject.transform.localPosition = Vector3.zero;
         PickedObject.transform.localRotation = Quaternion.identity;
         PickedObject.transform.localScale = Vector3.one;
 
-        PickedObject.GetComponent<Rigidbody>().useGravity = false;
-        PickedObject.GetComponent<Rigidbody>().isKinematic = true;
-        if(objectToPick.tag == "olla")
-        {
-            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomoOlla = true;
-        }
-        if (objectToPick.tag == "sarten")
-        {
-            PickedObject.GetComponent<sartenController>().estaSostenido = true;
-        }
-        if (objectToPick.tag == "taza") { 
-            objectToPick.GetComponent<tazaController>().estaSostenido = true;
-            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = true; 
-        }
-        if(objectToPick.tag == "escencia")
-        {
-            objectToPick.GetComponent<escenciaController>().estaSostenido = true;
-        }
-        if (objectToPick.tag == "sal")
-        {
-            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarSal = true;
-            objectToPick.GetComponent<salController>().estaSostenido = true;
-        }
-        if( objectToPick.tag == "plato")
-        {
-            ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarPlato = true;
-        }
+        // Desactivar física del objeto
+        var rb = PickedObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
 
+        // Comportamiento basado en etiquetas específicas
+        HandleTagSpecificBehaviors(objectToPick, true);
     }
 
     void Drop()
     {
-        PickedObject.GetComponent<PickableObject>().sostenido = true;
-        if (PickedObject.tag == "sarten")
-        {
-            PickedObject.GetComponent<sartenController>().estaSostenido = false;
-        }
-        
+        // Restaurar física y comportamientos del objeto al soltarlo
+        var rb = PickedObject.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        rb.isKinematic = false;
+
         PickedObject.GetComponent<PickableObject>().isPickeable = true;
+        PickedObject.GetComponent<PickableObject>().sostenido = true;
         PickedObject.transform.SetParent(null);
-        PickedObject.GetComponent<Rigidbody>().useGravity = true;
-        PickedObject.GetComponent<Rigidbody>().isKinematic = false;
 
+        // Comportamiento basado en etiquetas específicas
+        HandleTagSpecificBehaviors(PickedObject, false);
 
-        if (PickedObject.tag == "taza")
+        PickedObject = null;
+    }
+
+    void HandleTagSpecificBehaviors(GameObject obj, bool isPickedUp)
+    {
+        switch (obj.tag)
         {
-            PickedObject.GetComponent<tazaController>().estaSostenido = false;
-        }
+            case "olla":
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomoOlla = isPickedUp;
+                break;
 
-        PickedObject = null;    
-        
+            case "sarten":
+                obj.GetComponent<sartenController>().estaSostenido = isPickedUp;
+                break;
+
+            case "taza":
+                obj.GetComponent<tazaController>().estaSostenido = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = isPickedUp;
+                break;
+
+            case "escencia":
+                obj.GetComponent<escenciaController>().estaSostenido = isPickedUp;
+                break;
+
+            case "sal":
+                obj.GetComponent<salController>().estaSostenido = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarSal = isPickedUp;
+                break;
+
+            case "plato":
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarPlato = isPickedUp;
+                break;
+
+            default:
+                Debug.LogWarning("Etiqueta no manejada: " + obj.tag);
+                break;
+        }
     }
 
     public void Stunned()
     {
-        Drop();
+        // Soltar el objeto cuando el jugador queda aturdido
+        if (PickedObject != null)
+        {
+            Drop();
+        }
     }
 }
-

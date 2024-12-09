@@ -196,6 +196,8 @@ MonoBehaviour:
   sostenido: 0
   eliminado: 0
   type: 1
+  spritePrefab: {fileID: 6361711374852666847, guid: 64a8e42a98a71fc47b1bf0af78998145, type: 3}
+  spritePrefab2: {fileID: 6361711374852666847, guid: 35a2d962c32bb9c4d974355ec55e5118, type: 3}
 --- !u!1001 &6480515806345706621
 PrefabInstance:
   m_ObjectHideFlags: 0
