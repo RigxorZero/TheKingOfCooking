@@ -7,10 +7,11 @@ public class cocinaController : MonoBehaviour
 {
     [SerializeField] private List<Canvas> canvases = new List<Canvas>();
     [SerializeField] private List<Image> perillas = new List<Image>();
+    [SerializeField] private GameObject prefabObjetoVisible1; // Prefab del primer objeto
+    [SerializeField] private GameObject prefabObjetoVisible2; // Prefab del segundo objeto
     private Camera playerCamera;
 
     private bool[,] nivelPerilla = new bool[4, 4]; // 4 cocinas, 4 niveles
-
     private bool[] canvasActivo = new bool[2];
     private bool[] actionPerformed = new bool[2]; // Para evitar múltiples ejecuciones por frame
     private float[] cooldownTimers = new float[2]; // Timers para el cooldown
@@ -27,6 +28,8 @@ public class cocinaController : MonoBehaviour
     public Canvas canvasTimer;
 
     private int cocinaIndex = 0;
+    private GameObject objetoInstanciado1; // Referencia al primer objeto instanciado
+    private GameObject objetoInstanciado2; // Referencia al segundo objeto instanciado
 
     void OnTriggerStay(Collider other)
     {
@@ -56,14 +59,38 @@ public class cocinaController : MonoBehaviour
                     ActivateCanvas(playerIndex, cocinaIndex);
                 }
             }
+
+            // Crear los objetos si no existen
+            if (objetoInstanciado1 == null && objetoInstanciado2 == null)
+            {
+                // Posicionar los objetos uno al lado del otro
+                Vector3 posicionObjeto1 = transform.position + (Vector3.left * 0.5f) + Vector3.up * 0.5f; // 0.5 unidades a la izquierda
+                Vector3 posicionObjeto2 = transform.position + (Vector3.right * 0.5f) + Vector3.up * 0.5f; // 0.5 unidades a la derecha
+
+                objetoInstanciado1 = Instantiate(prefabObjetoVisible1, posicionObjeto1, Quaternion.identity);
+                objetoInstanciado2 = Instantiate(prefabObjetoVisible2, posicionObjeto2, Quaternion.identity);
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other != null)
+        if (other != null && other.tag == "PlayerInteractionZone")
         {
             player = null;
+
+            // Destruir los objetos al salir del rango
+            if (objetoInstanciado1 != null)
+            {
+                Destroy(objetoInstanciado1);
+                objetoInstanciado1 = null;
+            }
+
+            if (objetoInstanciado2 != null)
+            {
+                Destroy(objetoInstanciado2);
+                objetoInstanciado2 = null;
+            }
         }
     }
 
@@ -116,7 +143,18 @@ public class cocinaController : MonoBehaviour
         ImprimirNivelPerilla();
     }
 
-    private void ImprimirNivelPerilla()
+    
+
+
+
+
+
+
+
+
+
+
+private void ImprimirNivelPerilla()
     {
         string resultado = "NivelPerilla: \n";
         for (int i = 0; i < 4; i++)

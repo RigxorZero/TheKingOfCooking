@@ -2804,8 +2804,8 @@ Transform:
   m_GameObject: {fileID: 408900773}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015454305, y: -0.707107, z: 0.000000015454315, w: 0.7071066}
-  m_LocalPosition: {x: -0.44, y: 1.42, z: -0.04}
-  m_LocalScale: {x: 2.3, y: 1.1, z: 0.6}
+  m_LocalPosition: {x: -0.44, y: 1.42, z: 0.13}
+  m_LocalScale: {x: 5.16, y: 1.08, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1155207131}
@@ -2828,7 +2828,9 @@ MonoBehaviour:
   perillas:
   - {fileID: 1898044442}
   - {fileID: 0}
-  player: {fileID: 0}
+  prefabObjetoVisible1: {fileID: 6361711374852666847, guid: 0aad044aa10fd1c439acb14b7d914710, type: 3}
+  prefabObjetoVisible2: {fileID: 6361711374852666847, guid: 676e90c484769554fbdee81433d61ac5, type: 3}
+  player: {fileID: 6361711374852666847, guid: 676e90c484769554fbdee81433d61ac5, type: 3}
   CanvasActiveButton:
   - m_Name: Element 0
     m_Type: 1
@@ -9662,7 +9664,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000015454305, y: -0.707107, z: 0.000000015454315, w: 0.7071066}
   m_LocalPosition: {x: -0.44, y: 1.27, z: -0.04}
-  m_LocalScale: {x: 2.3, y: 1.1, z: 0.6}
+  m_LocalScale: {x: 2.3, y: 1.1, z: 0.95}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1612315455}
@@ -9685,7 +9687,9 @@ MonoBehaviour:
   perillas:
   - {fileID: 1898044442}
   - {fileID: 1898044442}
-  player: {fileID: 0}
+  prefabObjetoVisible1: {fileID: 6361711374852666847, guid: 0aad044aa10fd1c439acb14b7d914710, type: 3}
+  prefabObjetoVisible2: {fileID: 6361711374852666847, guid: 676e90c484769554fbdee81433d61ac5, type: 3}
+  player: {fileID: 6361711374852666847, guid: 676e90c484769554fbdee81433d61ac5, type: 3}
   CanvasActiveButton:
   - m_Name: Element 0
     m_Type: 1
