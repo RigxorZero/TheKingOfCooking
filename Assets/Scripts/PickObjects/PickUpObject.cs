@@ -128,7 +128,7 @@ public class PickUpObject : MonoBehaviour
 
             case "taza":
                 obj.GetComponent<tazaController>().estaSostenido = true;
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = true;
                 break;
 
             case "escencia":
