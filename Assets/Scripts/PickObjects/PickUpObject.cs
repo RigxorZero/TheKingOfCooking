@@ -119,7 +119,7 @@ public class PickUpObject : MonoBehaviour
         switch (obj.tag)
         {
             case "olla":
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomoOlla = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomoOlla = true;
                 break;
 
             case "sarten":
@@ -127,7 +127,7 @@ public class PickUpObject : MonoBehaviour
                 break;
 
             case "taza":
-                obj.GetComponent<tazaController>().estaSostenido = isPickedUp;
+                obj.GetComponent<tazaController>().estaSostenido = true;
                 ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarTaza = isPickedUp;
                 break;
 
@@ -137,11 +137,11 @@ public class PickUpObject : MonoBehaviour
 
             case "sal":
                 obj.GetComponent<salController>().estaSostenido = isPickedUp;
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarSal = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarSal = true;
                 break;
 
             case "plato":
-                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarPlato = isPickedUp;
+                ReferenciaPlayer.player1.GetComponent<playerTutorial>().tomarPlato = true;
                 break;
 
             default:
