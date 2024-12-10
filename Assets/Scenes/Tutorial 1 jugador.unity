@@ -9129,31 +9129,31 @@ MonoBehaviour:
   estutorial: 1
   imagenTutorial: {fileID: 1129057991}
   imagenes:
-  - {fileID: 21300000, guid: b715d4781c2483349a5e8bcacc9b23c0, type: 3}
-  - {fileID: 21300000, guid: 5bda26ea142b2fa44bb448b76615dbfb, type: 3}
-  - {fileID: 21300000, guid: 629d851bac8702042912d83c86dc2147, type: 3}
-  - {fileID: 21300000, guid: af83d6bf3dc61484b86345189529d114, type: 3}
-  - {fileID: 21300000, guid: 95d68d7adf5c04e40af0ecb398d2f756, type: 3}
-  - {fileID: 21300000, guid: 1520d71b7fa753e4497a2c861242cb85, type: 3}
-  - {fileID: 21300000, guid: fd60fb7de6dfb4a429227d10166179a9, type: 3}
-  - {fileID: 21300000, guid: cdaa4fe593c2fb3468344930f1c00f0d, type: 3}
-  - {fileID: 21300000, guid: 3a4a74f7136497345b11dd19a1e3f403, type: 3}
-  - {fileID: 21300000, guid: 78d3b033f2b5b9142b96e899ca32a2b4, type: 3}
-  - {fileID: 21300000, guid: 629ac04dd6f094343be6993afe0ea5b0, type: 3}
-  - {fileID: 21300000, guid: fe5a9c10cba20be449e1d6e7d38f16e4, type: 3}
-  - {fileID: 21300000, guid: e192a97a7a7b61b458b72193ee03f8f8, type: 3}
-  - {fileID: 21300000, guid: 483ed64a930c03c43b21362c3747d734, type: 3}
-  - {fileID: 21300000, guid: bf2b0a5afa3258b478f517cf62b73016, type: 3}
-  - {fileID: 21300000, guid: 31bd17f287804ca4f97dc373d258adad, type: 3}
-  - {fileID: 21300000, guid: 52945e03cd76295428ebf7efb1b1b851, type: 3}
-  - {fileID: 21300000, guid: bf6fbaa91be4b2d42b0bf264c6d057fe, type: 3}
-  - {fileID: 21300000, guid: d65b13d2ffb150240a79a6ed495b8a4b, type: 3}
-  - {fileID: 21300000, guid: 4250382933e30ba4698c2d0ba4be465b, type: 3}
-  - {fileID: 21300000, guid: 906f1cdd4426e084284ac8c4a800457d, type: 3}
-  - {fileID: 21300000, guid: bc9dd371ffe05ca41af19148c0bd397e, type: 3}
-  - {fileID: 21300000, guid: 575203a9f8357c8458bccc5ba44fa280, type: 3}
-  - {fileID: 21300000, guid: dc9550b7e6dd26b4d897e5758ea63bd2, type: 3}
-  - {fileID: 21300000, guid: ecb6e9baa3db3d5419f5b61cab83203d, type: 3}
+  - {fileID: 21300000, guid: 926534d50d51247459164268864fe803, type: 3}
+  - {fileID: 21300000, guid: 7eecd467b31fddf479f9ce4addcef482, type: 3}
+  - {fileID: 21300000, guid: 3980468b22897a9479d1c39c06648a9f, type: 3}
+  - {fileID: 21300000, guid: 6ba7c4604fc77c24bb132ceb9502cfa3, type: 3}
+  - {fileID: 21300000, guid: 26c93ae297fb7bf44b755d512cd0a750, type: 3}
+  - {fileID: 21300000, guid: f924df2ae6478b040b4870c134ed8a6e, type: 3}
+  - {fileID: 21300000, guid: 67e141662df44d14b808a2b9eca0dbb2, type: 3}
+  - {fileID: 21300000, guid: 4dc6850fc3b8d57429506aac60b26307, type: 3}
+  - {fileID: 21300000, guid: d38e65f9fff205a4bb7e06615d0fc926, type: 3}
+  - {fileID: 21300000, guid: ace296714cc2d7342bd751654e527d1d, type: 3}
+  - {fileID: 21300000, guid: 3312c48ebf5ab564192375afe7bf366f, type: 3}
+  - {fileID: 21300000, guid: 2745ce1218fd77543ab5b580cb2b8225, type: 3}
+  - {fileID: 21300000, guid: e1ff8110a3ad3b8458ecde391877e2ad, type: 3}
+  - {fileID: 21300000, guid: 53a6c16e08dc00047a4b7e934b2dac5e, type: 3}
+  - {fileID: 21300000, guid: 19dbe5a529506054f840446cd1fbed90, type: 3}
+  - {fileID: 21300000, guid: 94e6bc8383ed6f94cb63fe998a8908cf, type: 3}
+  - {fileID: 21300000, guid: ec5bbd4e4dc7eee47a49cc8d63904321, type: 3}
+  - {fileID: 21300000, guid: 75e10d1830b6bc44cb737c530e8ee1df, type: 3}
+  - {fileID: 21300000, guid: b882e1f4f64cc4449b73d14761601979, type: 3}
+  - {fileID: 21300000, guid: b24188ef6cb849d40b428ab46042bf48, type: 3}
+  - {fileID: 21300000, guid: 326afc41f76d9814fa23f54ab387e353, type: 3}
+  - {fileID: 21300000, guid: fdfc9052bf9eefa47b4da80868a32e04, type: 3}
+  - {fileID: 21300000, guid: 5f496fd5a94c4fb4ba65e876562a49f9, type: 3}
+  - {fileID: 21300000, guid: 5a633463407b9314e9fe79dba4234b5b, type: 3}
+  - {fileID: 21300000, guid: 815662ec2ff0af94f95552a45ef34d85, type: 3}
 --- !u!114 &1539745722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10333,7 +10333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e50e34a965c54f64c8098b9f96463b0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6946138e46f74ef4aa47b75509c8201f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
