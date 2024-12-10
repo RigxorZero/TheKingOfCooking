@@ -735,7 +735,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1319767936}
         m_TargetAssemblyTypeName: Bottones, Assembly-CSharp
-        m_MethodName: onOpcionesMenu
+        m_MethodName: onOpciones
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -38,4 +38,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Opciones 1.unity
     guid: b56a8acfb1786634990ff56a036360c7
+  - enabled: 1
+    path: Assets/Scenes/OpcionesMenu.unity
+    guid: b4ab0a33f58712c4bb24c169b7cf12b9
+  - enabled: 1
+    path: Assets/Scenes/opcioensMusica.unity
+    guid: 1fc6f83a5b4a2074eb3ec6c8b725bee2
+  - enabled: 1
+    path: Assets/Scenes/opcioensControles.unity
+    guid: 8e02754e80892a647b4ba2546b3bc692
+  - enabled: 1
+    path: Assets/Scenes/opcioensPantalla.unity
+    guid: 81485b731a008f64cb49f4bb569eefca
   m_configObjects: {}

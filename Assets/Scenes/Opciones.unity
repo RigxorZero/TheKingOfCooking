@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6e9a07e2eee4440b24589a74f7a547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esteCanvas: {fileID: 0}
   bottonPantalla: {fileID: 1070617527}
   bottonControles: {fileID: 1504445412}
   bottonMusica: {fileID: 1842675143}

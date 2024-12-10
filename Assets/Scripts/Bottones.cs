@@ -44,7 +44,22 @@ public class Bottones : MonoBehaviour
     {
         SceneManager.LoadScene(8);
     }
-
+    public void onPantalla()
+    {
+        SceneManager.LoadScene(14);
+    }
+    public void onMusica()
+    {
+        SceneManager.LoadScene(12);
+    }
+    public void onControles()
+    {
+        SceneManager.LoadScene(13);
+    }
+    public void onOpcionesMenu()
+    {
+        SceneManager.LoadScene(11);
+    }
     public void onFinal()
     {
         //escena 3 y 4
