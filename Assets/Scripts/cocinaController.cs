@@ -31,6 +31,11 @@ public class cocinaController : MonoBehaviour
     private GameObject objetoInstanciado1; // Referencia al primer objeto instanciado
     private GameObject objetoInstanciado2; // Referencia al segundo objeto instanciado
 
+    public Image Imagen0;
+    public Image Imagen1;
+    public Image Imagen2;
+    public Image Imagen3;
+
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "PlayerInteractionZone")
@@ -227,7 +232,11 @@ private void ImprimirNivelPerilla()
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
-                perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+                //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+                Imagen0.enabled = true;
+                Imagen1.enabled = false;
+                Imagen2.enabled = false;
+                Imagen3.enabled = false;
                 SetNivelPerilla(cocinaIndex, 0);
             }
             else if (AbajoButtom[playerIndex].WasReleasedThisFrame()) // Abajo
@@ -238,7 +247,11 @@ private void ImprimirNivelPerilla()
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
-                perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
+                //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
+                Imagen1.enabled = true;
+                Imagen0.enabled = false;
+                Imagen2.enabled = false;
+                Imagen3.enabled = false;
                 SetNivelPerilla(cocinaIndex, 1);
             }
             else if (DerechaButtom[playerIndex].WasReleasedThisFrame()) // Derecha
@@ -249,7 +262,11 @@ private void ImprimirNivelPerilla()
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
-                perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
+                //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
+                Imagen2.enabled = true;
+                Imagen1.enabled = false;
+                Imagen0.enabled = false;
+                Imagen3.enabled = false;
                 SetNivelPerilla(cocinaIndex, 2);
             }
             else if (IzquierdaButtom[playerIndex].WasReleasedThisFrame()) // Izquierda
@@ -260,7 +277,11 @@ private void ImprimirNivelPerilla()
                 {
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
-                perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 90);
+                Imagen3.enabled = true;
+                Imagen0.enabled = false;
+                Imagen2.enabled = false;
+                Imagen1.enabled = false;
+                //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 90);
                 SetNivelPerilla(cocinaIndex, 3);
             }
 
@@ -309,6 +330,8 @@ private void ImprimirNivelPerilla()
         canvases[playerIndex].worldCamera = playerCamera;
         canvases[playerIndex].planeDistance = 1;
         canvasActivo[playerIndex] = true;
+
+
     }
 
     int GetNivelPerilla(int cocinaIndex)
