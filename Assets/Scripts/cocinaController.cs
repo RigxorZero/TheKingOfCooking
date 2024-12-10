@@ -248,9 +248,9 @@ private void ImprimirNivelPerilla()
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
                 //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 180);
-                Imagen1.enabled = true;
+                Imagen2.enabled = true;
                 Imagen0.enabled = false;
-                Imagen2.enabled = false;
+                Imagen1.enabled = false;
                 Imagen3.enabled = false;
                 SetNivelPerilla(cocinaIndex, 1);
             }
@@ -263,8 +263,8 @@ private void ImprimirNivelPerilla()
                     ReferenciaPlayer.player1.GetComponent<playerTutorial>().cambioTemperatura2 = true;
                 }
                 //perillas[playerIndex].rectTransform.rotation = Quaternion.Euler(0, 0, 270);
-                Imagen2.enabled = true;
-                Imagen1.enabled = false;
+                Imagen1.enabled = true;
+                Imagen2.enabled = false;
                 Imagen0.enabled = false;
                 Imagen3.enabled = false;
                 SetNivelPerilla(cocinaIndex, 2);
